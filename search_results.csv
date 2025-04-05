@@ -1,9 +1,0 @@
-Term,File,Section,Match Type
-revolver,devices\test\Assignment10[1].pdf,content,Exact
-gun,devices\test\Assignment10[1].pdf,content,Exact
-katta,devices\test\Assignment10[1].pdf,content,Exact
-yash,devices\test\Assignment10[1].pdf,content,Exact
-revolver,devices\test\image.png,tag,Exact
-revolver,devices\test\output.json,content,Exact
-yash,devices\test\output.json,content,Exact
-revolver,devices\test\report.txt,content,Exact

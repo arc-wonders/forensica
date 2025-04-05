@@ -1,10 +1,10 @@
 [
     {
-        "path": "frames\\frame_80.jpg",
+        "path": "frames\\frame_100.jpg",
         "type": "image",
-        "content": "Detected potential threats: sword in frame 80.",
+        "content": "Detected potential threats: long knife in frame 100.",
         "tags": [
-            "sword"
+            "long knife"
         ],
         "sensitive_info": {
             "flags": [],
@@ -17,79 +17,11 @@
         }
     },
     {
-        "path": "frames\\frame_85.jpg",
+        "path": "frames\\frame_225.jpg",
         "type": "image",
-        "content": "Detected potential threats: sword in frame 85.",
+        "content": "Detected potential threats: rifle in frame 225.",
         "tags": [
-            "sword"
-        ],
-        "sensitive_info": {
-            "flags": [],
-            "detected_entities": {
-                "emails": [],
-                "phones": [],
-                "urls": [],
-                "base64_strings": false
-            }
-        }
-    },
-    {
-        "path": "frames\\frame_105.jpg",
-        "type": "image",
-        "content": "Detected potential threats: sword in frame 105.",
-        "tags": [
-            "sword"
-        ],
-        "sensitive_info": {
-            "flags": [],
-            "detected_entities": {
-                "emails": [],
-                "phones": [],
-                "urls": [],
-                "base64_strings": false
-            }
-        }
-    },
-    {
-        "path": "frames\\frame_130.jpg",
-        "type": "image",
-        "content": "Detected potential threats: sword in frame 130.",
-        "tags": [
-            "sword"
-        ],
-        "sensitive_info": {
-            "flags": [],
-            "detected_entities": {
-                "emails": [],
-                "phones": [],
-                "urls": [],
-                "base64_strings": false
-            }
-        }
-    },
-    {
-        "path": "frames\\frame_150.jpg",
-        "type": "image",
-        "content": "Detected potential threats: sword in frame 150.",
-        "tags": [
-            "sword"
-        ],
-        "sensitive_info": {
-            "flags": [],
-            "detected_entities": {
-                "emails": [],
-                "phones": [],
-                "urls": [],
-                "base64_strings": false
-            }
-        }
-    },
-    {
-        "path": "frames\\frame_320.jpg",
-        "type": "image",
-        "content": "Detected potential threats: sword in frame 320.",
-        "tags": [
-            "sword"
+            "rifle"
         ],
         "sensitive_info": {
             "flags": [],
