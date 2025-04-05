@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forensica - Search Keywords</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="univ.css">
+</head>
+<body>
+
+  <header>
+    <h1>🕵️‍♀️ Forensica</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="search.html" class="active">Search</a>
+      <a href="results.html">Results</a>
+      <a href="about.html">About</a>
+      <a href="charts.html">Stats</a>
+    </nav>
+  </header>
+
+  <main class="main-section">
+    <h2 class="heading">🔍 Search Extracted Keywords</h2>
+    <p class="description">Use this tool to search specific terms across all parsed content extracted from uploaded devices. Filter by file types for deeper inspection.</p>
+
+    <div class="mb-6">
+      <input id="searchInput" type="text" placeholder="Type a keyword to search..." class="input-box"/>
+      <p id="resultCount" class="result-counter">0 results found</p>
+    </div>
+
+    <div class="mb-6">
+      <label for="fileType">Filter by File Type:</label>
+      <select id="fileType">
+        <option value="all">All</option>
+        <option value="txt">TXT</option>
+        <option value="docx">DOCX</option>
+        <option value="pdf">PDF</option>
+      </select>
+    </div>
+
+    <div id="keywordResults"></div>
+
+    <button id="goToResults" class="results-button" onclick="goToResultsPage()">→ See Full Keyword Report</button>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const resultContainer = document.getElementById("keywordResults");
+      const searchInput = document.getElementById("searchInput");
+      const fileTypeSelect = document.getElementById("fileType");
+      const resultCount = document.getElementById("resultCount");
+
+      let currentResults = [];
+
+      // Function to render keywords in the results container
+      function renderKeywords(filter = "", fileTypeFilter = "all") {
+        resultContainer.innerHTML = "";
+        let matches = 0;
+
+        currentResults.forEach(item => {
+          if (
+            item.term.toLowerCase().includes(filter.toLowerCase()) &&
+            (fileTypeFilter === "all" || item.fileType === fileTypeFilter)
+          ) {
+            const keywordEl = document.createElement("div");
+            keywordEl.className = "keyword-box";
+            keywordEl.innerHTML = `📌 <span class="font-semibold">${item.term}</span> 
+              <span class="ml-2 text-sm text-gray-400">(${item.fileType.toUpperCase()})</span>
+              <a href="${item.filePath}" class="text-blue-500">View File</a>`;
+            resultContainer.appendChild(keywordEl);
+            matches++;
+          }
+        });
+
+        resultCount.textContent = `${matches} result${matches !== 1 ? "s" : ""} found`;
+      }
+
+      // Event listener for search input change
+      searchInput.addEventListener("input", () => {
+        renderKeywords(searchInput.value, fileTypeSelect.value);
+      });
+
+      // Event listener for file type filter change
+      fileTypeSelect.addEventListener("change", () => {
+        renderKeywords(searchInput.value, fileTypeSelect.value);
+      });
+
+      // Function to handle the results page redirection
+      function goToResultsPage() {
+        // You can save or pass the search term to the results page if needed
+        window.location.href = "/results"; // Assuming Flask route is set for results
+      }
+
+      // Fetch results from the Flask backend
+      async function fetchSearchResults() {
+        const searchTerm = searchInput.value;
+        const fileType = fileTypeSelect.value;
+        
+        const response = await fetch(`/search_results?term=${searchTerm}&fileType=${fileType}`);
+        const data = await response.json();
+        
+        currentResults = data; // Update the current results with fetched data
+        renderKeywords(searchTerm, fileType);
+      }
+
+      // Trigger search results when the page loads or input changes
+      fetchSearchResults();
+    });
+  </script>
+</body>
+</html>
