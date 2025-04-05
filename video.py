@@ -8,9 +8,9 @@ CLIENT = InferenceHTTPClient(
     api_key="hY9qOmC03Dpg4JNVNeOp"
 )
 
-MODEL_ID = "thirdvision-with-blunt-objects-without-sumpak/3"
+MODEL_ID = "weapon-jmeyk/1"
 
-video_path = "data/vid1.mp4"
+video_path = "data/vid3.mp4"
 cap = cv2.VideoCapture(video_path)
 
 frame_skip = 25  # Process every 5th frame
