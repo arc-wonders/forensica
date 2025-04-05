@@ -1,0 +1,104 @@
+[
+    {
+        "path": "frames\\frame_80.jpg",
+        "type": "image",
+        "content": "Detected potential threats: sword in frame 80.",
+        "tags": [
+            "sword"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_85.jpg",
+        "type": "image",
+        "content": "Detected potential threats: sword in frame 85.",
+        "tags": [
+            "sword"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_105.jpg",
+        "type": "image",
+        "content": "Detected potential threats: sword in frame 105.",
+        "tags": [
+            "sword"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_130.jpg",
+        "type": "image",
+        "content": "Detected potential threats: sword in frame 130.",
+        "tags": [
+            "sword"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_150.jpg",
+        "type": "image",
+        "content": "Detected potential threats: sword in frame 150.",
+        "tags": [
+            "sword"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_320.jpg",
+        "type": "image",
+        "content": "Detected potential threats: sword in frame 320.",
+        "tags": [
+            "sword"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    }
+]
