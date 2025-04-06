@@ -1,0 +1,4 @@
+Term,File,Section,Match Type
+gen,devices\test\all threat.txt,content,Exact
+gen,devices\test\threat2.txt,content,Exact
+gen,devices\test\threats.txt,content,Exact

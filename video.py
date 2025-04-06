@@ -10,7 +10,7 @@ CLIENT = InferenceHTTPClient(
 
 MODEL_ID = "weapon-jmeyk/1"
 
-video_path = "data/vid3.mp4"
+video_path = "data/vid2.mp4"
 cap = cv2.VideoCapture(video_path)
 
 frame_skip = 25  # Process every 5th frame

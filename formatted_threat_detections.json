@@ -1,1 +1,181 @@
-[]
+[
+    {
+        "path": "frames\\frame_0.jpg",
+        "type": "image",
+        "content": "Detected potential threats: knife, cutlass in frame 0.",
+        "tags": [
+            "knife",
+            "cutlass"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_25.jpg",
+        "type": "image",
+        "content": "Detected potential threats: knife, cutlass in frame 25.",
+        "tags": [
+            "knife",
+            "cutlass"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_50.jpg",
+        "type": "image",
+        "content": "Detected potential threats: knife, cutlass in frame 50.",
+        "tags": [
+            "knife",
+            "cutlass"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_75.jpg",
+        "type": "image",
+        "content": "Detected potential threats: cutlass in frame 75.",
+        "tags": [
+            "cutlass"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_100.jpg",
+        "type": "image",
+        "content": "Detected potential threats: knife, cutlass in frame 100.",
+        "tags": [
+            "knife",
+            "cutlass"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_125.jpg",
+        "type": "image",
+        "content": "Detected potential threats: knife, cutlass in frame 125.",
+        "tags": [
+            "knife",
+            "cutlass"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_150.jpg",
+        "type": "image",
+        "content": "Detected potential threats: knife, cutlass in frame 150.",
+        "tags": [
+            "knife",
+            "cutlass"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_175.jpg",
+        "type": "image",
+        "content": "Detected potential threats: knife, cutlass in frame 175.",
+        "tags": [
+            "knife",
+            "cutlass"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_200.jpg",
+        "type": "image",
+        "content": "Detected potential threats: knife, cutlass in frame 200.",
+        "tags": [
+            "knife",
+            "cutlass"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    },
+    {
+        "path": "frames\\frame_225.jpg",
+        "type": "image",
+        "content": "Detected potential threats: knife, cutlass in frame 225.",
+        "tags": [
+            "knife",
+            "cutlass"
+        ],
+        "sensitive_info": {
+            "flags": [],
+            "detected_entities": {
+                "emails": [],
+                "phones": [],
+                "urls": [],
+                "base64_strings": false
+            }
+        }
+    }
+]

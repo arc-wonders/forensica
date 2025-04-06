@@ -1,0 +1,534 @@
+[
+  {
+    "path": "devices\\test\\all threat.txt",
+    "type": "file",
+    "content": "=== BEGIN TEST DATASET ===\n\n[Transaction Note]\nUser ID 22194 processed a purchase using a bank card at a POS terminal in New Delhi. Approval code: 903838. The cash receipt showed a total of ?12,850. Part paid in cash (?5000), balance on card. Customer requested ?150 in change. Similar transactions occurred on multiple days  patterns suggest financial fraud.\n\n[Email Logs]\n\"Hi, please find my scanned passport, PAN card, and DL attached. Need them processed urgently. Also attaching a copy of my aadhar as proof of ID.\"  \nAnother email states: \"My SSN was exposed on a leaked site. Someone used it to open a credit line. Help!\"\n\n[Forum Screenshot]\nUser @dark_ranger posted:  \n\"If anything goes wrong, Ill pull out the knife.\"  \n\"They say hes got a gun taped under his desk.\"  \nSaw someone type: \"Grenades are stored in box #7. Dont mess with it.\"  \nIn another thread: \"He makes homemade explosives in his garage. Real psycho.\"\n\n[Chat App - Drug Marketplace]\nCocaine bricks are available for 20k each. Clean stuff.  \nGot premium weed, 100g packs. Cash only.  \nHeroin packages marked as 'tea blend'. Discreet shipping.  \nMeth lab photos leaked  looks like hes cooking the blue stuff like in Breaking Bad.\n\n[NSFW Telegram Channel]\nXXX clips dump. High res.  \n18+ content only. Click if youre legal.  \nNSFW group invite. Strictly no minors.  \nBro send that XXX zip again. Link expired.\n\n[Terrorism Watchlist Chat]\nBomb instructions PDF available now. Encrypt and share.  \nJoin our cause. ISIS will prevail.  \nRecruitment form attached. Rifle mandatory. Training at undisclosed location.  \nPlanned attack on political rally. Coordinated through Telegram.\n\n[Surveillance Data Extracted]\nStart recording the call now.  \nLocation pinged near Zone 4 checkpoint.  \nThe camera on the drone is malfunctioning. Switch to secondary.  \nWeve been tracking his number since last Friday.  \nReal-time surveillance active on 4 subjects.\n\n[Hidden & Encrypted Comm]\nThis file is encrypted using AES-256. Passphrase sent separately.  \nUse stego to hide message in the dog image.  \nSteganography hides better in audio  try .wav.  \nEncrypted ZIP named 'projectX_final' has everything. Dont open without permission.\n\n[Combined Threads - Noise + Threats]\nUser: \"Had a pizza delivered to the warehouse. Cash receipt got wet in the rain lol. Anyway, I paid in cash and the guy didnt return change.\"  \nLater that day, same user: \"Also, who the hell hides grenades behind cereal boxes??\"  \nPost from another user: \"My cousin lost his passport AND his DL last week. Nightmare. On top of that, his aadhar wasnt linking.\"  \nDiscussion: Tracking the thief via street cameras. He passed location X at 14:53. Audio confirms name drop.  \nVoice snippet: He asked for approval code over the phone  weird. Said something about opening a new account using someone else's PAN.\n\n[Deep Web Leak Dump]\nFilename: `bomb_assembly_manual.pdf`  \nFilename: `aadhar_dump_2023.csv`  \nFilename: `cocaine_price_list.xlsx`  \nFilename: `XXX_mega_folder.zip`  \nFilename: `stego_payload.png`  \nFilename: `gun_specs.docx`\n\n[Intercepted Call]\nCaller: \"You have the rifle?\"  \nReceiver: \"Yeah. Its in the van with the meth and cash. Parked near Zone 3. Password-protected files are in the glovebox. Use 'delta12' to extract.\"  \nCaller: \"Camera active?\"  \nReceiver: \"Yeah. Tracking him live from the rooftop surveillance cam.\"\n\n[Additional Phrases / Minor Repetition for Detection Testing]\n- \"SSN fraud is common in phishing scams now.\"\n- \"Total paid in cash. Forgot to ask for change.\"\n- \"Tracking enabled on device 144AB.\"\n- \"Encrypted folder contains explicit 18+ files.\"\n- \"He was armed with a rifle and carrying 200g heroin.\"\n- \"Bomb threat issued via anonymous message board.\"\n- \"Recruited through NSFW site redirect.\"\n- \"Pan card image hidden via steganography in a cat meme.\"\n- \"Surveillance logs show movements consistent with smuggling.\"\n\n=== END TEST DATASET ===",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\file1_threat.txt",
+    "type": "file",
+    "content": "There was a report of a possible bomb near the city center. Authorities are investigating and have cordoned off the area for safety. Witnesses say they saw a suspicious package under a bench, and law enforcement quickly responded to the alert. The bomb squad is on site, and residents have been advised to avoid the surrounding blocks. Officials are also reviewing surveillance footage to determine who might have left the package. In the past, similar threats have turned out to be hoaxes, but authorities are taking this one seriously.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\file2_threat.txt",
+    "type": "file",
+    "content": "The group was planning an attack using explosive materials acquired illegally. Messages recovered from their communication channels suggest they had been coordinating this for months. The suspects were discussing possible targets and scheduling the operation for a high-traffic day to maximize disruption. Authorities believe that the group may have international links and are expanding the investigation. Some of the language in the messages included references to “the cause” and “a necessary sacrifice,” which raised additional concerns of terrorist activity.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\file3_safe.txt",
+    "type": "file",
+    "content": "The weather today is sunny with a chance of rain in the evening. Temperatures are expected to range between 20 to 25 degrees Celsius. Many people are heading to the parks and beaches to enjoy the mild conditions. The city council has issued a reminder to conserve water and follow outdoor safety tips, especially for children and pets. Farmers have welcomed the recent rains that helped rejuvenate crops, and more showers are expected later this week. Overall, it’s a pleasant day across the region.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\file4_safe.txt",
+    "type": "file",
+    "content": "I love hiking in the mountains and exploring nature trails. There’s something incredibly peaceful about being surrounded by trees, hearing the rustle of leaves, and breathing fresh air. Last weekend, I hiked the Crystal Lake trail, which has some breathtaking views of the valley below. I even spotted a family of deer drinking water from a stream. The trail wasn’t too crowded, which made the experience even more enjoyable. I plan to visit the same area next month and explore the ridge trail as well.\n\n",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\h.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\random.txt",
+    "type": "file",
+    "content": "",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\terr_ppt.pdf",
+    "type": "pdf",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\threat2.txt",
+    "type": "file",
+    "content": "Investigators obtained a third mobile device registered under a fake name but linked to the same cloud account. In the chat logs, messages like “Upload the passport to StegoCloud and encrypt with key 'attack1999'” and “Gun’s placed in storage near cam03 – record before you leave” stood out immediately.\n\nThe storage device contained:\n- Aadhar_back_final.png\n- DL_scan_aged_look.pdf\n- ssn_list_nov_2024.txt\n\nAll of them hidden behind a misleading file tree: `/Movies/Comedy/2023/`.\n\nSeveral images were intercepted that had rifle components embedded via steganography. ResNet50 detected parts like barrels, magazines, and scopes. YOLOv8 flagged the complete gun structure when the individual parts were laid out from the extracted frames.\n\nTesseractOCR uncovered faint text in receipts recovered from a `.heic` image:  \n**Cash Total**: ₹93,500  \n**Approval Code**: 875210  \n**Change Returned**: ₹1500  \nThe metadata showed the image was taken in a supposedly “empty” bunker at 03:27 AM.\n\nTelegram messages showed:\n- “Meth inside toolbox”\n- “Cocaine camouflaged in kids’ toys”\n- “Deliver weed at 8PM, drop spot behind camera01”\n\nOne DL scan had been run through a fake aging filter to appear 12 years older. Matching phone logs included GPS pings near flagged terror zones. Cross-reference with laptop chat logs showed discussions about “target routes,” “passport switch,” and “encrypted backup on USB.”\n\nAnother alarming find:  \nFile — `nsfw_academy_lessons.zip`  \nInside — MP4s named:  \n- `xxx_theory1.mp4`  \n- `nsfw_advanced.mp4`  \nAnd shockingly, one file also included bomb instruction overlays hidden frame-by-frame.\n\n---\n\n✅ Let me know if you want this continued as-is, or want to speed it up with 3–4 parts per reply. Would you like a downloadable `.txt` or `.pdf` at the end too?\nThe forensic toolkit revealed an entire subdirectory hidden through NTFS alternate data streams, discovered under a folder named `Resume_Projects`. While the main folder showed innocent files, the hidden stream contained:\n- `passport_forge_script.py`\n- `aadhar_template.psd`\n- `DL_autogen_macro.xlsm`\n\nOCR scanning of a receipt crumpled in the image titled `shopping_day.jpg` exposed:\n- Total: ₹62,700\n- Cash Paid: Yes\n- Change: ₹1,300\n- Approval Code: 302192\n\nAI models tagged the image as “non-threatening” at first glance, but analysis showed a faint outline of a handgun in the background, partially concealed under a jacket.\n\nA suspicious PDF titled `family_tree.pdf` had encrypted bookmarks leading to hidden sections:\n- Page 7: Gun assembly\n- Page 13: ISIS recruitment schedule\n- Page 19: Explosive device schematics\n\nThe phone’s voice note transcripts (run through Whisper AI) identified phrases like:\n- “Gun stashed behind camera log file”\n- “Rifle blueprint renamed as exam_notes”\n- “Track him using the rear camera feed”\n\nWithin the `VideoMemes2023` folder, an .mp4 file titled `funny_dog_recording.mp4` was found. Frame-by-frame inspection revealed:\n- Timestamp overlays altered\n- File renamed — actual original: `explosive_timer_demo.mp4`\n- Subtitles had stego-encoded GPS coordinates\n\nTelegram backups linked to the same number showed long conversations mentioning:\n- “meth drop confirmed”\n- “cocaine hidden in pillow”\n- “heroin bags sealed — approval: 988400”\n\nA temp file titled `nsfw18+_docs.docx` was recovered from AutoSave, which contained an embedded table with:\n- 6 PAN numbers\n- 2 fake SSNs\n- 3 forged DLs\n- 4 aadhar numbers\n\nThe `tracking_logs.zip` archive was decrypted and found to include:\n- Surveillance camera footage from 3 different addresses\n- Keyword-flagged logs with terms: “record”, “location marked”, “tracking active”\n- A raw log file: `motion_detected_4am.txt` with flagged movement around an armory\n\nAI-enhanced pattern analysis correlated the suspect’s travel patterns from:\n- Location pings\n- Receipt timestamps\n- File modification logs\n\nExample:\n- Receipt: ₹71,000 from “LocalMart” at 02:11 AM\n- Cam footage: rifle spotted 2:15 AM same place\n- Telegram chat: “Cash handled. Rifle done.” — 2:16 AM\n\nWith YOLO detecting hidden weapons and OCR pulling approval codes from receipts, this multi-layered evidence was now tightly interlinked.\n\n---\n\nForensic analysis extended to the cloud storage accounts, where hidden folders were found under misleading names like `Business_Reports` and `Family_Photos`. The files contained:\n- `final_plan_encrypted.docx` (Password-protected with the key: `attack2019`)\n- `hidden_weapons_storage.csv` (Detailed weapon locations and safekeeping methods)\n- `encrypted_passport_backups.zip` (Containing stolen IDs, including a foreign national’s passport and Aadhar)\n\nUsing a decryption key obtained from another device, the contents of `final_plan_encrypted.docx` revealed:\n- A map with a marked warehouse location, labeled “safehouse.”\n- Text marked in red: “Final approval code: 098723.”\n\nFurther cloud folder scans led to the recovery of several Telegram logs containing links to dark web marketplaces:\n- “Secure a new shipment of meth before 6 PM”\n- “Buy weapons using cryptocurrency, complete the deal.”\n- “Get SSNs from another server”\n\nOne device had logs showing multiple encrypted email exchanges, each with steganographic images attached. The text inside these emails was hidden, but through AI, the images were extracted and analyzed for:\n- Hidden code snippets directing to hidden storage on external drives\n- Data fragments, matching keywords like \"drugs\" and \"explosive charges\"\n\nCloud service history revealed that the user had been in contact with multiple flagged accounts. Correlation between encrypted emails and device timestamps confirmed an organized operation spanning several months. Files labeled “meeting_notes_final.pdf” and “weapons_plan_final.jpg” detailed:\n- Transport routes for weapons\n- Travel locations for \"safe houses\"\n- Encryption keys for online purchases\n\n---\n\n### **Part 7: The Dark Web Connections**\n\n",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\threats.txt",
+    "type": "file",
+    "content": "The forensic team uncovered a trove of digital evidence pointing to financial fraud. A wallet image showed a bank card next to a paper with an approval code. A PDF titled \"cash_receipt_0323\" listed a suspiciously large total and excessive change. Alongside this, they found fake identification: forged Aadhar, PAN card, and a scanned passport.\n\nDevice logs revealed messages referencing “get the DL and SSN sorted” and another stating “passport scanned, encrypted in stego image.” Surveillance video showed a suspect hiding a small knife and a rifle case under the floorboards.\n\nThe encrypted archive \"recruitment_final.zip\" contained text files with terms like “ISIS headquarters,” “training bomb routes,” and “grenade placements.” Further investigation uncovered a photo folder labeled \"nsfw_content\" and text posts tagged “18+ only.”\n\nAnother folder named “camlogs” had dozens of .mp4 files from hidden cameras, most with file names like “tracking_footage”, “recording_12am”, and “location_beacon”. Metadata showed they had been remotely accessed from a foreign IP.\n\nDrugs were mentioned repeatedly across messages:\n- “Weed drop at 5pm.”\n- “Get the heroin wrapped.”\n- “Meth batch stored behind books.”\n\nExplicit messages with mentions of xxx, NSFW files, and hidden folders under names like “homework_videos” indicated attempts to hide adult content. Recovered chats contained commands like “clean the DL scans”, “fake PANs ready”, and “SSNs from 3 sources compiled.”\n\nFurther keywords were found scattered across chats:\n- “grenade placed inside trash unit.”\n- “encrypted password shared via stego image.”\n- “total due ₹45,200, cash only, keep change.”\n- “location tagged, keep recording active.”\n- “DL used for the fake airline booking.”\n\nOn another laptop, a tool called “StegoVault” was actively running. Files with names like “hidden_aadhar.jpg” and “bomb_manual.docx” were inside. A webcam image captured a man holding a rifle in one hand, a grenade on the table.\n\nBrowser history contained:\n- “how to make homemade explosive”\n- “passport generators online”\n- “buy fake SSN legally”\n- “download yolo model to identify weapons”\n\nDownloads included YOLO weights for object detection, ResNet50 scripts trained to classify violence-related imagery, and image folders of scanned IDs. Some PDF scans were encrypted and password-protected using military-grade AES encryption.\n\nLogs from storage devices showed:\n- “cash receipts totaling over ₹1.2L”\n- “xxx_labeled_files.zip”\n- “surveillance_footage_autosave”\n- “dl_ssn_fake_passport_list.csv”\n- “password-protected_recruitment_forms”\n\nThe phone, laptop, and USB drive all had duplicate images marked with “bomb_schematic”, “passport_copy”, “knife_diagram”, and “DL_scan.jpg”. Analysis via OCR tools like Tesseract identified over 20+ mentions of threat keywords in receipts and handwritten notes.\n\nAI models trained on weapon and threat detection highlighted:\n- Presence of rifle, knife, and grenade in multiple images\n- Screenshots of messages recruiting for ISIS\n- Audio logs discussing attacks, encrypted passwords, and stego file sharing\n\nRecovered emails contained instructions:\n- “Forward the PAN scan inside encrypted zip.”\n- “Record the footage from the back camera.”\n- “Transfer the cash. Keep ₹2500 as change.”\n- “Include DL, SSN, and aadhar in that list.”\n\nThere were also codes like:\n- Approval Code: 0948552\n- Location ID: 2x_cam_006_recording\n- File Ref: bomb_blueprint_final.doc\n\nThis investigation clearly shows overlap across all threat categories — financial fraud, identity theft, terrorism, weapon possession, drug distribution, explicit content distribution, encrypted communications, and illegal surveillance.\n\nAll recovered data is now being processed using AI-assisted multi-device forensic analysis to extract, analyze, and correlate these findings for legal action.\n\n---\n\n(Repeat or extend this structure for an even longer file as needed.)\n\nThe investigation deepened as authorities analyzed hidden files on a second USB device. One folder, innocently named “receipts_2024,” contained steganographic images with embedded passport numbers and disguised encrypted links. Among the images was a scan of a handwritten note: “Approval Code: 844329. Meet near warehouse. Bring Aadhar and cash.”\n\nCross-device correlation linked chats from the phone to WhatsApp exports on the laptop. Messages discussed locations, fake identities, and images of guns. One read: “Gun’s in the trunk, SSN is in the drawer, bomb blueprint inside zip—use password: attack2024.”\n\nUsing YOLO and ResNet50, image analysis detected:\n- Multiple rifles and handguns in living room photos\n- A large blade concealed in kitchen footage\n- A small explosive device image embedded in a cooking show screenshot\n\nThe TesseractOCR output from scanned PDFs revealed keywords like:\n- “bank card withdrawn”\n- “cash total ₹72,300”\n- “keep ₹2000 as change”\n- “passport image scanned and stego'd”\n\nOther conversations referenced grenades: “The grenade was left near the camera tower,” and “explosives wrapped inside the tracking box.” Hidden cameras had been positioned to record every angle of the living room, hallway, and outer gate.\n\nFake DL (Driving License) scans were found in folders named “scan_backup_1”, “scan_backup_2”. The files were password-protected using simple dictionary-based encryption, easily broken by the forensic tool.\n\nOne email thread was titled: “RE: Recruitment documents for overseas,” and included an attachment `recruitment_doc.pdf` that contained a map of known training sites, rifle supply sources, and encrypted weapon diagrams.\n\nDrug-related references became more frequent:\n- “Shipment of meth received.”\n- “Weed wrapped and packed.”\n- “Cocaine hidden in the books.”\n\nExplicit content was still being distributed through hidden folders named:\n- “homework_videos_2”\n- “funny_memes_2024”\n- “temp_upload_17”\n\nEach of them contained ZIP files marked “xxx_archive” or “nsfw_personal”.\n\nTracking data confirmed the device traveled through flagged coordinates at 2am, matching the timestamp on a file named “camera_recording_final.mp4.” This file showed the suspect handling a small explosive while discussing “recruitment plans.”\n\nFinancial fraud was traced through 18 receipts:\n- Total amounts all above ₹50,000\n- Mismatched approval codes\n- Cash transactions with excessive “change” logged\n\nInvestigators also uncovered surveillance malware installed across devices:\n- Background recording on the phone camera\n- Microphone activated via a fake calendar app\n- GPS pings sent to an encrypted onion URL\n\nThe AI-powered classifier flagged more than 80 files for immediate investigation:\n- 22 related to bomb/explosives\n- 19 involving fake identities (PAN, Aadhar, SSN)\n- 15 with financial fraud (fake receipts, cash totals, approval codes)\n- 10 flagged for drugs\n- 8 NSFW archives\n- 6 encrypted steganographic packages\n\nSample flagged filenames:\n- `ISIS_plan_encrypted.docx`\n- `dl_ssn_list_v3.csv`\n- `hidden_aadhar_passport.png`\n- `xxx_compilation18+.zip`\n- `cocaine_shipment_logs.txt`\n- `recording_cam02_stealth.mp4`\n\n---\n\nDespite efforts to delete or overwrite data, the forensic tools recovered over **1.8GB of sensitive information** spanning terrorism planning, illegal surveillance, and identity fabrication.\n\nThe final forensic summary included:\n- 3 Phones: all linked via WhatsApp backups and location data\n- 2 Laptops: image correlation showed same rooms and people\n- 5 USB drives: containing stego, encrypted, and NSFW materials\n- 1 Cloud Drive: synced folders with suspicious PDF + ZIP files\n\nThe team is currently building timelines using AI correlation between:\n1. Chat content mentioning bombs and recruitment\n2. File creation timestamps from laptops\n3. Receipt totals aligned with device locations\n4. Camera logs matching subject movement and threat keywords\n\nThis multi-device forensic analysis highlights the power of integrating AI, image recognition, OCR, and keyword flagging to crack down on complex cybercrime.\n\nAuthorities have confirmed this as one of the largest digital forensic investigations in the region.\n\n---\n\nThe trail continued with forensic analysts decoding a steganographic image hidden inside a benign family photo. The embedded data led to a file titled `final_recruitment_payload.zip`, which contained references to a scheduled attack, encrypted conversations, and SSN copies under aliases.\n\nFrom a burner phone extracted at the scene, text messages read:\n- “aadhar_back_2023.jpg ready?”\n- “rifle ready near bridge.”\n- “cam_log_12_03.mp4 — forward it to handler.”\n\nCCTV footage showed the suspect withdrawing ₹40,000 in cash using a fake bank card. The receipt captured on the desk read:\n- **Total**: ₹41,280\n- **Change**: ₹720\n- **Approval Code**: 310984\n\nInside the encrypted folder `nsfw_backup2022.zip`, besides the expected explicit content tagged xxx and 18+, there were PDFs titled:\n- `bomb_manual_updated.pdf`\n- `knife_diagram_final.dwg`\n- `isis_recruit_chart.csv`\n\nThe AI system detected overlapping keywords like grenade, gun, attack, and explosive inside hidden .docx files within the user’s Dropbox cache folder.\n\n**New evidence across devices:**\n- The laptop had a folder named “DL_REGEN,” containing Photoshop templates of Driving Licenses with forged names and birthdates.\n- A second mobile device had browser tabs left open on “how to smuggle weed in suitcases” and “passports for sale dark web.”\n- The hard drive had screenshots of Telegram chats with text like: “record using the back camera only” and “change approval code every 3 hours.”\n\nIn another USB, a `cache.db` SQLite file was found. It held metadata about audio recordings named:\n- `gun_test.wav`\n- `18plus_call_recording.mp3`\n- `explosive_timer_setup.aac`\n\nThe AI correlator traced communication across multiple devices with consistent use of:\n- Stego encoding inside JPGs and MP4 thumbnails\n- File renaming strategies: “report_final” → actually “aadhar_scan”\n- Identical passwords: `ISIS@2024`, `1234bomb`, and `DLbackup1`\n\n**TesseractOCR** detected blurred text in scanned receipts with phrases like:\n- “Cash Only”\n- “Keep Change ₹3100”\n- “Payment method: Fake Card”\n\n**YOLOv8** image detection flagged:\n- 11 rifles\n- 4 grenades\n- 2 handguns in bedroom drawers\n- 1 explosive cylinder under the vehicle\n\nA peculiar image was named `homework_essay.jpg`, but within it lay a fully functional Python script encoded via LSB steganography — script contents pointed to `stego_decode(passport_hidden.jpg, key=\"ssn2025\")`.\n\nDrug conversations increased in frequency:\n- “meth batch payment in cash”\n- “heroin in the locked box behind car tire”\n- “weed safe, approval code 987221”\n\nGPS pings showed motion from the warehouse to an abandoned factory near the border. Each stop correlated with file creation timestamps:\n- `knife_guide_final.pdf` created at 12:40AM\n- `cam_recording_rig03.mp4` started at 12:41AM\n- `cash_receipt_export.xls` modified at 12:43AM\n\nIn the cloud sync folder `/Personal_Backups`, files like `DL_scan_03_final.jpg` and `Aadhar_2024_color.pdf` were stored under a subfolder “Trip_Pics” — another cover for identity theft operations.\n\nExplicit files hidden in the same drive were tagged with emojis or foreign characters to bypass filters:  \ne.g. `🔥xxx🔥.zip`, `💣training💣.docx`, `🧨grenade🧨.mp4`\n\n---\n\n🚨 Final Statistics (so far):\n- 🔐 **Encrypted Files**: 57\n- 🧨 **Terrorism-related content**: 38 files\n- 💰 **Fraudulent receipts & financial data**: 31\n- 🔪 **Weapons visual confirmations**: 24\n- 📹 **Surveillance content**: 19 GB worth\n- 🔞 **Explicit files**: 16\n- 🧬 **Identity-related scans**: 12 unique identities\n\nEach finding points to a sophisticated, multi-device cybercrime and terrorism operation leveraging encryption, steganography, forged identities, and illegal surveillance.\n\nThis case will serve as a landmark use of AI-based forensic correlation in a real-time multi-device investigation.\n\n---\n\n",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [
+        "email_detected"
+      ],
+      "detected_entities": {
+        "emails": [
+          "ISIS@2024"
+        ],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\threats3.txt",
+    "type": "file",
+    "content": "The GPS tracking data retrieved from multiple devices indicated that the suspect moved across several cities, with exact timestamps matching up with receipt totals:\n- A large cash withdrawal at 03:00 AM was accompanied by a phone ping showing the suspect’s location.\n- A car rental booking received at 12:05 PM placed the suspect near a known terrorist-safe zone.\n\nCCTV footage linked to the same timestamp confirmed a vehicle containing weapons was parked near a known checkpoint. The suspect had been tracked moving through different safehouses, dropping off weapons and drugs.\n\nA folder labeled `Mission_GPS_Logs.zip` was found in the laptop’s hidden cache. This contained timestamps and travel logs:\n- 02:35 AM: \"Safehouse move, rifle concealed in trunk\"\n- 03:50 AM: \"Location: Near riverbank, cache retrieved\"\n- 04:30 AM: \"Movement near abandoned warehouse\"\n\n---\n\n### **Part 9: The Weapon Cache**\n\nRecovered video footage from hidden cameras spread across the suspect’s house and safehouses provided critical evidence. The videos, titled like:\n- `cam_recording_final.mp4`\n- `security_camera_log_24hr.mp4`\n\nshowed suspects in the act of packaging weapons, drugs, and coordinating activities. Timestamps revealed synchronized movements, with:\n- Weapons being concealed in the ceiling during daylight hours.\n- Drug packaging happening in the evening, with specific instructions like “Hide it behind the TV stand.”\n\nMetadata analysis further indicated tampering with video timestamps, designed to confuse investigators. However, AI forensics uncovered overlapping audio logs and video sequences, indicating that they were part of a coordinated operation.\n\n---\n\n### **Part 11: Covert Communications**\n\nMore investigation of the encrypted data revealed another layer of hidden communications. A script, `encrypted_messages.py`, revealed a method for hiding messages within images, using Steganography tools like StegoTool. Several images labeled:\n- `family_vacation_pic.png`\n- `dog_walks.mp4`\n\ncontained hidden messages detailing bomb-making instructions, meeting locations, and planned attacks. The images used a subtle method of hiding data in pixel color variations, which was only detected using advanced pattern recognition tools.\n\nA sequence of these messages showed a detailed plan of action for future attacks and escape routes.\n\n---\n\n### **Part 13: The Final Meeting**\n\nThe final stages of the investigation uncovered files showing weapon transfers:\n- “Gun shipments from warehouse X scheduled for 7 PM.”\n- “Last minute transfers to safehouse on Route 10.”\n\nAI-powered image detection systems flagged more instances of rifles, explosives, and other weapons hidden in mundane locations: under rugs, inside furniture, and disguised as everyday items. The suspect had used these methods to avoid detection.\n\n---\n\n### **Part 15: The Arrest and Conclusion**\n\nThe forensic team used the cross-device data, cloud storage records, encrypted messages, and video surveillance to piece together a compelling case against the suspects involved in a coordinated terrorist plot. With all evidence pointing to multiple people with ties to organized crime, authorities were able to make several arrests.\n\nThe multi-device analysis of images, video recordings, chat logs, GPS pings, and AI-enhanced object recognition made this one of the largest and most intricate forensic cases in modern times.\n\nAfter multiple raids on suspected locations, law enforcement found:\n\nFirearms and explosives.\n\nStolen identities and fraudulent documents.\n\nAdditional hidden videos detailing further plans.\n\n\nThe final meetings, captured in various photos and videos, revealed connections between multiple individuals involved in the operation. At a café, the suspect was seen exchanging documents with a second individual. The document contained:\n\nA hardcopy list of fake IDs.\n\nInstructions to “Get the explosives into the target zone before midnight.”\n\nFurther hidden images and documents revealed messages detailing specific locations:\n\n“Bomb trigger at 2:30 AM.”\n\n“Contact @ 3 AM with bomb code.”\n\nThese meetings, along with GPS tracking, confirmed the suspect's location during crucial moments of the planned attack.\n\n\nThe arrest concluded with charges for terrorism, drug trafficking, financial fraud, identity theft, and illegal surveillance, marking the success of a highly coordinated digital forensic investigation.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid1.mp4",
+    "type": "video",
+    "content": "Detected potential threats: sword in frame 25.",
+    "tags": [
+      "sword"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid1.mp4",
+    "type": "video",
+    "content": "Detected potential threats: sword in frame 75.",
+    "tags": [
+      "sword"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 0.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 25.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 50.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: cutlass in frame 75.",
+    "tags": [
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 100.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 125.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 150.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 175.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 200.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 225.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.46_ccf9aee8.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.46_ecd489bc.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.47_441b2b44.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.47_db4a2f7d.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.47_ff09d4a4.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.48_921c3887.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.48_d1afd5ed.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.48_f5041b8d.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.49_cd45522f.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.49_ebddc89e.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  }
+]

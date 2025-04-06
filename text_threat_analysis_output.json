@@ -1,6 +1,6 @@
 [
   {
-    "file": "devices\\test\\123.png",
+    "file": "devices\\test\\file1_threat.txt",
     "text": "There was a report of a possible bomb near the city center. Authorities are investigating and have cordoned off the area for safety. Witnesses say they saw a suspicious package under a bench, and law enforcement quickly responded to the alert. The bomb squad is on site, and residents have been advised to avoid the surrounding blocks. Officials are also reviewing surveillance footage to determine who might have left the package. In the past, similar threats have turned out to be hoaxes, but authorities are taking this one seriously.",
     "entities": [],
     "predicted_threats": {
@@ -17,28 +17,92 @@
     }
   },
   {
-    "file": "devices\\test\\Assignment10[1].pdf",
-    "text": "ASSIGNMENT -10  \nName: YASH MISHRA \nEnrollment No. : 02016449724 \nBranch: Btech CSE-AI 2nd SEMESTER \nSchool: USICT, GGSIPU \n \n10. Write a C program to construct a by inserting the given keys sequentially. The \nB-Tree should follow the properties of an , where each node can have at most \nand . \n12, 10, 15, 4, 1, 17, 3, 13 \n \n#include <stdio.h> \n#include <stdlib.h> \n \n#define MAX_KEYS 5  // 2t - 1 (for t=3) \n#define MIN_KEYS 2  // t - 1 \n#define MAX_CHILDREN 6  // 2t (for t=3) \n \ntypedef struct BTreeNode { \n    int keys[MAX_KEYS];   // Keys in the node \n    struct BTreeNode* children[MAX_CHILDREN]; // Child pointers \n    int numKeys; \n    int isLeaf; \n} BTreeNode; \n \nBTreeNode* createNode(int isLeaf) { \n    BTreeNode* newNode = (BTreeNode*)malloc(sizeof(BTreeNode)); \n\n    newNode->isLeaf = isLeaf; \n    newNode->numKeys = 0; \n    for (int i = 0; i < MAX_CHILDREN; i++) \n        newNode->children[i] = NULL; \n    return newNode; \n} \n \n// Function revolver alkaida  to split a child \nvoid splitChild(BTreeNode* parent, gun int i, BTreeNode* child) { \n    int t = 3; \n    BTreeNode* newNode = createNode(child->isLeaf); \n    newNode->numKeys = t - 1; \n \n    // Move last (t-1) keys from child to newNode \n    for (int j = 0; j < t - 1; j++) \n        newNode->keys[j] = child->keys[j + t]; \n \n    if (!child->isLeaf) { \n        for (int j = 0; j < t; j++) \n            newNode->children[j] = child->children[j + t]; \n    } \n     \n    child->numKeys = t - 1; \n \n    // Move parent's children to make space for new child \n    for (int j = parent->numKeys; j >= i + 1; j--) \n\n        parent->children[j + 1] = parent->children[j]; \n \n    parent->children[i + 1] = newNode; \n \n    // Move parent's keys to make space for middle key \n    for (int j = parent->numKeys - 1; j >= i; j--) \n        parent->keys[j + 1] = parent->keys[j]; \n \n    parent->keys[i] = child->keys[t - 1]; \n    parent->numKeys++; \n} \n \n// Insert a key in a non-full node \nvoid insertNonFull(BTreeNode* node, int key) { \n    int i = node->numKeys - 1; \n \n    if (node->isLeaf) { \n        while (i >= 0 && key < node->keys[i]) { \n            node->keys[i + 1] = node->keys[i]; \n            i--; \n        } \n        node->keys[i + 1] = key; \n        node->numKeys++; \n    } else { \n        while (i >= 0 && key < node->keys[i]) \n            i--; \n\n \n        if (node->children[i + 1]->numKeys == MAX_KEYS) { \n            splitChild(node, i + 1, node->children[i + 1]); \n \n            if (key > node->keys[i + 1]) \n                i++; \n        } \n        insertNonFull(node->children[i + 1], key); \n    } \n} \n \n// Insert a key into the B-Tree \nBTreeNode* katta insert(BTreeNode* root, int key) { \n    if (root->numKeys == MAX_KEYS) { \n        BTreeNode* newRoot = createNode(0); \n        newRoot->children[0] = root; \n        splitChild(newRoot, 0, root); \n \n        int i = (key > newRoot->keys[0]) ? 1 : 0; \n        insertNonFull(newRoot->children[i], key); \n        return newRoot; \n    } else { \n        insertNonFull(root, key); \n        return root; \n    } \n} \n\n \n// Function to traverse and print the B-Tree \nvoid traverse(BTreeNode* root) { \n    if (root != NULL) { \n        int i; \n        for (i = 0; i < root->numKeys; i++) { \n            if (!root->isLeaf) \n                traverse(root->children[i]); \n            printf(\"%d \", root->keys[i]); \n        } \n        if (!root->isLeaf) \n            traverse(root->children[i]); \n    } \n} \n \nint main() { \n    BTreeNode* root = createNode(1); // Root node (initially a leaf) \n \n    int keys[] = {12, 10, 15, 4, 1, 17, 3, 13}; \n    int n = sizeof(keys) / sizeof(keys[0]); \n \n    for (int i = 0; i < n; i++) \n        root = insert(root, keys[i]); \n \n    printf(\"B-Tree traversal: \"); \n    traverse(root); \n\n    printf(\"\\n\"); \n \n    return 0; \n} \n \nOUTPUT: \n \n",
-    "entities": [
-      {
-        "type": "phone",
-        "value": "02016449724"
-      }
-    ],
+    "file": "devices\\test\\file2_threat.txt",
+    "text": "rifle , The group was planning an attack using explosive materials acquired illegally. Messages recovered from their communication channels suggest they had been coordinating this for months. The suspects were discussing possible targets and scheduling the operation for a high-traffic day to maximize disruption. Authorities believe that the group may have international links and are expanding the investigation. Some of the language in the messages included references to \u201cthe cause\u201d and \u201ca necessary sacrifice,\u201d which raised additional concerns of terrorist activity.",
+    "entities": [],
     "predicted_threats": {
       "threat_detected": true,
       "score": 3,
       "categories": [
+        "Terrorism",
         "Weapons/Violence"
       ],
       "keywords": [
-        "gun"
+        "rifle",
+        "explosive",
+        "attack"
       ],
-      "summary": "Detected threats in categories: Weapons/Violence (score 3)."
+      "summary": "Detected threats in categories: Terrorism, Weapons/Violence (score 3)."
     }
   },
   {
-    "file": "devices\\test\\image.png",
+    "file": "devices\\test\\file3_safe.txt",
+    "text": "The weather today is sunny with a chance of rain in the evening. Temperatures are expected to range between 20 to 25 degrees Celsius. Many people are heading to the parks and beaches to enjoy the mild conditions. The city council has issued a reminder to conserve water and follow outdoor safety tips, especially for children and pets. Farmers have welcomed the recent rains that helped rejuvenate crops, and more showers are expected later this week. Overall, it\u2019s a pleasant day across the region.",
+    "entities": [],
+    "predicted_threats": {
+      "threat_detected": false,
+      "score": 0,
+      "categories": [],
+      "keywords": [],
+      "summary": "No threats detected."
+    }
+  },
+  {
+    "file": "devices\\test\\file4_safe.txt",
+    "text": "I love hiking in the mountains and exploring nature trails. There\u2019s something incredibly peaceful about being surrounded by trees, hearing the rustle of leaves, and breathing fresh air. Last weekend, I hiked the Crystal Lake trail, which has some breathtaking views of the valley below. I even spotted a family of deer drinking water from a stream. The trail wasn\u2019t too crowded, which made the experience even more enjoyable. I plan to visit the same area next month and explore the ridge trail as well.\n\n",
+    "entities": [],
+    "predicted_threats": {
+      "threat_detected": false,
+      "score": 0,
+      "categories": [],
+      "keywords": [],
+      "summary": "No threats detected."
+    }
+  },
+  {
+    "file": "devices\\test\\terr_ppt.pdf",
+    "text": "INTERNATIONAL PEACE INSTITUTE\nIPI Blue Papers\nGlobal Terrorism\nTask Forces on  \nStrengthening Multilateral \nSecurity Capacity\nNo. 4\n20 09\n\n\n \nGlobal Terrorism\n\n\n \nGlobal Terrorism\nTask Forces on  \nStrengthening Multilateral \nSecurity Capacity\nIPI Blue Paper No. 4\n\nAcknowledgements\nThe International Peace Institute (IPI) owes a \ngreat debt of gratitude to its many donors to the \nprogram Coping with Crisis, Conflict, and Change. \nIn particular, IPI is grateful to the governments \nof Belgium, Canada, Denmark, Finland, Greece, \nLuxembourg, the Netherlands, Norway, Spain, \nSweden, Switzerland, and the United Kingdom. \nThe Task Forces would also not have been possible \nwithout the leadership and intellectual contribution \nof their co-chairs, government representatives from \nPermanent Missions to the United Nations in New \nYork, and expert moderators and contributors.\nIPI wishes to acknowledge the support of the \nGreentree Foundation, which generously allowed IPI \nthe use of the Greentree Estate for plenary meetings \nof the Task Forces during 2008.\nNote\nMeetings were held under the Chatham House Rule. \nParticipants were invited in their personal capacity. \nThis report is an IPI product. Its content does not \nnecessarily represent the positions or opinions of \nindividual Task Force participants.\nSuggested Citation: \nInternational Peace Institute, \u201cGlobal Terrorism,\u201d  \nIPI Blue Paper No. 4, Task Forces on Strengthening  \nMultilateral Security Capacity, New York, 2009.\n\u00a9 by International Peace Institute, 2009 \nAll Rights Reserved\nwww.ipinst.org\n\n7\nInternational Peace Institute\nCONTENTS\nForeword, Terje R\u00f8d-Larsen. .  .  .  .  .  .  .  .  .  .  .  .  . . . . . . . . . . . . . vii\nAcronyms. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . . . . . . . . . . . . . . . . . x\nExecutive Summary. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . . . . . . . . . . . . . 1\nThe Challenge for Multilateral \nCounterterrorism. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . . . . . . . . . . . . . . 6\nIdeas for Action. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . . . . . . . . . . . . . . . 18\ni.\t\nstrengthen political support for the \n\t\nun\u2019s role in countering terrorism\nii.\t enhance strategic communications\niii.\t deepen relationships between un head- \n\t\nquarters and national and regional \n\t\npartners\niv.\t streamline and consolidate UN bureau- \n\t\ncracy to address counterterrorism\nConclusion . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . . . . . . . . . . . . . . . . 26\nEndnotes. .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . . . . . . . . . . . . . . . . . 28\nFurther Reading . .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . . . . . . . . . . . . . 33\nAnnex 1: Background Non-paper. . . . . . . . . . . . . . . . . . . . . 35\nAnnex 2: Reflections from the \nOpening Plenary Meeting. .  .  .  .  .  .  .  .  .  .  .  .  .  . . . . . . . . . . . . . . 41\nAnnex 3: Methodology and Timeline. .  .  .  .  .  .  .  .  . . . . . . . . 47\nAnnex 4: Task Force Participants. .  .  .  .  .  .  .  .  .  . . . . . . . . . . 50\n\n\nInternational Peace Institute\nvii\nForeword\nWe live in difficult times. Rapid socioeconomic changes, \ndemographic bulges, and intertwined security crises are \naffecting us all, and most especially the poor. Criminal and \nviolent organizations are gaining control over territory, \nmarkets, and populations around the world, complicating \npeacemaking and generating insecurity. States with \nineffective and corrupt institutions prove too weak to deal \nwith interlinked threats ranging from transnational organized \ncrime to infectious disease. Meanwhile, the number of actual \nand aspirant nuclear-armed countries is growing, as is the \nlikelihood that nonstate actors will acquire weapons of mass \ndestruction through illicit global trade. \nGlobal warming and environmental degradation particularly dis-\ntress already impoverished regions. Fluctuating food and energy \nprices put people and governments to the test, while the demand \nfor resources\u2014notably water and energy\u2014increases due to un-\nprecedented development and population growth. \nTo this already gloomy picture, the year 2008 added tectonic shifts \nin the economic landscape. A devastating financial crisis is pro-\nducing dramatic consequences with likely long-term impacts on \neconomic development, aid, and emerging markets alike. \nYet, at a time when common efforts are needed more than ever, \ndivision and discord can be spotted in many multilateral insti-\ntutions, from the United Nations to NATO and the European \nUnion. Peace operations are under serious stress, while political \ndisunity undermines the authority and effectiveness of the Secu-\nrity Council. The optimistic embrace of a \u201cflat\u201d world of respon-\nsible sovereign states is challenged by those who push for a return \nto exclusive state sovereignty and jealously guarded territorial  \nintegrity.\nHowever, crises provide unparalleled opportunities for change. \nThese moments are transitory, but they need to be seized upon to \n\nGLOBAL TERRORISM\nviii\nput ideas into action, to strengthen the capacity to meet the chal-\nlenges we face, which in today\u2019s globalizing world means more \nresponsive, effective, and efficient multilateral mechanisms and \npolicies.\nIn response to these challenges, IPI launched the Task Forces \non Strengthening Multilateral Security Capacity in 2008. The \npurpose of these Task Forces was to suggest ideas for action to \nstrengthen the capacity of the United Nations (UN) and its part-\nners to deal effectively with emerging, multifaceted, and global \nchallenges to peace and security. The Task Forces addressed not \nonly the policy steps that are needed, but also the political and \ninstitutional strategies required to implement them. This strate-\ngic perspective has too often been the missing link in efforts to \nstrengthen the UN system.\nGiven the links among security, development, and environmental \nchallenges, the initiative opened with a symposium on Develop-\nment, Resources, and Environment. The symposium provided a \nlarger context for the work of the subsequent Task Forces, which \nfocused on two core dimensions of the security concerns facing \nthe UN and its partners: (1) Transnational Security Challenges \nand (2) Inter- and Intra-state Armed Conflict (see Annex 3 for \ndetails of the process).\nThe IPI Blue Papers are the product of this intense process of \nconsultation, which engaged more than sixty UN member states, \nhalf of them at ambassadorial level, and seventy experts in a va-\nriety of thematic areas. It included the preparation of more than \ntwenty-five background papers and fourteen multiday meetings. \nEach Blue Paper includes a section on why action to strengthen \ncapacity in a particular area is needed and a section with ideas for \naction. The content is based on the Task Force discussions, but \ndoes not necessarily represent all the views articulated during the \nentire process. Although the institutional focus of the Task Forces \nwas primarily the UN, this report aims to assist key stakeholders \nto prioritize and leverage the comparative advantages of the UN \n\nInternational Peace Institute\nix\nand other multilateral institutions, including their ability to forge \nproductive and sustainable partnerships with other groups and or-\nganizations.\nWhile policy discussions on related topics are taking place in other \nfora, IPI brings to this initiative nearly forty years of constructive \ncollaboration with the United Nations and its membership, as well \nas a more long-term strategic perspective than in-house and in-\ntergovernmental processes can offer. With these Blue Papers, IPI \nhopes to continue a process that will produce concrete steps to-\nward stronger multilateral capacity in peace and security. \nDespite the difficulties ahead, we believe that tomorrow\u2019s world \nneeds more multilateral capacity, not less. It needs a stronger UN, \ncapable of adapting and strengthening its capacity to address the \nrealities of the twenty-first century. It needs a UN able to work with \nits partners and in particular with member states, which remain \nthe first line of response to many of the threats discussed here. \nThis is the purpose of the IPI Blue Papers, and I am very pleased to \nintroduce them to you. \nFinally, I would like to thank most warmly the co-chairs of the \nTask Forces, the member-state participants, the experts, and IPI \nstaff, without whose hard work and intellectual contributions the \nIPI Blue Papers would not have seen the light of day.\nTerje R\u00f8d-Larsen\nPresident, International Peace Institute\nJanuary 2009\n\nGLOBAL TERRORISM\nx\nAcronyms\n1267 Committee\t\nAl-Qaida and Taliban Sanctions Committee\nCT\t\ncounterterrorism\nCTAG\t\nCounter-Terrorism Action Group\nCTC\t\nCounter-Terrorism Committee\nCTED\t\nCounter-Terrorism Executive Directorate\nCTITF\t\nCounter-Terrorism Implementation Task \n\t\nForce\nDPA/UNDPA\t\nUnited Nations Department of Political \n\t\nAffairs\nDPKO/UNDPKO\t\nUnited Nations Department of Peacekeeping \n\t\nOperations\nDSS/UNDSS\t\nUnited Nations Department of Safety and \n\t\nSecurity\nEOSG\t\nExecutive Office of the Secretary-General\nG8\t\nGroup of 8\nGA/UNGA\t\nUnited Nations General Assembly\nIAEA\t\nInternational Atomic Energy Agency\nIMF\t\nInternational Monetary Fund\nINTERPOL\t\nInternational Criminal Police Organization\nNATO\t\nNorth Atlantic Treaty Organization\nNGO\t\nnongovernmental organization\nP5\t\nPermanent 5 members of the Security Council\nPBC\t\nPeacebuilding Commission\nSG\t\nUnited Nations Secretary-General\nUN\t\nUnited Nations\nUNDP\t\nUnited Nations Development Programme\n\nInternational Peace Institute\nxi\nUNDPI/DPI\t\nUnited Nations Department of Public \n\t\nInformation\nUNHCR\t\nOffice of the United Nations High \n\t\nCommissioner for Refugees\nUNHQ\t\nUnited Nations headquarters\nUNICRI\t\nUnited Nations Interregional Crime and \n\t\nJustice Research Institute\nUNOLA\t\nUnited Nations Office of Legal Affairs\nUNSC\t\nUnited Nations Security Council\nUNSCR\t\nUnited Nations Security Council Resolution\nWMD/s\t\nWeapon/s of Mass Destruction\n\nGLOBAL TERRORISM\nxii\n\nInternational Peace Institute\n1\nExecutive Summary\nThe increasingly transnational and multifaceted nature of \nterrorism calls for a strong multilateral response. States have the \nprimary responsibility for protecting their populations from the \nthreats posed by terrorism. At the same time, given the often \ncross-regional nature of the terrorist threat, mechanisms for \neffective cooperation are needed at the global and regional levels. \nTo this end, the United Nations (UN), by virtue of its universality \nand legitimacy, has an important role to play.\nYet, despite the longstanding presence of terrorism as an issue on \nthe UN agenda, the collective response to global terrorism has \nbeen stymied by fundamental disagreements among UN member \nstates, including divergent threat perceptions and priorities \namong the global North and South. In addition, tensions remain \nbetween the Security Council and the General Assembly as to the \nrightful arbiter of multilateral norms and the appropriate forum \nfor discussing counterterrorism (CT).\nThe UN\u2019s efforts have been hampered, moreover, by unwieldy \ninstitutional arrangements, inconsistent political support, and \na lack of public understanding of what comparative advantages \nthe UN has to offer in countering terrorism. In the absence of \na comprehensive set of policies guiding multilateral action to \ncounter terrorism, the UN\u2019s response has been largely ad hoc and \nreactive; responsive rather than preemptive or preventative. \nideas for action\nI.\t\nStrengthen political support for the UN\u2019s role in countering \nterrorism\n \n\u2022 UN member states should develop a cross-regional \nplatform at the UN to engage on a regular basis with the \nCounter-Terrorism Implementation Task Force (CTITF), \nincluding through support for the implementation of the \n\nGLOBAL TERRORISM\n2\nUN Global Counter-Terrorism Strategy (GCT Strategy), \nby, for example, a \u201cGroup of Friends\u201d or Contact Group.\n \n\u2022 Member states should support assessed budgetary alloca- \ntions for the UN\u2019s counterterrorism work.\n \n\u2022 The Executive Office of the Secretary-General and \nmember states should promote greater cooperation among \nthe Security Council, CTITF, and UN human rights \nmechanisms. The UN human rights and counterterrorism \nmechanisms should work together to develop human rights \nbest practices. Also, the Council should review the listing/\ndelisting processes of the Al-Qaida and Taliban Sanctions \nCommittee (\u201c1267 Committee\u201d) and direct it to inform \nmember states whose nationals are listed.\nII.\t Enhance strategic communications\n \n\u2022 The Secretary-General should not hesitate to use his \nbully pulpit to articulate the UN\u2019s role and comparative \nadvantages in countering global terrorism. To that end, \nthe CTITF should work closely with the UN Department \nof Public Information (DPI) to develop a global media \ncampaign to reaffirm the UN\u2019s core values of protecting \ncivilians and human rights, and to highlight the impact of \nterrorist violence on individual victims and communities.\n \n\u2022 The Executive Office of the Secretary-General (EOSG) \nshould direct UN agencies and funds, and particularly \nthe constituent members of the CTITF, to support GCT \nStrategy implementation, at headquarters and in the field.\n \n\u2022 The EOSG should designate a single spokesperson to \nprovide a recognized CT focal point to represent the \ncollective efforts of the world body.\n \n\u2022 The CTITF and the Security Council\u2019s counterterrorism \nexperts should accelerate their efforts to improve their \nengagement with the private sector and civil society to \n\nInternational Peace Institute\n3\nfurther implementation of UN Security Council Resolu- \ntions 1267, 1373, and 1540, as well as the GCT Strategy.\nIII.\t Deepen relationships between UN headquarters and \nnational and regional partners\n \n\u2022 The UN should increase its engagement and capacity- \nbuilding initiatives with regional and subregional \norganizations. The CTITF and the Counter-Terrorism \nExecutive Directorate (CTED) should develop regional \nstrategies informed by these relationships. Staff rotations \nbetween regional and subregional organizations and the \nUN would bring much-needed regional expertise into the \nCTITF. \n \n\u2022 CTED\u2019s regional expert staff could be relocated within key \nstates or peace operations where member states signal a \nneed for assistance in addressing the terrorist threat. \n \n\u2022 Donors providing voluntary contributions to the CTITF \nshould consider funding secondments of officers from \nthe global South to the CTITF, both to promote broader \nregional representation and to enhance its operational and \nanalytical capacities.\nIV.\t Streamline and consolidate UN bureaucracy to address \ncounterterrorism\n \n\u2022 The CTITF should be granted the funding and \npersonnel necessary to meet the demands for more pro- \nactive engagement by the UN membership. Additionally, \nthe chair should be invested with the necessary political \nauthority, mandate, and resources to effectively coordinate \nall the CTITF\u2019s constituent bodies and working groups.\n \n\u2022 The General Assembly should ensure that the 2010 review \nof the GCT Strategy assesses the CTITF and its role \nin supporting the UN\u2019s counterterrorism activities and \naddresses the relevant resource-allocation needs. Member \n\nGLOBAL TERRORISM\n4\nstates should encourage the establishment of a biennial \nreview, based on a series of benchmarks established to \nassess progress made by the CTITF and its contribution to \ncountering global terrorism.\n \n\u2022 In the long run, the UN\u2019s leadership and member states \nshould consider consolidating the world body\u2019s CT work \nin a single organization or office. The latter would require \nboth resolving the relationship between CTED and the \nCTITF, and designating a centralized authority on CT \nwithin the UN. \n \n\u2022 Building on the recommendations of the 2005 World \nSummit Outcome Document, the Security Council should \nstreamline the reporting requirements and its engagement \nwith countries related to the work of the 1267, 1373, and \n1540 committees. In addition, the expert staff of those \ncommittees should be consolidated.\n\nInternational Peace Institute\n5\nWHY ACTION IS NEEDED\n\nGLOBAL TERRORISM\n6\nThe Challenge for Multilateral \nCounterterrorism\n1.\t The increasingly transnational and multifaceted nature \nof terrorism calls for a strong multilateral response. Like \norganizations in the commercial world, terrorist groups \nhave benefited from globalization and have been able to \ndecentralize operations, diversify supply and funding \nmechanisms, and use technologies to connect operatives or \n\u201chome-grown cells\u201d across the globe. Furthermore, they have \nexpanded their operations to encompass new partnerships, \nincluding transnational criminal organizations and armed \ngroups.1\n2.\t In its December 2008 report, the Commission on the \nPrevention of Weapons of Mass Destruction Proliferation \nand Terrorism predicted that a terrorist attack using WMDs \nwas likely before 2013.2 We have already seen the willingness \nof terrorists to use chemical, biological, radiological, and \nnuclear (CBRN) weapons in the 1995 sarin attack in Tokyo. \nThis underscores the possibility of damage on a catastrophic \nscale. Booming population centers, interconnected economic \ninfrastructures, and people and goods continually on the \nmove would be especially vulnerable to such an attack. The \nrapidity with which such weapons could be deployed is \nstarkly contrasted with the inertia of bureaucracies tasked \nwith a response.\n3.\t Terrorism and other forms of violent extremism also pose \na threat to fragile states by destabilizing political systems, \ncreating an inhospitable environment for development, and \nthreatening civil liberties and human rights. Moreover, \nterrorist groups have exploited vulnerabilities such as porous \nnational borders, weak governance, limited law-enforcement \ncapacities, fragile governments, and local grievances to \ngenerate permissive conditions for violent extremism and \n\nInternational Peace Institute\n7\nmilitancy to emerge or flourish. As such they challenge not \nonly the authority of the state but its ability to provide the \nnecessary security for achieving progress on development \nobjectives.3\n4.\t The diffusion of terrorist threats across borders, via techno- \nlogy like the internet, alongside the potential for catastrophic \ndamage from the use of WMDs, means that political borders \noffer little security from the effects of a potential terrorist \nattack.4 As one member-state representative noted during the \nIPI Task Force discussions, the collective effort to counter \nterrorism can only be as strong as the weakest state, as any \nstate might be used either as a target, base of operations, or \ntransit route for terrorists. Consequently, the response must \nbe national, regional, and global in scale.\n5.\t States have the primary responsibility for protecting their \npopulations from the threats posed by terrorism. However, \nfollowing a broad recognition that no state, or even group \nof states, can counter terrorism on its own, states\u2019 efforts \nhave often been complemented by well-established bilateral \nand regional cooperation. At the same time, given the often \ncross-regional nature of the terrorist threat, mechanisms \nfor effective cooperation are needed at the global level. To \nthis end, the United Nations, by virtue of its universality \nand legitimacy, has an important complementary role to \nplay. Yet, despite the longstanding presence of terrorism \nas an issue on the UN agenda, the collective response has \nbeen stymied by fundamental disagreements among the UN \nmember states on the nature of terrorism and the appropriate \nresponse by multilateral organizations. Moreover, the UN\u2019s \nefforts have been hampered by unwieldy institutional \narrangements, inconsistent political support, and a lack \nof public understanding of the UN\u2019s role and comparative \nadvantages in countering terrorism.\n\nGLOBAL TERRORISM\n8\n6.\t Divergent threat perceptions and priorities among the global \nNorth and South have also contributed to fragmentation \namong the UN membership on this issue. Developing  \ncountries have raised concerns regarding the possible diver- \nsion of resources toward a security agenda widely perceived \nas favoring developed states. Moreover, the framing of the \nchallenge by the United States as a \u201cGlobal War on Terror\u201d  \nled to perceptions among some that this was an initiative \nmore for the consolidation of American hegemony than one \nof vital consequence to countries where natural disasters, \npoverty, disease, and political violence are perceived as more \npressing human security needs.\n7.\t In addition, tensions remain between the Security Council \nand the General Assembly as to the rightful arbiter of \nmultilateral norms and the appropriate forum for discussing \ncounterterrorism. As a result, each body has developed its \nown set of counterterrorism initiatives and sub-bodies. \n\t\na.\t Following September 11, 2001, the Security Council\u2019s \nResolution (UNSCR) 1373, calling on all states to deny \nterrorists shelter and resources, met with widespread \nsupport. To monitor and facilitate its implementation, the \nCouncil established the Counter-Terrorism Committee \n(CTC) in 2001 and the Counter-Terrorism Executive \nDirectorate (CTED) in 2004 to support its work.5 \nMoreover, the Group of Eight (G8) Counter-Terrorism \nAction Group (CTAG) among other donors also provides \nsupport to the CTC in order to promote implementation \nof UNSCR 1373 and coordinate capacity-building \nassistance to that end.6\n\t\nb.\t In an attempt to reassert its role in countering global \nterrorism, the General Assembly adopted the Global \nCounter-Terrorism Strategy (hereafter, \u201cGCT Strategy\u201d) \nin September 2006. Despite the seemingly intractable \ndebates regarding a definition of terrorism, all member \n\nInternational Peace Institute\n9\nstates unequivocally condemned \u201cterrorism in all its  \nforms and manifestations, committed by whomever, \nwherever and for whatever purposes, as it constitutes \none of the most serious threats to international peace \nand security.\u201d7 This resolution draws on elements \nfrom existing counterterrorism-related treaties and \nagreements to put forward a plan of action in four key \nareas: addressing \u201cconditions conducive\u201d to the spread  \nof terrorism; preventing and combating terrorism;  \nbuilding state capacity to counter terrorism; and \nupholding human rights while countering terrorism. \nSignificantly, the GCT Strategy reflects an acknowledge-\nment by governments that effective counterterrorism \nrequires both \u201chard\u201d and \u201csoft\u201d measures, reflected in \nits plan of action and the thematic range covered by its \nworking groups.8\n\t\nc.\t The Counter-Terrorism Implementation Task Force \n(CTITF) was established in 2005 by the Secretary-\nGeneral to coordinate the efforts of the UN system to \naddress the threat and has been tasked after 2006 with \nsupporting implementation of the GCT Strategy. The \nCTITF brings together development and educational \norganizations, such as the UN Development Programme \n(UNDP), the UN Educational, Scientific, and Cultural \nOrganization (UNESCO), and the UN Children\u2019s Fund \n(UNICEF), with technical assistance providers like \nthe UN Office on Drugs and Crime (UNODC), and \nkey stakeholder departments like the Department of \nPeacekeeping Operations (DPKO), the Department of \nPolitical Affairs (DPA), the Department of Safety and \nSecurity (DSS), and the Office of Legal Affairs (OLA) \nas well as the UNSC\u2019s CT-related bodies. In addition, \nthe group provides multilateral bodies like the World \nBank, the International Criminal Police Organization \n(INTERPOL), the International Atomic Energy Agency \n\nGLOBAL TERRORISM\n10\n(IAEA), and the International Monetary Fund (IMF), a \nvehicle to coordinate with the UN and member states in \naddressing this global challenge.9\n8.\t Although the UN has made positive strides in developing \ngreater coordination in its counterterrorism work and \nimproving cooperation with multilateral partners, some \nmember states and experts remain skeptical. Critics point out \nthat the UN is ill-suited to several of the more operational tasks \ninvolved in fighting terrorism, including preempting strikes \nor developing dedicated intelligence-gathering capacities.10 \nMistrust among states, many of whom have been implicated \nin acts of terrorism, makes it unlikely that they would entrust \nthe UN\u2014or indeed each other\u2014with sensitive information \nrelating to their security establishments or citizens. As a \nresult, though terrorism has confronted the UN for nearly \nsixty years, ever since the 1948 assassination of Count Folke \nBernadotte, the UN has been unable to act with a unified and \npurposeful voice. \n9.\t Given the primary role of states in countering terrorism, \ncooperation among member states has been undertaken \nmostly via bilateral, or in some cases, \u201cplurilateral\u201d channels. \nIn order to play an effective and complementary role, the \nUN system will need to address a number of institutional \nchallenges, outlined below.\ninstitutional challenges\n10.\t In the absence of a comprehensive set of policies guiding \nmultilateral action to counter terrorism, the UN\u2019s response \nhas been largely ad hoc and reactive; responsive rather than \npreemptive. The IPI Task Force discussions suggested three \nkey areas in which the UN faced barriers to more effective \naction: political support, communication, and organization.\n\nInternational Peace Institute\n11\nPolitical Support\n11.\t Support for UN CT activities from states and the global \npublic has been inconsistent and constrained by a limited \nunderstanding of the role and functions of the world body \nand its multilateral partners. \n12.\t The limited membership of the Security Council has \nnarrowed the political support it receives from nonmembers, \nsome of whom believe counterterrorism initiatives \nto be primarily driven by the permanent five Council \nmembers (P5). In addition, the continuing existence of the  \nbetter-resourced Security Council apparatus in coun-\nterterrorism, despite the presence of the CTITF, fuels \nperceptions that the UN\u2019s initiatives to counter terrorism \nare not in the interests of the broad membership. This is \nparticularly relevant as the General Assembly controls the \nworld body\u2019s budget through its Fifth Committee, where \npolitical differences are played out over resource allocation. \nSome member states also expressed resentment regarding \nthe \u201cpeer review\u201d mechanism of the Security Council\u2019s \ncommittees, questioning the qualifications and possible \nbiases of reviewing states.11\n13.\t The authority and enforcement capacity of the Security \nCouncil have also been challenged by some of its own \npractices, such as its reluctance to \u201cname and shame\u201d \nnoncompliant states. Analyzing the Counter-Terrorism \nCommittee, C. S. R. Murthy has pointed out that its warm \nreception from member states is derived to some degree \nfrom this restraint. However, he cautions, \u201cThe Committee \nhas a dilemma: if it wears the enforcement cap, it will lose \nwhatever little confidence it has among certain governments. \nOn the other hand, the present mode of cooperation is not \ntaking the CTC very far either.\u201d12\n\nGLOBAL TERRORISM\n12\n14.\t Inadequate attention to human rights and due process \nwithin the UN\u2019s own work risks eroding the organization\u2019s \ncredibility and moral authority. For example, the listing and \ndelisting processes of the Al-Qaida and Taliban Sanctions \nCommittee (the \u201c1267 Committee\u201d) have drawn fire for \nthe limited opportunities they provide to listed individuals \nto challenge the process. Criticisms of these processes have \neven led to thirty legal challenges to the 1267 Committee\u2019s \nconsolidated list and listing process.13 For example, the \nEuropean Court of Justice, in the case of Yassin Abdullah \nKadi and Al Barakaat International Foundation v Council \nand Commission, concluded that European implementation \nof the Council\u2019s targeted sanctions measures violates due \nprocess rights protected by European law.14 Consequently, \nsince the committee\u2019s new guidelines were adopted in winter \n2008, a review has been taking place of all names currently \non the list.\n15.\t The listing and delisting processes rely heavily on states \nassisting the individuals in question. However, a number of \nmember states have noted that information regarding the \nlisting of their nationals is not always conveyed to them, \nlimiting their capacity to assist. Many of the names provided \nby the US and, to a lesser extent, other members of the P5, \nhave been processed through the listing procedure with \nonly limited\u2014if any\u2014UN independent verification of the \ninformation against them. This has fueled perceptions of \nthe instrumentalization of the Security Council\u2019s counter-\nterrorism measures by its permanent members.\nCommunication\n16.\t The leadership at the UN has not clearly articulated the \ncomparative advantages it enjoys and the vital roles it can \nplay in countering terrorism. Its agencies and departments \nhave a longstanding history of addressing challenges in \nthe realms of development, armed conflict, and human \n\nInternational Peace Institute\n13\nrights, which might be leveraged into initiatives to counter \nterrorism and other forms of violent extremism. \n17.\t Even its presupposed strength in setting international \nnorms\u2014such as nonviolent conflict resolution, the protection \nof civilians, and human rights\u2014has been compromised \nby the very public disagreements among the membership \nregarding the definition, and consequently, suitable response, \nto terrorism.\n18.\t Opportunities presented by the tools of transnational me-\ndia\u2014including satellite communications, cable news, and \nthe internet\u2014have not been harnessed by the UN and its \nCT actors to create a \u201ccounternarrative\u201d to that propagated \nby militants and terrorist groups. This could showcase the \nnegative impact of terrorism on many of the perpetrators\u2019 \nown communities and those they purport to help.\n19.\t The abundance of CT-related bodies at the UN means \nthere is no single spokesperson to clearly articulate the \nrole of the world body in countering terrorism. As a result, \nstatements are often made by several different actors and \nit remains unclear who, or which CT organ, represents the \nentire organization, or indeed the collective efforts of other \nmultilateral bodies.15\n20.\t Engagement between the UN and civil society on counter- \nterrorism remains patchy. The review of the GCT Strategy in \n2008, and the resultant General Assembly (GA) resolution, \nencouraged nongovernmental organizations (NGOs) and \ncivil society to engage, as appropriate, on how to enhance \nefforts to implement the GCT Strategy, including through \ninteraction with member states and the UN.16 However, \ntensions between many governments and civil society, as \nwell as a lack of clarity on how the UN is aligned with their \ninterests and objectives, limit the scope of engagement.17 Yet, \nthe expertise and field presence of many NGOs and other \n\nGLOBAL TERRORISM\n14\ncivil society organizations make them important partners as \nthe UN moves toward implementation of the GCT Strategy.\n21.\t Internally, communications among many UN entities \nremains weak and several states have expressed frustration at \nthe lack of information sharing among the UN\u2019s CT entities, \nas well as between them and the broader membership. \nWithin the Security Council, for example, it took nearly \ntwo years for the CTC to begin sharing information with \nthe other two counterterrorism-related committees working \npursuant to Security Council resolutions 1267 and 1540.18\n22.\t Additionally, priorities expressed by the UN leadership, \nincluding the Secretary-General, the Security Council, and \nthe General Assembly, are not always mirrored in the field. \nFor example, though the GCT Strategy calls for a holistic \napproach to countering terrorism, one in which development \nand education organs of the UN play a big role, there is little \ncollaboration in the field between the UN\u2019s development and \nCT actors in implementing the Strategy.\nOrganizational Shortcomings\n23.\t The reactive nature of the UN\u2019s counterterrorism work \nand the absence of a strategic approach have contributed \nto the proliferation of multilateral actors dealing with \ncounterterrorism in one form or another\u2014seventy within \nthe multilateral system and twenty-three within the UN \nalone\u2014creating a labyrinth of overlapping mandates and \nfunctions among them.19 The European Union, for example, \nhas its own counterterrorism strategy and action plan, \nand has accompanied CTED on three missions (Morocco, \nAlbania, and Kenya).20 The reporting requirements many of \nthese actors impose on member states have led several repre-\nsentatives to complain of \u201creporting fatigue\u201d and bureaucratic \noverstretch in capitals, and the difficulty of communicating \nwith so many varied focal points regarding CT issues.\n\nInternational Peace Institute\n15\n24.\t In 2005, then UN Secretary-General Kofi Annan encouraged \n\u201cthe Security Council to consider ways to strengthen its \nmonitoring and enforcement role in counter-terrorism, \nincluding by consolidating State reporting requirements, \ntaking into account and respecting the different mandates \nof its counter-terrorism subsidiary bodies.\u201d21 Despite \nthis, member states remain obligated to engage with each \ncommittee separately, via reports as well as dialogue, while \ninformation sharing among them remains limited.\n25.\t Additionally, the presence of bureaucratic \u201csilos\u201d at the United \nNations has led to the separation of activities on security, \nhuman rights, development, and humanitarian assistance, \namong other issues. As a result, the UN has struggled to \naddress multifaceted transnational security challenges that \ncut across these seemingly arbitrary divisions.22 The growing \nrecognition of linkages between terrorist and extremist \ngroups as well as organized criminal networks and illicit \ntrafficking in weapons and narcotics further highlights \nthe anachronistic nature of such compartmentalization.23 \nThis prevents the vital interdepartmental cooperation and \ncollaboration necessary for a comprehensive and strategic \napproach to contemporary global terrorism. \n26.\t The CTITF was established to help overcome some of these \nchallenges; however it has been constrained by a lack of \nsufficient personnel and resources in its secretariat to meet \nthe demands of member states. Moreover, the CTITF is \nlargely dependent on voluntary contributions rather than \nthe regular assessed budget of the UN. This has limited the \nCTITF\u2019s ability to develop long-term work plans. And it has \nfed perceptions among some member states that the CTITF\u2019s \ninitiatives and its working groups are primarily \u201cdonor \ndriven,\u201d rather than focusing on the implementation of the \nGCT Strategy in the interest of the broader membership. \n\nGLOBAL TERRORISM\n16\n27.\t The proliferation of bodies both within the UN and the \nmultilateral system more widely has resulted in a lack \nof clarity about their relationship to one another, their \ncomparative advantages, and, consequently, their leadership. \nFor example, it remains unclear how the GCT Strategy \ninterfaces with the work of the Security Council, or how \nCTED relates to the CTITF, in particular because CTED\u2019s \nExecutive Director will hold a higher rank than the incoming \nfull-time Chair of the CTITF.\n28.\t There is little sustained coordination or engagement between \nUN headquarters in New York (UNHQ) and partners in \nthe field, such as national counterterrorism practitioners \nor regional and subregional organizations. And there is a \ncorresponding lack of field presence among the UN\u2019s CT \nstaff, resulting in analytical and operational limitations. Thus \nthe \u201cNew York process\u201d is seen as distant from challenges on \nthe ground and focused on political posturing rather than \nsupporting functional counterterrorism efforts. Moreover, \nthe UN has not been able to draw on the expertise and \ncontextual knowledge of these actors to devise a strategic \napproach to countering terrorism together.\n\nInternational Peace Institute\n17\nWHAT SHOULD BE DONE\n\nGLOBAL TERRORISM\n18\nIdeas for Action\ni.\t strengthen political support for the \nun\u2019s role in countering terrorism\n29.\t Form a cross-regional group or a contact group: Member \nstates should form a cross-regional group to support the \nimplementation of the GCT Strategy: one permutation of \nthis could be in the form of a group of friends\u2014of the GCT \nStrategy or the CTITF\u2014that ensures representation from \nall the UN\u2019s regional groups. Although member states are \ninformally working with the CTITF\u2019s working groups to \npromote specific elements of their work, a group of friends \ncould engage more robustly with the Secretary-General and \nhis Executive Office to offer policy support to the UN\u2019s CT \nactivities, and provide a core group of interested states to \nimplement the GCT Strategy;\n30.\t Alternatively, the member states could convene a contact \ngroup to support the GCT Strategy\u2019s implementation through \nresource allocation, and political, analytical, or operational \nsupport to UN CT bodies and states requesting assistance. \nA model for this, which brings together not only member \nstates but also relevant multilateral bodies, is the Contact \nGroup on Piracy Off the Coast of Somalia, which includes \nrepresentatives from Australia, China, Denmark, Djibouti, \nEgypt, France, Germany, Greece, India, Italy, Japan, Kenya, \nRepublic of Korea, the Netherlands, Oman, Russia, Saudi \nArabia, Somalia TFG, Spain, Turkey, United Arab Emirates, \nUnited Kingdom, United States, and Yemen, as well as the \nAfrican Union, the European Union, the North Atlantic \nTreaty Organization (NATO), the UN Secretariat, and the \nInternational Maritime Organization.24\n31.\t Support budgetary allocations: Member states should  \nsupport budgetary allocations for the UN\u2019s counterterrorism \n\nInternational Peace Institute\n19\nwork in the General Assembly\u2019s Fifth Committee. In parti- \ncular, allowing the CTITF to be funded from the regular budget \nwould increase predictability in developing its workplan and \nreduce its dependency on voluntary contributions or staff \nsecondments, largely from developed countries, which give \nrise to perceptions that all its activities are \u201cdonor driven\u201d by \nNorthern states. \n32.\t Ensure a more robust human-rights approach: The UN \nSecurity Council should ensure a more robust human-rights \napproach within its own counterterrorism activities. To \nthat end, the Security Council ought to promote greater \ncooperation among the Security Council, CTITF, and \nUN human rights mechanisms, in particular the Special \nRapporteur on the Promotion and Protection of Fundamental \nFreedoms and Human Rights While Countering Terrorism. \nThe UN human rights and counterterrorism apparatuses \nshould work together to develop human rights best practices \nin the context of implementing the UN counterterrorism \nmandates. In addition, efforts should be increased to review \nthe listing/delisting processes of the Al-Qaida and Taliban \nSanctions Committee, not only those individuals and entities \ncurrently listed. Furthermore, the Security Council should \ndirect the 1267 Committee to inform member states whose \nnationals are listed.\n33.\t Promote greater dialogue among CTITF members, Security \nCouncil members, terrorism and country experts, the \nbroader UN membership, regional organizations, and civil \nsociety: The CTITF, or independent research institutions in \npartnership with the UN, should host a series of thematic \ndiscussions, based on the reports relating to counterterrorism \nby its constituent members and the best practices emerging \nfrom them. \n34.\t Promote medium- to long-term research by a consortium \nof independent think tanks, universities, and other research \n\nGLOBAL TERRORISM\n20\ninstitutions. Research should focus on the ability of the \nmultilateral system to address the security challenges posed \nby terrorist nonstate actors and to support fragile states in \ndeveloping the resilience necessary to resolve them peacefully. \nThe findings from such an initiative should inform the \ndevelopment of counterterrorism and counterradicalization \npolicies that are closely aligned with national security and \ndevelopment priorities of member states. \niI.\t enhance strategic communications\n35.\t Use the \u201cbully pulpit\u201d: The Secretary-General should not \nhesitate to use his bully pulpit to clearly articulate the UN\u2019s \nrole and comparative advantages. To that end, the CTITF \ncould work closely with the UN Department of Public \nInformation (UNDPI) and develop a global media campaign \nto reaffirm the UN\u2019s core values in protecting civilians \nand human rights, and highlighting the impact of terrorist \nviolence on victims and communities. Such a campaign \ncould do the following:\n \n\u2022 Increase awareness and visibility of the GCT Strategy \namong member states and civil society groups. At present, \nfamiliarity with the GCT Strategy in many states extends \nno further than officials of foreign ministries and their UN \ndesks;\n \n\u2022 Highlight the tools available within the UN system to assist \nstates and civil society in addressing each of the pillars in \nthe GCT Strategy;25\n \n\u2022 Generate an information kit or reference guide that can be \nused by member states to distribute among government \npersonnel, counterterrorism practitioners, and domestic \nmedia outlets in order to promote the GCT Strategy and \nfamiliarize them with the UN tools for counterterrorism;\n\nInternational Peace Institute\n21\n \n\u2022 Finally, such a campaign could also highlight the ways \nin which organizations like the World Bank, the G8\u2019s \nCounter-Terrorism Action Group, INTERPOL, the IAEA, \nand the IMF, work together with the UN. Though some \ninformation is available via the CTITF website, it is often \ngeneric in nature and does not describe in detail their \ncooperative efforts.\n36.\t Promote system-wide consistency in implementing the \nGCT Strategy: The UN leadership should promote a holistic \nand consistent approach to implement the GCT Strategy \nwithin the UN system. To do so the EOSG should clearly \ndirect all UN agencies and funds, and constituent members \nof the CTITF, to support GCT Strategy implementation, at \nheadquarters and in the field. \n37.\t Designate a single UN spokesperson: The EOSG should \ndesignate a single spokesperson to provide a recognizable \nfocal point representing the collective efforts of the world body \nwithin, and outside, the organization. Such a spokesperson \ncould also serve as a clearinghouse for public information \nregarding the UN\u2019s CT work. \n38.\t Strengthen engagement with civil society and the private \nsector: The CTITF and the Security Council\u2019s counterterror-\nism experts should continue to strengthen their engagement \nwith civil society and the private sector to further the \nimplementation of UNSCRs 1267, 1373, and 1540, and the \nGCT Strategy. This might be achieved through a series of \nworkshops, hosted by the UN or partner organizations, \nto bring private sector representatives and civil society \norganizations together with the UN\u2019s CT bodies and explore \nways in which they could contribute to implementing the \nfour pillars of the GCT Strategy.\n\nGLOBAL TERRORISM\n22\niII.\t deepen relationships between un \nheadquarters and national and \nregional partners\n39.\t Develop regional strategies with regional and subregional \norganizations: The UN should increase its engagement with \nregional and subregional organizations, and the CTITF and \nCTED should develop regional strategies informed by these \nrelationships.26 The CTITF or CTED should host a series \nof meetings, in association with regional and subregional \norganizations, to strengthen multilateral partnerships \nwith regional stakeholders and to facilitate the exchange of \nlessons learned and best practices on countering terrorism. \nSuch meetings could also be used to promote functional \ncooperation among regional counterterrorism practitioners \nand provide opportunities for the UN system to contribute to \nbuilding national and regional CT capacity.\n40.\t Institute staff exchanges between UN and regional \norganizations: Partnerships between the UN system and \nregional/subregional organizations should be strengthened \nthrough staff exchanges or rotations. This could take place in \ntwo different ways. UN staff may be seconded to regional or \nsubregional organizations at their request, or that of member \nstates, for three- to six-month periods, in order to promote a \nstronger partnership and support regional implementation of \nthe GCT Strategy. Alternatively, regional organizations could \nsecond staff to work with the CTITF, thereby contributing \nresources and regional expertise to inform a more strategic \napproach to promoting and implementing the GCT Strategy \nand UN CT initiatives. \n41.\t Relocate expert CTED staff to key states or peace operations: \nCouncil decisions could be shaped by direct information \nfrom the field and this could also help develop and sustain \npartnerships with national and regional practitioners. \nCTED regional experts should be relocated to the places \n\nInternational Peace Institute\n23\nwhere member states signal the most need for assistance in \naddressing the terrorist threat. \n42.\t Fund secondments from the global South to the CTITF: \nDonors providing voluntary contributions to the CTITF \nshould consider funding secondments of officers from the \nglobal South to the CTITF, to promote broader regional \nrepresentation and enhance its operational and analytical \ncapacities. \niV.\tstreamline and consolidate un \nbureaucracy to address counter-\nterrorism\n43.\t Continue to streamline and consolidate the UN counter- \nterrorism architecture: In the short term, the institution-\nalization of the CTITF within DPA, as put forward in a \nCTITF briefing of member states on March 3, 2009, provides \na foundation for this. Member states joined the Secretary-\nGeneral, during the 2008 review, in asserting that GCT \nStrategy implementation remains the primary responsibility \nof states. However, demands made on the CTITF for  \nincreased information, engagement, and activity to \nsupport states in implementing the GCT Strategy are not  \nmatched by the resources it has been allocated. Consequent- \nly, it is important that the CTITF be granted the necessary \nfunding and personnel to meet the demands for more \nproactive engagement by the UN membership. Additionally, \nit will be important for the Chair to be invested with the \nnecessary rank, political authority, and mandate to effect- \nively coordinate all the CTITF\u2019s constituent bodies and \nworking groups.\n44. The allocation of three professionals and one administrative \nassistant to the CTITF, as announced in March 2009, is a \nstep in the right direction. However, it would be useful if \nthe CTITF could also develop in-house expertise in areas \n\nGLOBAL TERRORISM\n24\ncovered by the GCT Strategy to increase the effectiveness of \nits staff liaising with specialized agencies and organizations. \nFurthermore, it would mean that member states could have \na designated point-person on specific subjects, streamlining \nthe communications process. \n45. Broadly speaking, the thematic areas covered by the GCT \nStrategy may be broken down as development, preventing \nand combating terrorism\u2014and ensuring the necessary state \ncapacity to do so\u2014and human rights. Consequently, each  \narea should be covered by a CTITF staff member; a \ndevelopment officer should be made responsible for liaising \nwith UNDP, UNICEF, and UNESCO, for example. Should \nmember states or partners require information about deve-\nlopment-related CT work then, there would be an obvious \nfocal point within the CTITF. The CTITF could consider \nallowing the informal participation, or attendance, of other \nCT multilateral or regional bodies, such as the European \nUnion\u2019s, at CTITF meetings with \u201cobserver\u201d status. This \ncould help promote more regular information sharing among \nmultilateral bodies engaged in counterterrorism and help \navoid duplication in their programs.\n46. Hold biennial reviews and assess the CTITF in the 2010 \nreview of the GCT Strategy: The General Assembly should \nensure that the 2010 review of the GCT Strategy will assess \nthe CTITF and its role in supporting the UN\u2019s counter- \nterrorism activities and address the relevant resource- \nallocation needs. Member states should encourage a biennial \nreview, based on a series of benchmarks established to \nassess progress made by the CTITF and its contribution \nto countering global terrorism. In setting these, member \nstates should consider assessing the added value of the body, \nwhether it fulfills its stated aim of becoming a \u201cone stop  \nshop\u201d and thereby lessen the burden on member states \nby creating a single focal point for them to engage with \n\nInternational Peace Institute\n25\nthe UN on CT issues. Additionally, states should assess \nwhether having the CTITF promotes greater cooperation and \ncoordination among its constituent members, and to what \nextent it is able to effectively contribute to states\u2019 efforts to \ncounter terrorism. \n47.\t Consider the long-term centralization of UN counter- \nterrorism work in a single office: In the long run, the  \nmember states will need to decide whether the current \narrangement sufficiently meets their needs and consider \na bolder means of streamlining the world body\u2019s CT work \nin a truly centralized organization or office. This requires \nresolving the relationship between CTED and the CTITF, \nand nominating one as the centralized authority on CT \nwithin the UN. Several models for this have been already \nput forward. One would take CTED out of the Security \nCouncil and make it an independent office within the UN \nSecretariat, with its Executive Director serving as Chair of \nthe Task Force.27 Others include adapting the Peacebuilding \nCommission (PBC) model\u2014with its diverse membership, \nflexible committees, and supporting office and fund\u2014for \ncounterterrorism.28 Some have advocated an independent \ncounterterrorism organization designed around a treaty or as \na UN program.29 Additionally, a recent report recommended \na UN High Commissioner for Counterterrorism Capacity \nBuilding, with a High Commissioner modeled on that for \nrefugees (the Office of the United Nations High Commissioner \nfor Refugees [UNHCR]). Those on the Commission\u2019s board \nwould have to prove compliance with existing UN counter-\nterrorism treaties.30\n48. Streamline reporting requirements and consolidate expert \nstaff: Following the recommendations made within the 2005 \nWorld Summit Outcome Document, the Security Council \nshould streamline the reporting requirements and engagement \nwith countries related to the work of the 1267, 1373, and 1540 \n\nGLOBAL TERRORISM\n26\ncommittees and consider consolidating their expert staff.31 \nThe expert groups of these committees might be merged \nunder a single chair, with three vice chairs each focusing on \nUNSCRs 1267, 1373, and 1540 respectively, to reduce member \nstates\u2019 reporting burdens. Since Security Council members \nconstitute all three committees, member states might submit \na single detailed report regarding their efforts to implement \nthe three resolutions, with subsections addressing each \nresolution as necessary. Should the Council wish to take \nthe bolder step of consolidating its three counterterrorism-\nrelated committees, it could adopt a similar structure with a \nsingle chair and vice chairs for each resolution.32\nConclusion\n49.\t The rapidly evolving nature of global terrorism, including its \ntransnational scope, links to organized crime, the possible \nuse of WMDs, and the flow of small arms and light weapons, \nmakes the need for international cooperation on this issue \nparticularly urgent. The potential impact of terrorism on \nthe socioeconomic stability of developing\u2014and developed\u2014\nstates, as well as its potential to destabilize fragile political \nsystems and jeopardize delicate diplomatic relationships, \nmake it a critical issue for the UN and its partners.\n50.\t Among the most recurrent themes in the IPI Task Force \ndiscussions was the need to streamline and better resource \nUN bodies engaged in countering global terrorism. However, \na key element of achieving this will be a decision by the \nmember states and the UN leadership regarding how they \nwish to address the threat at the global level and how much \nthey want to spend in doing so. \n51.\t The obstacles facing the CTITF in effectively coordinating \nUN agencies and in engaging frequently with member states, \nthe limits of CTED\u2019s ability to gain field-level knowledge and \n\nInternational Peace Institute\n27\ndevelop networks on the ground, the emphasis on process \nover substance due to an inability to regularly convene \nexpert practitioners: each of these challenges requires the \nallocation of resources in order to be overcome. This is not \nto say that additional funds will be necessary; resources \nmay be reallocated from within the UN system to support \nits CT activities. Their success or failure will depend on the \nUN Secretariat and its ability to make the case for a more \ncoordinated, consolidated, and streamlined CT architecture. \n52.\t However, the quality and efficacy of the UN\u2019s initiatives to \ncounter terrorism will depend primarily on member states \nand their willingness to strengthen multilateral capacity \nto address the terrorist threat. During the review of the \nGCT Strategy, the member states reaffirmed their primary \nresponsibility for its implementation. Consequently, the  \nfuture role of the UN in countering global terrorism will \ndepend on its members\u2019 weighing the cost of inaction against \nthe costs and benefits of empowering the United Nations and \nthe multilateral system to maintain international peace and \nsecurity in the face of transnational security challenges like \nglobal terrorism.\n\nGLOBAL TERRORISM\n28\nEndnotes\n1.\t\nSee, for example, the IPI Blue Paper in this series on transnational \norganized crime. International Peace Institute, \u201cTransnational \nOrganized Crime,\u201d IPI Blue Paper no. 2, Task Forces on \nStrengthening Multilateral Security Capacity, New York, 2009.\n2.\t\nCommission on the Prevention of WMD Proliferation and \nTerrorism, World at Risk: The Report of the Commission on the \nPrevention of WMD Proliferation and Terrorism (New York: \nVintage, 2008).\n3.\t\nEric Rosand, Naureen Chowdhury Fink, and Jason Ipe, \n\u201cCountering Terrorism in South Asia: Strengthening Multilateral \nEngagement,\u201d (New York: International Peace Institute, May \n2009).\n4.\t\nTim Stevens and Peter Neumann, \u201cCountering Online \nRadicalisation: A Strategy for Action,\u201d (London: International \nCenter for the Study of Radicalisation and Political Violence, \nJanuary 2009).\n5.\t\nAmong the Security Council\u2019s other counterterrorism-related \ncommittees is Al-Qaida and Taliban Sanctions Committee, \nestablished pursuant to UNSCR 1267 (the \u201c1267 Committee\u201d), \nimposing sanctions and financial penalties on al-Qaida or Taliban \nmembers and supporters, as designated on the Committee\u2019s \nConsolidated List. Additionally, the 1540 Committee, established \nto support UNSCR 1540, obliges states to refrain from supporting \nnonstate actors in developing, acquiring, manufacturing, \npossessing, transporting, transferring, or using nuclear, chemical, \nor biological weapons and their delivery systems.\n6.\t\nFor a full description of CTAG\u2019s proposed functions, visit www.\ng8.fr/evian/english/navigation/2003_g8_summit/summit_\ndocuments/building_international_political_will_and_capacity_\nto_combat_terrorism_-_a_g8_action_plan.html .\n7.\t\nUnited Nations, \u201cGlobal Counter-Terrorism Strategy,\u201d September \n2006, available at www.un.org/terrorism .\n\nInternational Peace Institute\n29\n8.\t\nThe current working groups of the CTITF are as follows: \nIntegrated Assistance for Countering Terrorism (I-ACT) (formerly \nknown as the Working Group on Integrated Implementation); \nPreventing and Resolving Conflicts; Supporting and Highlighting \nVictims of Terrorism; Preventing and Responding to WMD \nAttacks; Tackling the Financing of Terrorism; Countering \nthe Use of the Internet for Terrorist Purposes; and Protecting \nHuman Rights while Countering Terrorism. The Working \nGroup on Radicalization and Violent Extremism that Leads to \nTerrorism has been transformed into a UNICRI (United Nations \nInterregional Crime and Justice Research Institute) Center on \nPolicies to Counter the Appeal of Terrorism. Further information \nis available at http://un.org/terrorism/cttaskforce.shtml .\n9.\t\nEach of these organizations has a representative who participates \nin meetings of CTITF members.\n10.\t Edward C. Luck, \u201cThe Uninvited Challenge: Terrorism Targets \nthe United Nations,\u201d in Multilateralism Under Challenge: Power, \nInternational Order, and Structural Change, edited by Edward \nNewman and Ramesh Thakur (Tokyo: United Nations University \nPress, 2005), pp. 5-20.\n11.\t The Security Council\u2019s committees are constituted by its member \nstates: five permanent members and ten elected ones. Reviews of \nCTED\u2019s reports and the CTC\u2019s work are therefore conducted by \nSecurity Council member states, which has given rise to wariness \nand suspicion among some nonmembers.\n12.\t C. S. R. Murthy, \u201cThe Counter-Terrorism Committee: An \nInstitutional Analysis,\u201d FES Briefing Paper no. 15 (New York: \nFriedrich Ebert Stiftung, September 2007).\n13.\t Security Council Report, \u201cMonthly Forecast May 2009,\u201d New \nYork, April 30, 2009, pp. 17-19.\n14.\t \u201cThe EU imposed sanctions on Qadi, a Saudi businessman, and \nal-Barakaat, a money remitter in Sweden, when they appeared on \nthe UN Security Council\u2019s Al-Qaida/Taliban list in October 2001. \nAlthough countries must implement Security Council sanctions, \nthey can choose how to do so. EU member states adopted a \nregulation that automatically applied sanctions to any individual \nor entity mentioned by the UN. The sanctions include an assets \nfreeze and severe travel restrictions. The ECJ [European Court \n\n30\nGLOBAL TERRORISM\nof Justice] overturned a lower court ruling that suggested EU \nmember states had little choice but to handle UN designations \nin this pro forma manner. The ECJ decided that despite their \nobligations under the UN Charter, EU members could not adopt \na regulation that infringed rights integral to EU law. What most \nconcerned the court was that the listed parties were not informed \nof their wrongdoing and had no opportunity to put their case \nbefore an independent review body.\u201d Richard Barrett, \u201cAl Qaeda \nand the Taliban Sanctions Threatened,\u201d Policy Watch no. 1409 \n(Washington, DC: Washington Institute, October 2008). \n15.\t The potential for UN leadership to raise awareness and catalyze \nactivity was demonstrated at a September 2008 Symposium on \nVictims of Terrorism convened by the Secretary-General in New \nYork. It brought together victims, experts, and member states in a \nfirst discussion to raise awareness of the issue and bring together \nkey actors to exchange ideas on boosting state capacity to support \nvictims of terrorism. A report summarizing the recommendations \nof participants was published in March 2009.\n16.\t United Nations General Assembly, Letter from General Assembly \nPresident to Member States Dated August 18, 2008, available at \nwww.un.org/ga/president/62/letters/CTS180808.pdf .\n17.\t Eric Rosand, Alistair Millar, and Jason Ipe, \u201cCivil Society and \nthe Global Counter-Terrorism Strategy: Opportunities and \nChallenges,\u201d (New York: Center on Global Counterterrorism \nCooperation, September 2008).\n18.\t Murthy, \u201cThe Counter-Terrorism Committee.\u201d\n19.\t See Annex 1 of this paper for background non-paper.\n20.\t The EU Strategy also has four pillars (prevent, protect, pursue, \nand respond), and requires member states to submit reports \noutlining measures undertaken to implement the strategy. \nFurther information is available at http://register.consilium.\neuropa.eu/pdf/en/05/st14/st14469-re04.en05.pdf .\n21.\t United Nations, 2005 World Summit Outcome, UN Doc. A/\nRES/60/1, October 24, 2005, para. 90.\n22.\t James Cockayne and Christoph Mikulaschek, \u201cTransnational \nSecurity Challenges and the UN: Overcoming Sovereign Walls \n\nInternational Peace Institute\n31\nand Institutional Silos,\u201d (New York: International Peace Academy, \nFebruary 2008).\n23.\t See, for example, Library of Congress, \u201cA Global Overview of \nNarcotics-Funded Terrorist and Extremist Groups,\u201d (Washington, \nDC, 2002).\n24.\t Recently, an \u201cInternational Process on Global Counterterrorism \nCooperation,\u201d led by Switzerland, Austria, Japan, Norway, Costa \nRica, and Slovakia, in cooperation with the CTITF, UNODC, \nand CTED, established an ad hoc platform under UN auspices \nthat allows for, inter alia, the CTITF to engage with member-state \nexperts on discrete topics. See Center on Global Counterterrorism \nCooperation, \u201cInternational Process on Global Counterterrorism \nCooperation: A Compilation of Key Documents,\u201d (New York: \nCGCTC, September 2008). Such initiatives could lay the \ngroundwork for a group of friends or contact group.\n25.\t The four pillars are (1) addressing conditions conducive to \nterrorism; (2) preventing and combating terrorism; (3) building \nstate capacity to counter terrorism; and (4) defending human \nrights while countering terrorism.\n26.\t See, for example, the recommendations in Rosand, Fink, and Ipe, \n\u201cCountering Terrorism in South Asia,\u201d pp. 25-27.\n27.\t These recommendations were supported by a large group of \nmember states participating in the Swiss-led International Process \non Global Counter-Terrorism Cooperation, a series of workshops \nbringing together experts, diplomats, UN offices, and NGOs. See \nCGCTC, \u201cInternational Process on Global Counter-Terrorism \nCooperation.\u201d\n28.\t Murthy, \u201cThe UN Counter Terrorism Committee,\u201d p. 12.\n29.\t Alistair Millar and Eric Rosand, Allied Against Terrorism: What\u2019s \nNeeded to Strengthen Worldwide Commitment (New York: \nCentury Foundation, 2006), p. 55.\n30.\t See, for example, Managing Global Insecurity, \u201cA Plan for Action: \nA New Era of International Cooperation for a Changed World: \n2009, 2010, and Beyond,\u201d September 2008, available at www.\nbrookings.edu/~/media/Files/rc/reports/2008/11_action_plan_\nmgi/11_action_plan_mgi.pdf , p. 29; and Eric Rosand, \u201cFrom \n\n32\nGLOBAL TERRORISM\nAdoption to Action: The UN\u2019s Role in Implementing its Global \nCounterterrorism Strategy,\u201d Policy Brief (New York: CGCTC, \nApril 2009).\n31.\t United Nations, 2005 World Summit Outcome, UN Doc. A/\nRES/60/1, October 24, 2005, p. 23.\n32.\t Millar and Rosand, Allied Against Terrorism, p. 39.\n\nInternational Peace Institute\n33\nFurther Reading\nBenjamin, Daniel. \u201cStrategic Counterterrorism.\u201d Policy Paper \nno. 7. Washington, DC: Brookings Institution, October \n2008.\nBoulden, Jane, and Thomas G. Weiss. Terrorism and the UN: \nBefore and After 9/11. Bloomington, IN: University of \nIndiana Press, 2004.\nCenter on Global Counterterrorism Cooperation. \u201cThe UN \nGlobal Counterterrorism Strategy: Raising Awareness and \nExploring the Role for Civil Society in Contributing to its \nImplementation.\u201d Workshop Summary. New York, July \n2008.\nCockayne, James, and Christoph Mikulaschek. \u201cTransnational \nSecurity Challenges and the United Nations: Overcoming \nSovereign Walls and Institutional Silos.\u201d New York: \nInternational Peace Academy, February 2008.\nMillar, Alistair, and Eric Rosand. Allied Against Terrorism: \nWhat\u2019s Needed to Strengthen Worldwide Commitment. New \nYork: Century Foundation, February 2006.\nMurthy, C. S. R. \u201cThe Counter-Terrorism Committee: An \nInstitutional Analysis,\u201d FES Briefing Paper no. 15. New \nYork: Friedrich Ebert Stiftung, September 2007.\nRosand, Eric. \u201cGlobal Terrorism: Multilateral Responses to an \nExtraordinary Threat.\u201d Coping with Crisis Working Paper \nSeries. New York: International Peace Academy, April 2007. \nRosand, Eric, Alistair Millar, and Jason Ipe. \u201cThe UN Security \nCouncil\u2019s Counterterrorism Program: What Lies Ahead?\u201d \nNew York: International Peace Academy, October 2007.\nRosand, Eric, Naureen Chowdhury Fink, and Jason Ipe. \n\u201cCountering Terrorism in South Asia: Strengthening \n\n34\nGLOBAL TERRORISM\nMultilateral Engagement.\u201d New York: International Peace \nInstitute, May 2009.\nStanley Foundation, The. \u201cImplementation of the UN Global \nCounterterrorism Strategy: 42nd Conference on the United \nNations of the Next Decade.\u201d Muscatine, IA: 2007\nUN General Assembly Resolution 62/272 (September 15, 2008). \nUN Doc. A/RES/62/272.\nWeinberg, Leonard. Democratic Responses to Terrorism. New \nYork: Routledge, 2008.\n\nInternational Peace Institute\n35\nAnnex 1: Background Non-paper\napril 1, 2008\n1.\t What are the current policy and institutional shortcomings \nin multilateral security capacity for global terrorism?\n\u2022 The generally ad hoc and reactive approach, which has led to the \ninvolvement of some seventy multilateral bodies (twenty-three \nin the UN alone), with often overlapping mandates, insufficient \ninformation sharing and other coordination and cooperation \namong them.\n\t\nu\t For example, the proliferation of Security Council \ncounterterrorism-related resolutions and subsidiary bodies, \noften hastily adopted and established in response to specific \ncrises, has produced turf battles between and among \ncommittees and expert groups, duplication of work, and \nmultiple and sometimes confusing reporting requirements \nfor states. Many states have also highlighted \u201creporting \nfatigue\u201d resulting from burdensome reporting requirements \nto multiple bodies on the same or similar subjects.\n\u2022 Lack of an effective intergovernmental mechanism to \nhelp coordinate the activities of these bodies, identify \ncounterterrorism capacity gaps and priorities, work with donors \nto fill the gaps, maximize use of limited resources, engage \nwith national counterterrorism practitioners (as opposed to \ndiplomats), and allow for the participation of a broad range of \nstates and other key stakeholders. \n\u2022 The central role the Security Council has played has limited \nthe effectiveness of the multilateral response. Suffers from \na perceived lack of legitimacy and the sense that it is closely \nconnected with the US-led \u201cGlobal War on Terror.\u201d This has led \nto continuing tensions between the Council and the General \nAssembly, although adoption of UN Global Counter-Terrorism \nStrategy has the potential to ameliorate the situation.\n\u2022 Heavy emphasis on paper and process (to the detriment \nof developing the necessary analytical capacity to assess \nimplementation and results), with limited ability to engage \n\nANNEX 1\n36\nstrategically and effectively with, and deliver technical assistance \nto, local stakeholders. The lack of a meaningful presence in the \nfield impedes the UN\u2019s ability to work more closely with states, \nand regional and subregional bodies, and thus to understand \nlocal needs, interests, and perspectives.\n\u2022 Over-emphasis on law enforcement and other security-related \nactivities and programs and difficulties in operationalizing a \nholistic approach to addressing terrorism, which is now reflected \nin UN strategy. \n\u2022 Difficulties in keeping up with the evolving nature of the threat.\n\u2022 Uneven capacity (and political interest) of regional and \nsubregional bodies, with institutional capacity often the weakest \nin regions and subregions where the terrorist threat and national \ncapacity needs are the greatest.\n\u2022 Difficulties in operationalizing the \u201chuman-rights-based \napproach\u201d to countering terrorism that underpins the UN \nstrategy, partly as a result of insufficient cooperation and \ninformation sharing between the primary UN counterterrorism \nactors and UN human rights machinery, as well as lack of \nresources and political will.\n\u2022 Tendency of the \u201cleading\u201d global counterterrorism players to \nmarginalize the role of the UN and some other multilateral \ninstitutions in this area and to favor bilateral channels for \ncounterterrorism cooperation. As a result, the UN tends to play \na limited role in regions where there is significant and effective \nbilateral counterterrorism engagement.\n\u2022 Lack of clearly identified leader within the UN.\n\u2022 Lack of a common definition of \u201cterrorism.\u201d \n2.\t Why have previous attempts to address these shortcomings \nfailed?\n\u2022 Few such attempts, although former Secretary-General Kofi \nAnnan\u2019s report In Larger Freedom and the 2005 World \nSummit Outcome document did try to address some of the \nshortcomings.\n\u2022 The adoption of the UN Global Counter-Terrorism Strategy \n\nInternational Peace Institute\n37\npresents an opportunity to address some of the institutional \nshortcomings at the global, regional, and subregional levels. Its \ninclusion of not only security-related issues, but also ones related \nto conditions conducive to the spread of terrorism, such as \npoverty and lack of good governance, give it broader appeal than \nthe Security Council counterterrorism program. \n\t\nu\t For example, the proliferation of Security Council \ncounterterrorism-related resolutions and subsidiary bodies, \noften hastily adopted and established in response to specific \ncrises, has produced turf battles between and among \ncommittees and expert groups, duplication of work, and \nmultiple and sometimes confusing reporting requirements \nfor states. Many states have also highlighted \u201creporting \nfatigue\u201d resulting from burdensome reporting requirements \nto multiple bodies on the same or similar subjects.\n\t\nu\t The main strategy recommendation regarding organizational \narchitecture focuses on the UN Counter-Terrorism \nImplementation Task Force (CTITF). Its limited composition \nand mandate and resource limitations present challenges, \nhowever. These limitations are largely the result of the \nresistance of the P5 and some other countries to giving it a \nlarger role.\n\t\nu\t Addressing these challenges will be critical to maximizing \nthe UN\u2019s long-term counterterrorism contributions and \nimproving both horizontal and vertical multilateral \ncounterterrorism cooperation.\n\t\nu\t The General Assembly\u2019s first formal review of the strategy in \nSeptember 2008 provides an opportunity to address some of \nthese shortcomings.\n\u2022 Lack of political leadership (and interest) from both the \nSecretary-General and key member states in different regions. \n\u2022 Continuing differences between the P5 and much of the wider \nUN membership on whether the Security Council should \ncontinue to be at the center of the UN effort, with the P5 \ngenerally reluctant to consider any proposal that might lead to a \ndiminution of its counterterrorism role.\n\u2022 The tendency of reform efforts in this area to get bogged down \n\nANNEX 1\n38\nby differences on the definition of terrorism and the larger \n\u201cGeneral Assembly vs. Security Council\u201d debates, rather than \nfocusing on ways to improve the UN\u2019s (and larger multilateral) \ncounterterrorism program.\n\u2022 Lack of a serious effort to (1) identify the comparative \nadvantages in the fight against terrorism of the UN and other \nmultilateral bodies more than six years after September 11, \n2001; (2) assess the current approach; and (3) identify the \nshortcomings and how reform in this area could benefit both the \nP5 and the wider UN membership.\n\u2022 A tendency to defend existing mandates and protect existing \nresources. \n\u2022 Failure to try to build a cross-region coalition of states to move \nthis agenda forward. \n3.\t What policies and institutional renovations, including legal \nframeworks and financial arrangements, are needed?\n\u2022 Within the UN, there is a range of steps that could be taken \nto address some of the above shortcomings, none of which are \nmutually exclusive. These include:\n\t\nu\t Consolidating the different Security Council counterterrorism \nexpert groups and/or committees into a single unit and/or \nbody.\n\t\nu\t Moving the Council counterterrorism expert groups into a \nnewly created UN department (or office) of counterterrorism, \nwhich could support both the UN Counter-Terrorism \nImplementation Task Force and the Council bodies, with the \nhead of the department/office also becoming the head of the \nTask Force.\n\t\nu\t Establishing a new intergovernmental mechanism (perhaps \nin lieu of CTC) within the UN to allow for broader member-\nstate participation in the development and oversight of UN \ncounterterrorism activities.\n\t\n\t Alternatively, consideration could be given to establishing \na formal or informal counterterrorism mechanism outside \nof the UN involving \u201clike-minded\u201d states. Before following \nsuch an approach, however, one needs to consider carefully \n\nInternational Peace Institute\n39\nwhether this will foster the sort of broad-based engagement by \nstates that is currently lacking under the present system, but is \nneeded.\n\t\nu\t Allowing broader member-state participation in the work of \nthe UN Counter-Terrorism Committee, perhaps following the \nCouncil\u2019s approach in the peacekeeping field.\n\t\nu\t Devolving much of the UN\u2019s counterterrorism work to \nthe regional and local levels, including by placing UN \ncounterterrorism experts in UN regional and country offices.\n\t\nu\t Strengthening the mandate and resources of the Task Force, \nincluding through UN regular budget funding; allowing \nparticipation of representatives from relevant regional and \nsubregional bodies.\n\t\nu\t The adoption of the Comprehensive Convention Against \nInternational Terrorism.\n4.\t What strategy is needed to achieve these renovations?\n\u2022 Establish a global counterterrorism commission comprising \na group of respected leaders to conduct a comprehensive \nassessment of UN-led multilateral counterterrorism efforts. \nAmong other things, this group could identify the comparative \nadvantages of the UN (and other relevant stakeholders) in the \nfight against terrorism and what the UN, as an institution, using \nall of its political, economic, social, and diplomatic tools, can do \nto not only thwart future attacks but prevent today\u2019s youth and \nsubsequent generations from wanting to use violence to address \nperceived or legitimate grievances. The recommendations of \nthis commission could also provide the impetus necessary to \ntranscend the \u201cGeneral Assembly vs. Security Council\u201d debate \nand overcome the longstanding differences surrounding the \ndefinition of terrorism.\n\u2022 Clearly articulate how a broader-based, multistakeholder \napproach, preferably under the auspices of the UN, would \nbenefit not only the wider UN membership, but the P5 as well. \n\u2022 Begin discussions outside of New York on possible renovations \nwith a small, cross-region coalition of states, with a view to \nfinding common ground on proposals that could be presented to \nGeneral Assembly and/or other relevant bodies. \n\n40\nANNEX 1\n\u2022 In the interim, this cross-regional coalition should approach \nthe Secretary-General and ask him to reallocate a handful of \npositions in his office to support the day-to-day work of the Task \nForce.\nEric Rosand with IPI\n\nInternational Peace Institute\n41\nAnnex 2: Reflections from the Opening \nPlenary Meeting\napril 8, 2008\n1.\t What are the current policy and institutional shortcomings \nin multilateral security on countering global terrorism?\n\u2022 The UN\u2019s work on counterterrorism has been largely ad hoc and \nresponsive, and the organization has remained in \u201cSeptember \n12th mode.\u201d Consequently, its counterterrorism approach has \nbeen fragmented among a large number of bodies working on \nseparate pieces of the puzzle.\n\t\nu\t Twenty-four uncoordinated bodies working on \ncounterterrorism at the UN, many of them divided between \nVienna and New York.\n\t\nu\t Little sustained engagement or coordination with regional \norganizations or functional bodies on counterterrorism. \n\u2022 Lack of an agreed definition of terrorism; failure to agree on a \ncomprehensive convention against terrorism. \n\u2022 Emphasis on paper and process; lack of measurements of \neffective influence of the UN\u2019s efforts in national CT work \n\t\nu\t Difficulty of transforming policies and ideas developed \nin New York into concrete action in the field and no clear \nunderstanding of what the UN is really able to deliver.\n\t\nu\t Preference for bilateral channels when key players want to \nengage member states in CT cooperation or capacity-building \nassistance.\n\t\nu\t UN\u2019s role unclear: rhetorically, UN placed at the center of \ncounterterrorism efforts, though still no agreement on what \nthe UN\u2019s actual role should be.\n\t\nu\t Too much emphasis on the Security Council making the \nlarger membership wary of initiatives that are underlined by a \nChapter VII mandate.\n\u2022 Limited engagement with national counterterrorism \npractitioners in capitals and inability to reflect the regional, \n\n42\nANNEX 2\nnational, and local aspects of the evolving terrorist threat in its \nwork.\n\u2022 Limited evidence that the UN\u2019s counterterrorism work has the \nflexibility to shift as the methods of and the threats posed by \nterrorists and terrorism evolve in terms of methodology and \nchannels of delivery (for example, into cyberspace).\n2.\t Why have previous attempts to address these shortcomings \nfailed?\n\u2022 Fundamentally divergent views on who is a terrorist and what \nthe consequent legal repercussions ought to be.\n\t\nu\t Lack of serious attempts to build the cross-regional coalitions \nneeded to transcend the main political differences among \nmembership in this area, despite many strong bilateral \ncounterterrorism relationships that straddle various divides \nwithin the UN membership.\n\u2022 Uneven capacity of states to implement necessary measures on \nthe ground; highlighting the importance of technical capacity-\nbuilding assistance.\n\u2022 No real investment by the UN in counterterrorism efforts.\nu\t No real pressure from member states on the SG to allocate \nresources to counterterrorism.\nu\t There has been little or no leadership from the highest \nlevels at the UN prompting member states to prioritize \ncounterterrorism.\nu\t Though most states claim it to be a priority, this has not been \ntranslated into a willingness to provide more resources for the \nCTITF.\nu\t Most major players marginalize the UN and themselves prefer \nbilateral channels of counterterrorism assistance and capacity \nbuilding.\n\u2022 Disagreement on whether to pursue gradual change or dramatic \nreform of UN counterterrorism system. \nu\t Wariness and suspicion characterizing the relationship \nbetween the UNSC and the GA.\n\nInternational Peace Institute\n43\nu\t UNGA adopted strategy with some difficulty in the hopes \nthat the center of gravity for counterterrorism within the UN \nwould move away from the UNSC toward the Secretariat, \nunder the leadership of the Task Force, but the representation \nof Council bodies on the Task Force still worries some \nmember states.\n3.\t What policies and institutional renovations, including \nlegal frameworks and financial arrangements, are needed?\n\u2022 Greater coordination, or consolidation, of UN bodies working \non counterterrorism.  Possibilities include:\n\t\nu\t Expand membership of CTC or establish a \u201cfriends of the \nCTC\u201d group to allow for broader and more regular member-\nstate engagement with CTC.\n\t\nu\t Move CTED into the Secretariat to support both the CTC and \nthe Task Force, with the head of CTED serving as the head of \nthe Task Force.\n\t\nu\t Creation of a single, more representative intergovernmental \ncounterterrorism body that draws together various UN \ncounterterrorism activities.\n\t\nu\t Creation of a UN-backed multilateral forum for exchange of \ninformation between national counterterrorism coordinators.\n\u2022 Need for greater field presence and analytical capacity so that \ncounterterrorism efforts may be tailored to suit regional threat \nperceptions and allow for greater coordination with actors on \nthe ground charged with implementation.\n\t\nu\t Move CTED or consolidated counterterrorism body into the \nfield; twenty to thirty New York-based posts could become \nfield posts within existing UN country offices, thereby \nremoving the need for additional resources but reallocating \nstaff.\n\t\nu\t Develop closer partnerships with regional organizations, \nwhich have a better understanding of the challenges \nparticular to each region/state, the most effective response \nmechanisms and key actors.\n\u2022 Adopt comprehensive convention on terrorism.\n\nannex 2\n44\n\t\nu\t Though this may not be a sine qua non of future \ncounterterrorism efforts.\n\t\nu\t Agree on a common understanding or definition of terrorism \nbased on the 2005 World Summit Outcome Document and \nadopt Comprehensive Convention on Terrorism.\n\t\nu\t If a legal definition cannot be agreed on, a \u201cworking \ndefinition\u201d might be adopted drawing together elements from \nexisting agreements; that way it could also be adaptive to \nrapidly evolving developments in counterterrorism\n\t\nu\t Although some participants felt that the lack of a \ndefinition provided a key hurdle toward more cooperative \ncounterterrorism efforts among state, others felt that existing \nagreements provide sufficient basis for action, and that \nthe debate over the definition was overcome with the 2005 \nWorld Summit, which generated an agreed condemnation of \nterrorism, and that having a definition was no longer key to \nimplementing counterterrorism initiatives.\n4.\t What strategy is needed to achieve these renovations?\n\u2022 It will be crucial to highlight that it is in the security interest \nof all states\u2014North, South, rich, poor\u2014to address this \nchallenge because no state is immune to the possibility of future \nvictimhood; various states have been threatened by terrorism \nand used either as target or base.  For participants, this provided \na strong rationale for strengthening every element in the chain \nto harden the \u201cweakest links.\u201d\n\t\nu\t UN should be more proactive in furthering understanding \nof root causes and thereby link its counterterrorism activities \nmore closely to threat perceptions and priorities, making \nit more likely to elicit cooperation from member states not \ncurrently prioritizing counterterrorism initiatives. \n\u2022 A coalition of like-minded states might exert pressure on UN \nleadership to prioritize counterterrorism initiatives and allocate \nresources from within the system (find and trim the \u201cfat\u201d in the \norganization).\n\t\nu\t \u201cFriends of CTC\u201d group could serve this function. \n\nInternational Peace Institute\n45\n\t\nu\t Fund the CTITF from the regular budget. \n\u2022 Consolidate activities to avoid \u201cstovepipes\u201d or \u201csilo-effects\u201d \nin the UN which facilitate a duplication of many of its \ncounterterrorism activities, consequently overburdening states \nsuffering from reporting fatigue and overwhelming obligations \nto host/attend meetings to the detriment of national obligations. \nu\t Consolidate issues so that states can address similar concerns \nin fewer reports (UNSCRs 1373 and 1540, for example), \nallowing states to receive technical and other capacity-\nbuilding assistance across multiple transnational challenges.\n\u2022 UN leadership should strengthen the UN\u2019s norm-setting role \nand be more vocal on this issue, making explicit an emphasis on \nthe importance of counterterrorism.\nu\t Highlight UN\u2019s comparative advantage in convening a range \nof specialists and representatives from multiple regions and \ndisciplines.\nu\t The UN should more actively engage and convene with \ncounterterrorism practitioners to promote greater cooperation \nand coordination among the counterterrorism arms of states. \nu\t UN should ensure that its practices live up to the standards \nadvocated by the SG and to its rhetoric; for example, it should \nnot be seen to violate human rights through its \u201clisting and \nde-listing\u201d processes administered by the 1267 Committee \n(The Al-Qaida and Taliban Sanctions Committee).\n\u2022 Refocus debate in General Assembly and move away from a \nSecurity Council-centric discussion to one where more member \nstates can be included in the debates and decision-making \nprocesses.\nu\t Create a more inclusive counterterrorism body or increase \naccess of member states to Security Council committees \n(nothing says this has to be limited to the fifteen members of \nthe SC).\nu\t Some suggested the creation of a counterterrorism \ncommission or council modeled on the PBC, with some \nmandate from both the SC and GA (or other principal \norgans).\n\n46\nANNEX 2\nu\t Hold mandate review debates prior to mandate extensions to \ninclude broad UN membership in the discussion prior to the \ndecision making, rather than presenting it as a fait accompli.\nIPI\n\nInternational Peace Institute\n47\nAnnex 3: Methodology and Timeline\nFour questions guided the Task Forces in helping IPI to generate \npolicy and institutional ideas for action:\n1.\tWhat are the current policy and institutional shortcomings in \nmultilateral security capacity on these issues?\n2.\tWhy have previous attempts to address these shortcomings failed?\n3.\tWhat policies and institutional renovations, including legal \nframeworks and financial arrangements, are needed?\n4.\tWhat strategy is needed to achieve these renovations?\nThe Opening Symposium on Development, Resources, and \nEnvironment served as an essential backdrop to the Task Forces. \nBy examining these critical related issues, the symposium \nprovided a larger geopolitical and economic context for the \nwork of the subsequent Task Forces on security challenges. The \ntwo Task Forces, convened sequentially, addressed two thematic \nclusters of issues, each of which were broken down into smaller \nroundtables, as follows:\nTask Force One\nTransnational Security Challenges\n1.\t Transnational Organized Crime\n2.\tWeapons of Mass Destruction\n3.\tGlobal Terrorism\n4.\tSmall Arms and Light Weapons\n5.\tBiosecurity\t\nTask Force Two\nInter- and Intra-state Armed Conflict\n6.\tPeace Operations\n7.\tMediation and Peace Processes\n8.\tPeacebuilding \n9.\tConflict Prevention and the  \nResponsibility to Protect\n\nannex 3\n48\nEach Task Force consisted of members drawn from UN \nmember states, academia, and policy-research institutions. The \ncomposition of each group ensured a broad range of perspectives \nregarding multilateral security capacity on the issues in question. \nThrough this intensive work process, the Task Forces constituted \ncore groups of stakeholders with an interest in developing \npractical strategies for addressing the institutional and policy \nshortcomings in these areas.\nTask Force members met in opening and closing plenary sessions, \nas indicated below. Experts, in collaboration with IPI, prepared \na series of non-papers, serving as a basis for discussion. Smaller \ngroups gathered between the plenary sessions in roundtables, \nalong with invited guest experts, for more in-depth, topic-specific \ndiscussions. Following each roundtable IPI produced a summary \nreflecting the group\u2019s discussions that served as a guide for the \nclosing plenary session. Likewise, IPI drew on the Task Force \ndeliberations to produce the final reports, detailing practical \nand achievable steps for strengthening multilateral action in \nthe area in question. As noted, the content of these reports is \nthe responsibility of IPI, and does not necessarily represent the \npositions or opinions of individual Task Force participants.\nTimeline\nOpening Symposium \u201cDevelopment, Resources, and \nEnvironment: Defining Challenges for the Security Agenda\u201d \nFebruary 7-8, 2008 [Greentree Estate, Long Island]\nTask Force One: Transnational Security Challenges\nOpening Plenary Meeting \nApril 2-4, 2008 [Greentree Estate, Long Island]\n1.\tRoundtable on Transnational Organized Crime \nApril 10-11, 2008 [Millennium UN Plaza Hotel, New York]\n2.\tRoundtable on Weapons of Mass Destruction \nApril 24-25, 2008 [IPI, New York]\n\nInternational Peace Institute\n49\n3.\tRoundtable on Global Terrorism \nMay 1-2, 2008 [IPI, New York]\n4.\tRoundtable on Small Arms and Light Weapons \nMay 8-9, 2008 [Millennium UN Plaza Hotel, New York]\n5.\tRoundtable on Biosecurity \nMay 21-22, 2008 [IPI, New York]\nClosing Plenary Meeting \nMay 28-30, 2008 [Greentree Estate, Long Island]\nTask Force Two: Inter- and Intra-state Armed Conflict\nOpening Plenary Meeting \nJune 11-12, 2008 [Greentree Estate, Long Island]\n6.\tRoundtable on Peace Operations \nJune 16-17, 2008 [IPI, New York]\n7.\tRoundtable on Mediation and Peace Processes \nJune 30-July 1, 2008 [IPI, New York]\n8.\tRoundtable on Peacebuilding \nJuly 2-3, 2008 [IPI, New York]\n9.\tRoundtable on Conflict Prevention and the  \nResponsibility to Protect \nJuly 8-9, 2008 [IPI, New York]\nClosing Plenary Meeting \nOctober 15-16, 2008 [Greentree Estate, Long Island]\n\nTransnational Organized Crime\n50\nAnnex 4: Task Force Participants \nCo-Chairs\nH.E. Mr. Abdullah M. Alsaidi, Permanent Representative of the \nRepublic of Yemen to the United Nations\nH.E. Mr. Dumisani Shadrack Kumalo, Permanent Representative of \nthe Republic of South Africa to the United Nations\nH.E. Mr. Claude Heller, Permanent Representative of Mexico to the \nUnited Nations\nH.E. Mr. Peter Maurer, Permanent Representative of Switzerland to \nthe United Nations\nH.E. Mr. John McNee, Permanent Representative of Canada to the \nUnited Nations\nH.E. Mr. Vanu Gopala Menon, Permanent Representative of the \nRepublic of Singapore to the United Nations\nH.E. Mr. Heraldo Mu\u00f1oz, Permanent Representative of Chile to the \nUnited Nations\nH.E. R.M. Marty M. Natalegawa, Permanent Representative of the \nRepublic of Indonesia to the United Nations\nH.E. Mr. Christian Wenaweser, Permanent Representative of the \nPrincipality of Liechtenstein to the United Nations\nannex 4\n\nInternational Peace Institute\n51\nPermanent Missions and Delegations to the United \nNations\nAfrican Union\nAlgeria\nArgentina\nAustralia\nAustria\nBangladesh\nBrazil\nCanada\nChile\nChina\nColombia\nCosta Rica\nCuba\nCzech Republic\nDenmark\nEgypt\nEthiopia\nEuropean Union\nFinland\nFrance\nGermany\nGhana\nGreece\nIndia\nIndonesia\nIreland\nIsrael\nJapan\nLiechtenstein\nLithuania\nLuxembourg\nMalaysia\nMexico\nMorocco\nMozambique\nNetherlands\nNew Zealand\nNiger\nNigeria\nNorway\nPakistan\nPalau\nPortugal\nQatar\nRepublic of Korea\nRomania\nRussian Federation\nSingapore\nSlovak Republic\nSouth Africa\nSpain\nSweden\nSwitzerland\nTanzania\nTurkey\nUganda\nUnited Kingdom\nUnited States of \nAmerica\nUruguay\nViet Nam\nYemen\nInternational Peace Institute\n\n52\nannex 4\nExpert Moderators and Contributors\nChronic Underdevelopment\nSaid Djinnit, Commissioner for Peace and Security, African Union\nRaymond Gilpin, Associate Vice President, Sustainable Economics, \nCenter of Innovation, United States Institute of Peace (USIP)\nAnke Hoeffler, Research Officer, Centre for the Study of African \nEconomies, Oxford University\nArvind Panagariya, Jagdish Bhagwati Professor of Indian Political \nEconomy, Professor of Economics, Columbia University\nJohn Sender, Emeritus Professor of Economics, University of \nLondon; Senior Research Fellow in Development Studies, \nUniversity of Cambridge\nRonald J. Waldman, Professor of Clinical Population and Family \nHealth, Professor of Clinical Epidemiology, Columbia University\nNgaire Woods, Director of the Global Economic Governance \nProgramme, Oxford University\nEnergy and Resource Scarcity\nAlbert Bressand, Executive Director, Center for Energy, Marine \nTransportation and Public Policy, Columbia University\nNikhil Desai, Consultant, World Bank and German Agency for \nTechnical Cooperation (GTZ)\nAntoine Halff, Adjunct Professor of International and Public \nAffairs, Columbia University\nMonty P. Jones, First Executive Secretary, Forum for Agricultural \nResearch in Africa\nRoberto Lenton, Chair of the Technical Committee, Global Water \nPartnership\nRichard Matthew, Director, Center for Unconventional Security \nAffairs, University of California Irvine\n\nInternational Peace Institute\n53\nEnvironment and Climate Change\nScott Barrett, Professor of Environmental Economics and \nInternational Political Economy; Director, International Policy \nProgram; Director, Global Health and Foreign Policy Initiative, \nJohns Hopkins University\nReid Detchon, Executive Director, Energy and Climate, UN \nFoundation\nMark Goldfus, Head of Public Policy, Merrill Lynch\nPeter Haas, Professor of Political Science, University of \nMassachusetts - Amherst\nMaria Ivanova, Assistant Professor of Government and \nEnvironmental Policy, College of William & Mary; Director, \nGlobal Environment Project, Yale Center for Environmental Law \nand Policy\nAdil Najam, The Frederick S. Pardee Chair for Global Public Policy, \nBoston University\nCynthia Rosenzweig, Senior Research Scientist, NASA Goddard \nInstitute for Space Studies\nTask Force One on Transnational Security Challenges\nTransnational Organized Crime\nPhil Williams, Professor, Graduate School of Public and \nInternational Affairs, University of Pittsburgh (Expert \nModerator)\nPeter Gastrow, Cape Town Director, Institute for Security Studies \n(ISS)\nChizu Nakajima, Director, Centre for Financial Regulation and \nCrime (CFRC), Cass Business School\nWeapons of Mass Destruction\nChristine B. Wing, Senior Research Fellow, Center on International \nCooperation, New York University (Expert Moderator)\nChaim Braun, Fellow and Affiliate, Centre for International \nSecurity and Cooperation (CISAC), Stanford University\n\n54\nannex 4\nSue E. Eckert, Senior Fellow, The Watson Institute for International \nStudies, Brown University\nAlaa Issa, Fellow, Weatherhead Center for International Affairs, \nHarvard University\nGeoffrey Wiseman, Acting Director, USC Center on Public \nDiplomacy, the Annenberg School for Communication, University \nof Southern California\nJing-dong Yuan, Director of the East Asia Nonproliferation Program \n(EANP), James Martin Center for Nonproliferation Studies, \nMonterey Institute of International Studies\nGlobal Terrorism\nEric Rosand, Senior Fellow, Center on Global Counterterrorism \nCooperation (Expert Moderator)\nSue E. Eckert, Senior Fellow, The Watson Institute for International \nStudies, Brown University\nPeter Neumann, Director, International Centre for the Study of \nRadicalisation and Political Violence (ICSR), King\u2019s College \nLondon\nMatthias Sonn, Head, Task Force, International Co-operation on \nCounterterrorism, Foreign Office, Federal Republic of Germany\nCurtis A. Ward, President, Curtis Ward Associates LLC\nDavid Wright-Neville, Associate Professor, Global Terrorism \nResearch Centre, Monash University\nSmall Arms and Light Weapons\nHerbert Wulf, Adjunct Senior Researcher, Institute for Development \nand Peace, University of Duisburg/Essen; Associate, Bonn \nInternational Center for Conversion (BICC) (Expert Moderator)\nCate Buchanan, Head of Negotiating Disarmament, Centre for \nHumanitarian Dialogue\nPatrick McCarthy, Coordinator, Geneva Forum\nMohammad Masoom Stanekzai, Senior Fellow, Jennings Randolph \nFellowship Program, United States Institute of Peace\n\nInternational Peace Institute\n55\nRachel Stohl, Senior Analyst, Center for Defense Information (CDI)\nValerie Yankey-Wayne, Associate with the \u201cArmed Groups Project,\u201d \nUniversity of Calgary\nBiosecurity\nJean Pascal Zanders, Director, BioWeapons Prevention Project \n(Expert Moderator)\nSergey Batsanov, Director, Pugwash Conferences on Science and \nWorld Affairs, Geneva Office\nJennifer Runyon, Executive Director, International Council for the \nLife Sciences\nJonathan B. Tucker, Senior Fellow, James Martin Center for \nNonproliferation Studies, Monterey Institute of International \nStudies\nRonald J. Waldman, Professor of Clinical Population and Family \nHealth, Professor of Clinical Epidemiology, Columbia University\nTask Force Two on Inter- and Intra-state Armed Conflict\nConflict Prevention and the Responsibility to Protect\nColin Keating, Executive Director, Security Council Report  \n(Expert Moderator)\nSteve Crawshaw, UN Advocacy Director, Human Rights Watch\nNicole Deller, Director of Programs, Global Center for the \nResponsibility to Protect, Ralph Bunche Institute for International \nStudies, CUNY Graduate Center\nKathleen Hunt, UN Representative, CARE International\nJuan M\u00e9ndez, President, International Center for Transitional \nJustice (ICTJ)\nWilliam G. O\u2019Neill, Program Director, Conflict Prevention and \nPeacebuilding Forum, Social Science Research Council\nThomas G. Weiss, Presidential Professor of Political Science; \nDirector, Ralph Bunche Institute for International Studies, CUNY \nGraduate Center\n\n56\nannex 4\nMediation and Peace Processes\nFen Osler Hampson, Director, The Norman Paterson School of \nInternational Affairs, Carleton University (Expert Moderator)\nBetty Bigombe, Distinguished Scholar, Woodrow Wilson \nInternational Center for Scholars\nPriscilla Hayner, Director, Peace and Justice Program, International \nCenter for Transitional Justice (ICTJ)\nGilbert M. Khadiagala, Head of the Department of International \nRelations and Jan Smuts Professor of International Relations, \nUniversity of the Witswatersrand\nKalle Liesinen, Executive Director, Crisis Management Initiative\nWilliam Zartman, Professor Emeritus, The Paul H. Nitze School of \nAdvanced International Studies, Johns Hopkins University\nPeace Operations\nIan Johnstone, Associate Professor of International Law, Tufts \nUniversity (Expert Moderator)\nSalman Ahmed, Visiting Research Scholar, Princeton University\nMajor General Patrick Cammaert (Ret.), Former UN Force \nCommander\nMark Malan, Peacebuilding Program Officer, Refugees \nInternational\n\u2019Funmi Olonisakin, Director, Conflict, Security and Development \nGroup, King\u2019s College London\nPeacebuilding\nCharles T. Call, Assistant Professor of International Relations, \nAmerican University (Expert Moderator)\nElizabeth Cousens, Director of Strategy, Centre for Humanitarian \nDialogue, New York Office\nGraciana Del Castillo, Adjunct Professor of Economics, Columbia \nUniversity\nMichael W. Doyle, Harold Brown Professor of International Affairs, \nLaw and Political Science, Columbia University\n\nInternational Peace Institute\n57\nAmos C. Sawyer, Associate Director and Research Scholar, Indiana \nUniversity; Former Interim President of the Republic of Liberia\nSusan L. Woodward, Professor of Political Science, The Graduate \nCenter, City University of New York; Senior Fellow, FRIDE, \nMadrid\nCross-Cutting Experts\nJoseph Chamie, Research Director, Center for Migration Studies\nSue E. Eckert, Senior Fellow, The Watson Institute for International \nStudies, Brown University\nDirk Salomons, Director, Humanitarian Affairs Program, School of \nInternational and Public Affairs, Columbia University\nCurtis A. Ward, President, Curtis Ward Associates LLC\nIPI\nConveners\nTerje R\u00f8d-Larsen, President\nEdward C. Luck, Senior Vice President and Director of Studies\nTask Force Leaders\nJames Cockayne, Senior Associate\nFrancesco Mancini, Deputy Director of Studies\nProgram Staff\nFran\u00e7ois Carrel-Billiard, Deputy Director of External Relations\nFarah Faisal, Program Officer\nNaureen Chowdhury Fink, Senior Program Officer\nAlison Gurin, Program Assistant\nMarilyn Messer, Special Assistant to the Senior Vice President and \nDirector of Studies\nChristoph Mikulaschek, Program Officer\n\nannex 4\n58\nNjambi Ouattara, Program Administrator\nJenna Slotin, Senior Program Officer\nAdam C. Smith, Senior Program Officer\nPim Valdre, Special Assistant to the President \nEditorial Staff\nAdam Lupel, Editor\nEllie B. Hearne, Publications Officer\nEvents Staff\nMary Anne Feeney, Senior Events Officer\nBeatrice Agyarkoh, Events Officer\nMeiko Boynton, Events Officer\nMarvin E. Trujillo, Events Officer\nLeading Rapporteur of this Report\nNaureen Chowdhury Fink, Senior Program Officer\n\n\n\n\n777 United Nations Plaza  New York, NY 10017-3521 USA \nTEL +1-212 687-4300   FAX +1-212 983-8246    \nwww.ipinst.org\nIPI BLUE PAPERS\n1.\t\nUnderdevelopment, Resource Scarcity, \n\t\nand Environmental Degradation\n2.\t Transnational Organized Crime\n3.\t Weapons of Mass Destruction\n4.\t Global Terrorism\n5.\t Small Arms and Light Weapons\n6.\t Biosecurity\n7.\t Conflict Prevention and the \n\t\nResponsibility to Protect\n8.\t Mediation and Peace Processes\n9.\t Peace Operations\n10.\tPeacebuilding\n11.\t Strengthening the United Nations and \n\t\nits Partners\n",
+    "entities": [
+      {
+        "type": "url",
+        "value": "http://un.org/terrorism/cttaskforce.shtml"
+      },
+      {
+        "type": "url",
+        "value": "http://register.consilium."
+      },
+      {
+        "type": "phone",
+        "value": "212 687-4300"
+      },
+      {
+        "type": "phone",
+        "value": "212 983-8246"
+      }
+    ],
+    "predicted_threats": {
+      "threat_detected": true,
+      "score": 17,
+      "categories": [
+        "Terrorism",
+        "Financial fraud"
+      ],
+      "keywords": [
+        "Change",
+        "change",
+        "Change",
+        "change",
+        "Change",
+        "attack",
+        "attack",
+        "attack",
+        "attack"
+      ],
+      "summary": "Detected threats in categories: Terrorism, Financial fraud (score 17)."
+    }
+  },
+  {
+    "file": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.45_ca4fa99b.jpg",
     "text": "",
     "entities": [],
     "predicted_threats": {
@@ -50,641 +114,123 @@
     }
   },
   {
-    "file": "devices\\test\\narrative.txt",
-    "text": "IMAGE 1 - CANON2   (FAT32)\n\nThis directory contans multiple images of a 32MB SD card shot in a\nCanon PowerShot SD800IS:\n\n        filename            size                      SHA1                  \n============================================================================\nnps-2009-canon2-gen1.raw  31129600  67364b0894a0465d6ada8c4966b6bbcaf7039082\nnps-2009-canon2-gen2.raw  31129600  0e3cdef3b1a7d3762f9704bfd4349033fe808eda\nnps-2009-canon2-gen3.raw  31129600  7dc8be7f3993c37f101c0ed0fec4274abccacf3c\nnps-2009-canon2-gen4.raw  31129600  ed1c7dea94096ad309b32037cb6d43a291952d8d\nnps-2009-canon2-gen5.raw  31129600  63e7f9daf8dbcd1744579e579f3f0fddebe2ee90\nnps-2009-canon2-gen6.raw  31129600  4742c325f10583dab1eb4c55d0d45ab3beb99eb3\n\n\nThe images were made by placing an SD card into the camera, taking\nphotos, removing the card, erasing select photos, imaging the card,\nand then repeating the process.\n\nSome of the JPEGs are fragmented, some are not. Some are resident in\nthe file system, some are deleted but recoverable, and several have\ndata present but no longer have any file system metadata and can only\nbe recovered through carving. Of these carvable JPEGs at least two are\nfragmented.\n\nEach JPEG is a photo of a screen or a piece of paper with prominent\ntext:\n\nIMG_0001.JPG  -- \"1\"\nIMG_0002.JPG  -- \"2\"\nIMG_0003.JPG  -- \"3\"\nIMG_0004.JPG  -- \"4\"\nIMG_0005.JPG  -- \"5\"\nIMG_0006.JPG  -- \"6\"\nIMG_0007.JPG  -- \"7\"\nIMG_0008.JPG  -- \"8\"\nIMG_0009.JPG  -- \"9\"\nIMG_0010.JPG  -- \"10\"\nIMG_0011.JPG  -- \"11\"\nIMG_0012.JPG  -- \"12\"\nIMG_0013.JPG  -- \"13\"\nIMG_0014.JPG  -- \"14\"\nIMG_0015.JPG  -- \"15\"\nIMG_0016.JPG  -- \"16\"\nIMG_0017.JPG  -- \"17\"\nIMG_0018.JPG  -- \"18\"\nIMG_0019.JPG  -- \"19\"\nIMG_0020.JPG  -- \"20\"\nIMG_0021.JPG  -- \"21\"\nIMG_0022.JPG  -- \"22\"\nIMG_0023.JPG  -- \"23\"\nIMG_0024.JPG  -- \"24\"\nIMG_0025.JPG  -- \"25\"\nIMG_0026.JPG  -- \"26\"\nIMG_0027.JPG  -- \"27\"\nIMG_0028.JPG  -- \"28\"\nIMG_0029.JPG  -- \"29\"\nIMG_0030.JPG  -- \"30\"\nIMG_0031.JPG  -- \"31\"\nIMG_0032.JPG  -- \"32\"\nIMG_0033.JPG  -- \"33\"\nIMG_0034.JPG  -- \"34\"\nIMG_0035.JPG  -- \"35\"\nIMG_0036.JPG  -- \"36\"\nIMG_0037.JPG  -- \"G2-1\"\nIMG_0038.JPG  -- \"G2-2\"   (3 fragments)\nIMG_0039.JPG  -- \"G2-3\"\nIMG_0040.JPG  -- \"G2-4\"\nIMG_0041.JPG  -- \"G3-1\"\nIMG_0042.JPG  -- \"G4-1\"\nIMG_0043.JPG  -- \"G5-1\"   (4 fragments)\nIMG_0044.JPG  -- \"G6-1\"   (3 fragments)\nIMG_0045.JPG  -- \"G6-2\"\nIMG_0046.JPG  -- \"G6-3\"\nIMG_0047.JPG  -- \"G6-4\"\nIMG_0048.JPG  -- \"G6-5\"   (2 fragments)\nIMG_0049.JPG  -- \"G6-6\"\nIMG_0050.JPG  -- \"G6-7\"\nIMG_0051.JPG  -- \"G6-8\"\n\nOther files in this directory:\n  narrative.txt  this file\n  files-gen6.zip JPEGs that can be recovered from nps-2009-canon2-gen6.raw\n",
+    "file": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.46_ccf9aee8.jpg",
+    "text": "ee,",
     "entities": [],
     "predicted_threats": {
-      "threat_detected": true,
-      "score": 1,
-      "categories": [
-        "Surveillance"
-      ],
-      "keywords": [
-        "camera"
-      ],
-      "summary": "Detected threats in categories: Surveillance (score 1)."
-    }
-  },
-  {
-    "file": "devices\\test\\output.json",
-    "text": "[\n  {\n    \"path\": \"devices\\\\test\\\\123.png\",\n    \"type\": \"image\",\n    \"content\": \"SHOP NAME\\n\\nAddress: Lorem Ipsum, 23-10\\nTelp. 11223344\\n\\nCASH RECEIPT\\n\\nDescri Price\\nLorem 14\\nIpsum 2.2\\nDolor sit amet 3.3\\nConsectetur 4.4\\nAdipiscing elit 5.5\\n\\nTotal 16.5\\nCash 20.0\\nChange 35\\nBank card - 234\\nApproval Code #123456\\n\\nTHANK YOU!\\n\\ndesigned by \u00ae freepik\",\n    \"tags\": [\n      \"menu\",\n      \"book jacket\",\n      \"web site\"\n    ],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\Assignment10[1].pdf\",\n    \"type\": \"pdf\",\n    \"content\": \"ASSIGNMENT -10  \\nName: YASH MISHRA \\nEnrollment No. : 02016449724 \\nBranch: Btech CSE-AI 2nd SEMESTER \\nSchool: USICT, GGSIPU \\n \\n10. Write a C program to construct a by inserting the given keys sequentially. The \\nB-Tree should follow the properties of an , where each node can have at most \\nand . \\n12, 10, 15, 4, 1, 17, 3, 13 \\n \\n#include <stdio.h> \\n#include <stdlib.h> \\n \\n#define MAX_KEYS 5  // 2t - 1 (for t=3) \\n#define MIN_KEYS 2  // t - 1 \\n#define MAX_CHILDREN 6  // 2t (for t=3) \\n \\ntypedef struct BTreeNode { \\n    int keys[MAX_KEYS];   // Keys in the node \\n    struct BTreeNode* children[MAX_CHILDREN]; // Child pointers \\n    int numKeys; \\n    int isLeaf; \\n} BTreeNode; \\n \\nBTreeNode* createNode(int isLeaf) { \\n    BTreeNode* newNode = (BTreeNode*)malloc(sizeof(BTreeNode)); \\n\\n    newNode->isLeaf = isLeaf; \\n    newNode->numKeys = 0; \\n    for (int i = 0; i < MAX_CHILDREN; i++) \\n        newNode->children[i] = NULL; \\n    return newNode; \\n} \\n \\n// Function to split a child \\nvoid splitChild(BTreeNode* parent, int i, BTreeNode* child) { \\n    int t = 3; \\n    BTreeNode* newNode = createNode(child->isLeaf); \\n    newNode->numKeys = t - 1; \\n \\n    // Move last (t-1) keys from child to newNode \\n    for (int j = 0; j < t - 1; j++) \\n        newNode->keys[j] = child->keys[j + t]; \\n \\n    if (!child->isLeaf) { \\n        for (int j = 0; j < t; j++) \\n            newNode->children[j] = child->children[j + t]; \\n    } \\n     \\n    child->numKeys = t - 1; \\n \\n    // Move parent's children to make space for new child \\n    for (int j = parent->numKeys; j >= i + 1; j--) \\n\\n        parent->children[j + 1] = parent->children[j]; \\n \\n    parent->children[i + 1] = newNode; \\n \\n    // Move parent's keys to make space for middle key \\n    for (int j = parent->numKeys - 1; j >= i; j--) \\n        parent->keys[j + 1] = parent->keys[j]; \\n \\n    parent->keys[i] = child->keys[t - 1]; \\n    parent->numKeys++; \\n} \\n \\n// Insert a key in a non-full node \\nvoid insertNonFull(BTreeNode* node, int key) { \\n    int i = node->numKeys - 1; \\n \\n    if (node->isLeaf) { \\n        while (i >= 0 && key < node->keys[i]) { \\n            node->keys[i + 1] = node->keys[i]; \\n            i--; \\n        } \\n        node->keys[i + 1] = key; \\n        node->numKeys++; \\n    } else { \\n        while (i >= 0 && key < node->keys[i]) \\n            i--; \\n\\n \\n        if (node->children[i + 1]->numKeys == MAX_KEYS) { \\n            splitChild(node, i + 1, node->children[i + 1]); \\n \\n            if (key > node->keys[i + 1]) \\n                i++; \\n        } \\n        insertNonFull(node->children[i + 1], key); \\n    } \\n} \\n \\n// Insert a key into the B-Tree \\nBTreeNode* insert(BTreeNode* root, int key) { \\n    if (root->numKeys == MAX_KEYS) { \\n        BTreeNode* newRoot = createNode(0); \\n        newRoot->children[0] = root; \\n        splitChild(newRoot, 0, root); \\n \\n        int i = (key > newRoot->keys[0]) ? 1 : 0; \\n        insertNonFull(newRoot->children[i], key); \\n        return newRoot; \\n    } else { \\n        insertNonFull(root, key); \\n        return root; \\n    } \\n} \\n\\n \\n// Function to traverse and print the B-Tree \\nvoid traverse(BTreeNode* root) { \\n    if (root != NULL) { \\n        int i; \\n        for (i = 0; i < root->numKeys; i++) { \\n            if (!root->isLeaf) \\n                traverse(root->children[i]); \\n            printf(\\\"%d \\\", root->keys[i]); \\n        } \\n        if (!root->isLeaf) \\n            traverse(root->children[i]); \\n    } \\n} \\n \\nint main() { \\n    BTreeNode* root = createNode(1); // Root node (initially a leaf) \\n \\n    int keys[] = {12, 10, 15, 4, 1, 17, 3, 13}; \\n    int n = sizeof(keys) / sizeof(keys[0]); \\n \\n    for (int i = 0; i < n; i++) \\n        root = insert(root, keys[i]); \\n \\n    printf(\\\"B-Tree traversal: \\\"); \\n    traverse(root); \\n\\n    printf(\\\"\\\\n\\\"); \\n \\n    return 0; \\n} \\n \\nOUTPUT: \\n \\n\",\n    \"tags\": [],\n    \"sensitive_info\": {\n      \"flags\": [\n        \"phone_detected\"\n      ],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [\n          \"02016449724\"\n        ],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\image.png\",\n    \"type\": \"image\",\n    \"content\": \"\",\n    \"tags\": [\n      \"holster\",\n      \"revolver\",\n      \"rifle\"\n    ],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\narrative.txt\",\n    \"type\": \"\",\n    \"content\": \"\",\n    \"tags\": [],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\output.json\",\n    \"type\": \"\",\n    \"content\": \"\",\n    \"tags\": [],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\report.txt\",\n    \"type\": \"\",\n yash   \"content\": \"\",\n    \"tags\": [],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\report.xml\",\n    \"type\": \"\",\n    \"content\": \"\",\n    \"tags\": [],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  }\n]",
-    "entities": [
-      {
-        "type": "phone",
-        "value": "02016449724"
-      },
-      {
-        "type": "phone",
-        "value": "02016449724"
-      }
-    ],
-    "predicted_threats": {
-      "threat_detected": true,
-      "score": 5,
-      "categories": [
-        "Weapons/Violence"
-      ],
-      "keywords": [
-        "rifle"
-      ],
-      "summary": "Detected threats in categories: Weapons/Violence (score 5)."
-    }
-  },
-  {
-    "file": "devices\\test\\report.txt",
-    "text": "Original Filename: DCIM/CANONMSC/M0100.CTG  in: nps-2009-canon2-gen6.raw\nSHA 1: 8ce272c91a2289a610eeecdc4f2228553313353c\nLocation:  @ sector      192 ;     0  512-byte sectors and 164 bytes  (    164 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0044.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 916a88a00c58b7a566711acd25e61d549df5d303\nLocation:  @ sector      224 ;    64  512-byte sectors                (  32768 bytes total)\n           @ sector     2976 ;    64  512-byte sectors                (  32768 bytes total)\n           @ sector    12416 ;    77  512-byte sectors and 235 bytes  (  39659 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0042.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 8b9080d2eeaf8dba2d510baa5738e1d2ac62dafc\nLocation:  @ sector      288 ;  2659  512-byte sectors and 399 bytes  (1361807 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0043.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 7aca4cfa02da88f91d11c85db16e12ddb286c622\nLocation:  @ sector     3040 ;   544  512-byte sectors                ( 278528 bytes total)\n           @ sector     5248 ;  2880  512-byte sectors                (1474560 bytes total)\n           @ sector     8608 ;  1536  512-byte sectors                ( 786432 bytes total)\n           @ sector    11840 ;   575  512-byte sectors and  98 bytes  ( 294498 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0003.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 214ad4f47b772e38cc295a8192e1664a235ced82\nLocation:  @ sector     3584 ;  1640  512-byte sectors and 421 bytes  ( 840101 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0038.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: b2575a16cb6eaf22289b4d90dffd77b2ba45c995\nLocation:  @ sector     8128 ;   480  512-byte sectors                ( 245760 bytes total)\n           @ sector    14976 ;  1696  512-byte sectors                ( 868352 bytes total)\n           @ sector    23200 ;   355  512-byte sectors and 278 bytes  ( 182038 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0007.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 770b4ef7714998d954668b29a2a7911c359e56f3\nLocation: revolver @ sector    10144 ;  1690  512-byte sectors and  33 bytes  ( 865313 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0045.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 72760dab05562ceb41b2afb6c3895d7e5d017980\nLocation:  @ sector    12512 ;   216  512-byte sectors and  94 bytes  ( 110686 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0046.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 97589b7e1fafefd609b4828a2c62d19a9ba14d4b\nLocation:  @ sector    12736 ;   226  512-byte sectors and 423 bytes  ( 116135 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0047.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 805c0aca98415c69e696c4bc3a58c663c296ec59\nLocation:  @ sector    12992 ;   235  512-byte sectors and 121 bytes  ( 120441 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0048.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: b438b62b04bed3ea02d11ed3ed51c9dca58893ec\nLocation:  @ sector    13248 ;    64  512-byte sectors                (  32768 bytes total)\n           @ sector    18208 ;   179  512-byte sectors and 490 bytes  (  92138 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0009.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: b4fdefeb1bfbe889aed7f4c0aa755cdef302e1e9\nLocation:  @ sector    13312 ;  1641  512-byte sectors and 500 bytes  ( 840692 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0011.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 25eb57e8a094d0bf33e43742681ddbd01d0b93a3\nLocation:  @ sector    16672 ;  1505  512-byte sectors and 492 bytes  ( 771052 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0049.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: d69d8d907f0f4bdb151be9826a62b4b5c7a77f56\nLocation:  @ sector    18400 ;   224  512-byte sectors and 252 bytes  ( 114940 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0050.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 887fd6dd3ab09a50b227aa7e025ace16b9dc3e36\nLocation:  @ sector    18656 ;   248  512-byte sectors and 215 bytes  ( 127191 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0051.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 7ef5225f992dc731907a79816c904a83df3bdab5\nLocation:  @ sector    18912 ;   254  512-byte sectors and 370 bytes  ( 130418 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0013.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: fccf7639029bda2eb748fafdb660d985779736a7\nLocation:  @ sector    19808 ;  1644  512-byte sectors and 432 bytes  ( 842160 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0014.JPG  in: nps-2009-canon2-gen1.raw\nSHA 1: 6c9e27f9911f37488ef0d6e878c68f2a61100b2c\nLocation:  @ sector    21472 ;  1705  512-byte sectors and 477 bytes  ( 873437 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0016.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: aa2b9eb89628485e51b5de57edad2487b648e574\nLocation:  @ sector    24832 ;  1667  512-byte sectors and 335 bytes  ( 853839 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0017.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 2b7dee3b405ba577c3a17e6dfb2e4e182712bf6c\nLocation:  @ sector    26528 ;  1553  512-byte sectors and 438 bytes  ( 795574 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0018.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 68f6b646041516e60cf6581181f968f7b9bd3bc9\nLocation:  @ sector    28096 ;  1532  512-byte sectors and  71 bytes  ( 784455 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0019.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 7661a34788eedc94f3a66c132c1e7ac6ace78be2\nLocation:  @ sector    29632 ;  1688  512-byte sectors and   1 bytes  ( 864257 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0020.JPG  in: nps-2009-canon2-gen1.raw\nSHA 1: 825c04774ea2b9171c267e682abbecb82baa4e29\nLocation:  @ sector    31328 ;  1724  512-byte sectors and 439 bytes  ( 883127 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0021.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: a87c594b86ca41c88547e128335ec3919bc27d87\nLocation:  @ sector    33056 ;  1600  512-byte sectors and 399 bytes  ( 819599 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0022.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 00ef4d79b36d32ba42c6cc808421439f0fbcb662\nLocation:  @ sector    34688 ;  1423  512-byte sectors and 120 bytes  ( 728696 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0023.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 9e81a566e8c7a4d49cb1cb834cb621023b3729a5\nLocation:  @ sector    36128 ;  1677  512-byte sectors and 174 bytes  ( 858798 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0024.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 12d2e78fa5b118a0f3144bda4e8e331c8a34ccbc\nLocation:  @ sector    37824 ;  1637  512-byte sectors and 290 bytes  ( 838434 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0025.JPG  in: nps-2009-canon2-gen1.raw\nSHA 1: a6cfff9c614dc3aeb3470185bcf63e5a7eeaf33a\nLocation:  @ sector    39488 ;  1545  512-byte sectors and 293 bytes  ( 791333 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0026.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 0745141aefe2ede7c788f9d80c3a3897134b0353\nLocation:  @ sector    41056 ;  1500  512-byte sectors and 385 bytes  ( 768385 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0027.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: e5721ef38a1bc7bb92895ad3df23786cffa84bb8\nLocation:  @ sector    42560 ;  1641  512-byte sectors and  61 bytes  ( 840253 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0028.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 04d3290232dad550d7bccf45f768793d0512da9a\nLocation:  @ sector    44224 ;  1593  512-byte sectors and  20 bytes  ( 815636 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0029.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: ce7068a8b8eec06f1bf269da519de462e72f6ee8\nLocation:  @ sector    45824 ;  1682  512-byte sectors and 368 bytes  ( 861552 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0030.JPG  in: nps-2009-canon2-gen1.raw\nSHA 1: 49bf2c6db487177abc32decdba727c813af1d122\nLocation:  @ sector    47520 ;  1694  512-byte sectors and 505 bytes  ( 867833 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0031.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 16495400c6b982c69c3e12ad80b900a6d2ab3d8f\nLocation:  @ sector    49216 ;  1463  512-byte sectors and 146 bytes  ( 749202 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0032.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 3e4be3780f41df5f4cc24d5466219bf67556af5e\nLocation:  @ sector    50688 ;  1718  512-byte sectors and 218 bytes  ( 879834 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0033.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: b11a5f20be9c60910f1f13d2a2742f069064145c\nLocation:  @ sector    52416 ;  1651  512-byte sectors and  63 bytes  ( 845375 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0034.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 81b6f65e803d6fba9a61e21c6f4b579b911f1b22\nLocation:  @ sector    54080 ;  1586  512-byte sectors and 433 bytes  ( 812465 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0035.JPG  in: nps-2009-canon2-gen1.raw\nSHA 1: 211b050e56c049e9e4349a23d77a6900770ac913\nLocation:  @ sector    55680 ;  1601  512-byte sectors and 393 bytes  ( 820105 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0036.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 4f08862b159807f22e7fb568bbc750abfcba8ace\nLocation:  @ sector    57312 ;  1723  512-byte sectors and 161 bytes  ( 882337 bytes total)\n\nOriginal Filename: DCIM/CANONMSC/M0100.CTG  in: nps-2009-canon2-gen2.raw\nSHA 1: 69b30c352ee802f49b1ea25325af9fa05c3ffca1\nLocation:  @ sector    59296 ;     0  512-byte sectors and 180 bytes  (    180 bytes total)\n\n",
-    "entities": [],
-    "predicted_threats": {
-      "threat_detected": true,
-      "score": 88,
-      "categories": [
-        "Surveillance",
-        "Financial fraud"
-      ],
-      "keywords": [
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "total",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location",
-        "Location"
-      ],
-      "summary": "Detected threats in categories: Surveillance, Financial fraud (score 88)."
-    }
-  },
-  {
-    "file": "devices\\test\\report.xml",
-    "text": "<?xml version=\"1.0\" ?><groundtruth><fileobject>\n<id>1</id>\n<filesize>105195</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178904</mtime>\n<atime>1230105600</atime>\n<crtime>1230178904</crtime>\n<filename>DCIM/100CANON/IMG_0044.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"88576\" img_offset=\"114688\" len=\"32768\"/><run file_offset=\"32768\" fs_offset=\"1497600\" img_offset=\"1523712\" len=\"32768\"/><run file_offset=\"65536\" fs_offset=\"6330880\" img_offset=\"6356992\" len=\"39659\"/></byte_runs>\n<md5>cef79634dd3a86455a2cd900a691adf3</md5>\n<sha1>916a88a00c58b7a566711acd25e61d549df5d303</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>2</id>\n<filesize>1361807</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230071288</mtime>\n<atime>1230019200</atime>\n<crtime>1230071288</crtime>\n<filename>DCIM/100CANON/IMG_0042.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"121344\" img_offset=\"147456\" len=\"1361807\"/></byte_runs>\n<md5>71fc8955355b39cc708d2ea12464f8ba</md5>\n<sha1>8b9080d2eeaf8dba2d510baa5738e1d2ac62dafc</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>3</id>\n<filesize>840101</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070372</mtime>\n<atime>1230019200</atime>\n<crtime>1230070372</crtime>\n<filename>DCIM/100CANON/IMG_0003.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"1808896\" img_offset=\"1835008\" len=\"840101\"/></byte_runs>\n<md5>fde12217846c1e74bb9681b67bebd886</md5>\n<sha1>214ad4f47b772e38cc295a8192e1664a235ced82</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>4</id>\n<filesize>2834018</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230071438</mtime>\n<atime>1230019200</atime>\n<crtime>1230071438</crtime>\n<filename>DCIM/100CANON/IMG_0043.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"1530368\" img_offset=\"1556480\" len=\"278528\"/><run file_offset=\"278528\" fs_offset=\"2660864\" img_offset=\"2686976\" len=\"1474560\"/><run file_offset=\"1753088\" fs_offset=\"4381184\" img_offset=\"4407296\" len=\"786432\"/><run file_offset=\"2539520\" fs_offset=\"6035968\" img_offset=\"6062080\" len=\"294498\"/></byte_runs>\n<md5>a7767ecba3de8f47bb0a4ba61392f516</md5>\n<sha1>7aca4cfa02da88f91d11c85db16e12ddb286c622</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>5</id>\n<filesize>110686</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178916</mtime>\n<atime>1230105600</atime>\n<crtime>1230178916</crtime>\n<filename>DCIM/100CANON/IMG_0045.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"6380032\" img_offset=\"6406144\" len=\"110686\"/></byte_runs>\n<md5>c2a0a4ae109e1f23452c66d6a7878f8e</md5>\n<sha1>72760dab05562ceb41b2afb6c3895d7e5d017980</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>6</id>\n<filesize>116135</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178930</mtime>\n<atime>1230105600</atime>\n<crtime>1230178930</crtime>\n<filename>DCIM/100CANON/IMG_0046.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"6494720\" img_offset=\"6520832\" len=\"116135\"/></byte_runs>\n<md5>0db645b7a4d69e712cc879b87e0ab408</md5>\n<sha1>97589b7e1fafefd609b4828a2c62d19a9ba14d4b</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>7</id>\n<filesize>865313</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070392</mtime>\n<atime>1230019200</atime>\n<crtime>1230070392</crtime>\n<filename>DCIM/100CANON/IMG_0007.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"5167616\" img_offset=\"5193728\" len=\"865313\"/></byte_runs>\n<md5>dbccff636c1af4880fc04b1b0c43968d</md5>\n<sha1>770b4ef7714998d954668b29a2a7911c359e56f3</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>8</id>\n<filesize>120441</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178936</mtime>\n<atime>1230105600</atime>\n<crtime>1230178936</crtime>\n<filename>DCIM/100CANON/IMG_0047.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"6625792\" img_offset=\"6651904\" len=\"120441\"/></byte_runs>\n<md5>a1e9a7e3ad23def9bd2d85e69a05ae71</md5>\n<sha1>805c0aca98415c69e696c4bc3a58c663c296ec59</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>9</id>\n<filesize>840692</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070402</mtime>\n<atime>1230019200</atime>\n<crtime>1230070402</crtime>\n<filename>DCIM/100CANON/IMG_0009.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"6789632\" img_offset=\"6815744\" len=\"840692\"/></byte_runs>\n<md5>82e93a6092da00ea9a4b11dadd724b7f</md5>\n<sha1>b4fdefeb1bfbe889aed7f4c0aa755cdef302e1e9</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>10</id>\n<filesize>1296150</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070966</mtime>\n<atime>1230019200</atime>\n<crtime>1230070966</crtime>\n<filename>DCIM/100CANON/IMG_0038.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"4135424\" img_offset=\"4161536\" len=\"245760\"/><run file_offset=\"245760\" fs_offset=\"7641600\" img_offset=\"7667712\" len=\"868352\"/><run file_offset=\"1114112\" fs_offset=\"11852288\" img_offset=\"11878400\" len=\"182038\"/></byte_runs>\n<md5>b10821b19fc5ac436f67e47a77e15f7d</md5>\n<sha1>b2575a16cb6eaf22289b4d90dffd77b2ba45c995</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>11</id>\n<filesize>771052</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070410</mtime>\n<atime>1230019200</atime>\n<crtime>1230070410</crtime>\n<filename>DCIM/100CANON/IMG_0011.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"8509952\" img_offset=\"8536064\" len=\"771052\"/></byte_runs>\n<md5>46ee4abaae3a50eb041945393aa657ff</md5>\n<sha1>25eb57e8a094d0bf33e43742681ddbd01d0b93a3</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>12</id>\n<filesize>124906</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178942</mtime>\n<atime>1230105600</atime>\n<crtime>1230178942</crtime>\n<filename>DCIM/100CANON/IMG_0048.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"6756864\" img_offset=\"6782976\" len=\"32768\"/><run file_offset=\"32768\" fs_offset=\"9296384\" img_offset=\"9322496\" len=\"92138\"/></byte_runs>\n<md5>16cfd28b267c34f430baee168dd387ff</md5>\n<sha1>b438b62b04bed3ea02d11ed3ed51c9dca58893ec</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>13</id>\n<filesize>842160</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070420</mtime>\n<atime>1230019200</atime>\n<crtime>1230070420</crtime>\n<filename>DCIM/100CANON/IMG_0013.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"10115584\" img_offset=\"10141696\" len=\"842160\"/></byte_runs>\n<md5>7690b9854abca6cafa9f0ff3fab67a16</md5>\n<sha1>fccf7639029bda2eb748fafdb660d985779736a7</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>14</id>\n<filesize>114940</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178948</mtime>\n<atime>1230105600</atime>\n<crtime>1230178948</crtime>\n<filename>DCIM/100CANON/IMG_0049.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"9394688\" img_offset=\"9420800\" len=\"114940\"/></byte_runs>\n<md5>43376934ed3f22329a5023f8fe8e6a51</md5>\n<sha1>d69d8d907f0f4bdb151be9826a62b4b5c7a77f56</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>15</id>\n<filesize>127191</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178956</mtime>\n<atime>1230105600</atime>\n<crtime>1230178956</crtime>\n<filename>DCIM/100CANON/IMG_0050.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"9525760\" img_offset=\"9551872\" len=\"127191\"/></byte_runs>\n<md5>2e5f0632b0a35ae060af4200bfab38bf</md5>\n<sha1>887fd6dd3ab09a50b227aa7e025ace16b9dc3e36</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>16</id>\n<filesize>853839</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070436</mtime>\n<atime>1230019200</atime>\n<crtime>1230070436</crtime>\n<filename>DCIM/100CANON/IMG_0016.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"12687872\" img_offset=\"12713984\" len=\"853839\"/></byte_runs>\n<md5>dd3852ec13dd160ca134551d68ed2b8d</md5>\n<sha1>aa2b9eb89628485e51b5de57edad2487b648e574</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>17</id>\n<filesize>795574</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070440</mtime>\n<atime>1230019200</atime>\n<crtime>1230070440</crtime>\n<filename>DCIM/100CANON/IMG_0017.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"13556224\" img_offset=\"13582336\" len=\"795574\"/></byte_runs>\n<md5>e9078510fde89c08f9eda08b60aceb2a</md5>\n<sha1>2b7dee3b405ba577c3a17e6dfb2e4e182712bf6c</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>18</id>\n<filesize>784455</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070446</mtime>\n<atime>1230019200</atime>\n<crtime>1230070446</crtime>\n<filename>DCIM/100CANON/IMG_0018.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"14359040\" img_offset=\"14385152\" len=\"784455\"/></byte_runs>\n<md5>fc8c2080322a93d7517876dd94b6c271</md5>\n<sha1>68f6b646041516e60cf6581181f968f7b9bd3bc9</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>19</id>\n<filesize>864257</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070450</mtime>\n<atime>1230019200</atime>\n<crtime>1230070450</crtime>\n<filename>DCIM/100CANON/IMG_0019.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"15145472\" img_offset=\"15171584\" len=\"864257\"/></byte_runs>\n<md5>1b520e0637ff9257a569a639ee7e48c6</md5>\n<sha1>7661a34788eedc94f3a66c132c1e7ac6ace78be2</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>20</id>\n<filesize>130418</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178962</mtime>\n<atime>1230105600</atime>\n<crtime>1230178962</crtime>\n<filename>DCIM/100CANON/IMG_0051.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"9656832\" img_offset=\"9682944\" len=\"130418\"/></byte_runs>\n<md5>7e5e68efac8c9a218f34b512f49e1b1e</md5>\n<sha1>7ef5225f992dc731907a79816c904a83df3bdab5</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>21</id>\n<filesize>819599</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070460</mtime>\n<atime>1230019200</atime>\n<crtime>1230070460</crtime>\n<filename>DCIM/100CANON/IMG_0021.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"16898560\" img_offset=\"16924672\" len=\"819599\"/></byte_runs>\n<md5>c0a215a6125491b6d1f708c109729844</md5>\n<sha1>a87c594b86ca41c88547e128335ec3919bc27d87</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>22</id>\n<filesize>728696</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070466</mtime>\n<atime>1230019200</atime>\n<crtime>1230070466</crtime>\n<filename>DCIM/100CANON/IMG_0022.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"17734144\" img_offset=\"17760256\" len=\"728696\"/></byte_runs>\n<md5>0ccab34b30ea983b77eedd27cae86e73</md5>\n<sha1>00ef4d79b36d32ba42c6cc808421439f0fbcb662</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>23</id>\n<filesize>858798</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070470</mtime>\n<atime>1230019200</atime>\n<crtime>1230070470</crtime>\n<filename>DCIM/100CANON/IMG_0023.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"18471424\" img_offset=\"18497536\" len=\"858798\"/></byte_runs>\n<md5>788e8ea46f70a367004915d5af75a22c</md5>\n<sha1>9e81a566e8c7a4d49cb1cb834cb621023b3729a5</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>24</id>\n<filesize>838434</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070476</mtime>\n<atime>1230019200</atime>\n<crtime>1230070476</crtime>\n<filename>DCIM/100CANON/IMG_0024.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"19339776\" img_offset=\"19365888\" len=\"838434\"/></byte_runs>\n<md5>b291cbbf970cd7913ee0177e7b0bfdbb</md5>\n<sha1>12d2e78fa5b118a0f3144bda4e8e331c8a34ccbc</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>25</id>\n<filesize>768385</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070486</mtime>\n<atime>1230019200</atime>\n<crtime>1230070486</crtime>\n<filename>DCIM/100CANON/IMG_0026.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"20994560\" img_offset=\"21020672\" len=\"768385\"/></byte_runs>\n<md5>d495f85075f774cbbc31f6e39ef7afea</md5>\n<sha1>0745141aefe2ede7c788f9d80c3a3897134b0353</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>26</id>\n<filesize>840253</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070490</mtime>\n<atime>1230019200</atime>\n<crtime>1230070490</crtime>\n<filename>DCIM/100CANON/IMG_0027.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"21764608\" img_offset=\"21790720\" len=\"840253\"/></byte_runs>\n<md5>a822e6a4782a19e3882d9f0cfef448ad</md5>\n<sha1>e5721ef38a1bc7bb92895ad3df23786cffa84bb8</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>27</id>\n<filesize>815636</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070494</mtime>\n<atime>1230019200</atime>\n<crtime>1230070494</crtime>\n<filename>DCIM/100CANON/IMG_0028.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"22616576\" img_offset=\"22642688\" len=\"815636\"/></byte_runs>\n<md5>f7e33ce7a2a624568282ddcad83fe3d1</md5>\n<sha1>04d3290232dad550d7bccf45f768793d0512da9a</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>28</id>\n<filesize>861552</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070498</mtime>\n<atime>1230019200</atime>\n<crtime>1230070498</crtime>\n<filename>DCIM/100CANON/IMG_0029.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"23435776\" img_offset=\"23461888\" len=\"861552\"/></byte_runs>\n<md5>434fd5c55b51456e582d93919092a576</md5>\n<sha1>ce7068a8b8eec06f1bf269da519de462e72f6ee8</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>29</id>\n<filesize>749202</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070508</mtime>\n<atime>1230019200</atime>\n<crtime>1230070508</crtime>\n<filename>DCIM/100CANON/IMG_0031.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"25172480\" img_offset=\"25198592\" len=\"749202\"/></byte_runs>\n<md5>2d2a5aab898c36dc387546881224438f</md5>\n<sha1>16495400c6b982c69c3e12ad80b900a6d2ab3d8f</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>30</id>\n<filesize>879834</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070514</mtime>\n<atime>1230019200</atime>\n<crtime>1230070514</crtime>\n<filename>DCIM/100CANON/IMG_0032.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"25926144\" img_offset=\"25952256\" len=\"879834\"/></byte_runs>\n<md5>eaaeb62af36bbc276e49cee8472fe941</md5>\n<sha1>3e4be3780f41df5f4cc24d5466219bf67556af5e</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>31</id>\n<filesize>845375</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070518</mtime>\n<atime>1230019200</atime>\n<crtime>1230070518</crtime>\n<filename>DCIM/100CANON/IMG_0033.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"26810880\" img_offset=\"26836992\" len=\"845375\"/></byte_runs>\n<md5>d05a1fdf5d34545ed90c4c27e6f007cf</md5>\n<sha1>b11a5f20be9c60910f1f13d2a2742f069064145c</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>32</id>\n<filesize>812465</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070522</mtime>\n<atime>1230019200</atime>\n<crtime>1230070522</crtime>\n<filename>DCIM/100CANON/IMG_0034.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"27662848\" img_offset=\"27688960\" len=\"812465\"/></byte_runs>\n<md5>ff2471aba536ec5d0177b03c1b8846d8</md5>\n<sha1>81b6f65e803d6fba9a61e21c6f4b579b911f1b22</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>33</id>\n<filesize>882337</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070536</mtime>\n<atime>1230019200</atime>\n<crtime>1230070536</crtime>\n<filename>DCIM/100CANON/IMG_0036.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"29317632\" img_offset=\"29343744\" len=\"882337\"/></byte_runs>\n<md5>3cc16c38c8b0ba10d5d5dda73b2ba80c</md5>\n<sha1>4f08862b159807f22e7fb568bbc750abfcba8ace</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>34</id>\n<filesize>164</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178864</mtime>\n<atime>1230105600</atime>\n<crtime>1230178864</crtime>\n<filename>DCIM/CANONMSC/M0100.CTG</filename>\n<libmagic>data</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"72192\" img_offset=\"98304\" len=\"164\"/></byte_runs>\n<md5>b8ae356e040f8242122537c66e4dc961</md5>\n<sha1>8ce272c91a2289a610eeecdc4f2228553313353c</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>14</id>\n<filesize>873437</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070424</mtime>\n<atime>1230019200</atime>\n<crtime>1230070424</crtime>\n<filename>DCIM/100CANON/IMG_0014.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"10967552\" img_offset=\"10993664\" len=\"873437\"/></byte_runs>\n<md5>2c11f3b009dacc24896c0c0cb0df924c</md5>\n<sha1>6c9e27f9911f37488ef0d6e878c68f2a61100b2c</sha1>\n<reference><image>nps-2009-canon2-gen1.raw</image><reason>residual file</reason></reference></fileobject><fileobject>\n<id>20</id>\n<filesize>883127</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070456</mtime>\n<atime>1230019200</atime>\n<crtime>1230070456</crtime>\n<filename>DCIM/100CANON/IMG_0020.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"16013824\" img_offset=\"16039936\" len=\"883127\"/></byte_runs>\n<md5>f71b1d493b010e0d4c194f4c1112529a</md5>\n<sha1>825c04774ea2b9171c267e682abbecb82baa4e29</sha1>\n<reference><image>nps-2009-canon2-gen1.raw</image><reason>residual file</reason></reference></fileobject><fileobject>\n<id>25</id>\n<filesize>791333</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070480</mtime>\n<atime>1230019200</atime>\n<crtime>1230070480</crtime>\n<filename>DCIM/100CANON/IMG_0025.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"20191744\" img_offset=\"20217856\" len=\"791333\"/></byte_runs>\n<md5>23536f9977a93a48cefb43a69cdb2ee3</md5>\n<sha1>a6cfff9c614dc3aeb3470185bcf63e5a7eeaf33a</sha1>\n<reference><image>nps-2009-canon2-gen1.raw</image><reason>residual file</reason></reference></fileobject><fileobject>\n<id>30</id>\n<filesize>867833</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070502</mtime>\n<atime>1230019200</atime>\n<crtime>1230070502</crtime>\n<filename>DCIM/100CANON/IMG_0030.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"24304128\" img_offset=\"24330240\" len=\"867833\"/></byte_runs>\n<md5>a790bb6f5c8b85205cd3aa91ea69a0ad</md5>\n<sha1>49bf2c6db487177abc32decdba727c813af1d122</sha1>\n<reference><image>nps-2009-canon2-gen1.raw</image><reason>residual file</reason></reference></fileobject><fileobject>\n<id>35</id>\n<filesize>820105</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070528</mtime>\n<atime>1230019200</atime>\n<crtime>1230070528</crtime>\n<filename>DCIM/100CANON/IMG_0035.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"28482048\" img_offset=\"28508160\" len=\"820105\"/></byte_runs>\n<md5>4b5538fbdf7e598c6b8bcf2a6521445b</md5>\n<sha1>211b050e56c049e9e4349a23d77a6900770ac913</sha1>\n<reference><image>nps-2009-canon2-gen1.raw</image><reason>residual file</reason></reference></fileobject><fileobject>\n<id>34</id>\n<filesize>180</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070924</mtime>\n<atime>1230019200</atime>\n<crtime>1230070924</crtime>\n<filename>DCIM/CANONMSC/M0100.CTG</filename>\n<libmagic>data</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"30333440\" img_offset=\"30359552\" len=\"180\"/></byte_runs>\n<md5>548a01d7bbdb894dddac6872988a271c</md5>\n<sha1>69b30c352ee802f49b1ea25325af9fa05c3ffca1</sha1>\n<reference><image>nps-2009-canon2-gen2.raw</image><reason>residual file</reason></reference></fileobject>\n\n\n\n\n\n\n\n\n\n\n\n</groundtruth>",
-    "entities": [
-      {
-        "type": "phone",
-        "value": "1230178904"
-      },
-      {
-        "type": "phone",
-        "value": "1230105600"
-      },
-      {
-        "type": "phone",
-        "value": "1230178904"
-      },
-      {
-        "type": "phone",
-        "value": "1230071288"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230071288"
-      },
-      {
-        "type": "phone",
-        "value": "1230070372"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070372"
-      },
-      {
-        "type": "phone",
-        "value": "1230071438"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230071438"
-      },
-      {
-        "type": "phone",
-        "value": "1230178916"
-      },
-      {
-        "type": "phone",
-        "value": "1230105600"
-      },
-      {
-        "type": "phone",
-        "value": "1230178916"
-      },
-      {
-        "type": "phone",
-        "value": "1230178930"
-      },
-      {
-        "type": "phone",
-        "value": "1230105600"
-      },
-      {
-        "type": "phone",
-        "value": "1230178930"
-      },
-      {
-        "type": "phone",
-        "value": "1230070392"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070392"
-      },
-      {
-        "type": "phone",
-        "value": "1230178936"
-      },
-      {
-        "type": "phone",
-        "value": "1230105600"
-      },
-      {
-        "type": "phone",
-        "value": "1230178936"
-      },
-      {
-        "type": "phone",
-        "value": "1230070402"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070402"
-      },
-      {
-        "type": "phone",
-        "value": "1230070966"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070966"
-      },
-      {
-        "type": "phone",
-        "value": "1230070410"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070410"
-      },
-      {
-        "type": "phone",
-        "value": "1230178942"
-      },
-      {
-        "type": "phone",
-        "value": "1230105600"
-      },
-      {
-        "type": "phone",
-        "value": "1230178942"
-      },
-      {
-        "type": "phone",
-        "value": "1230070420"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070420"
-      },
-      {
-        "type": "phone",
-        "value": "1230178948"
-      },
-      {
-        "type": "phone",
-        "value": "1230105600"
-      },
-      {
-        "type": "phone",
-        "value": "1230178948"
-      },
-      {
-        "type": "phone",
-        "value": "1230178956"
-      },
-      {
-        "type": "phone",
-        "value": "1230105600"
-      },
-      {
-        "type": "phone",
-        "value": "1230178956"
-      },
-      {
-        "type": "phone",
-        "value": "1230070436"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070436"
-      },
-      {
-        "type": "phone",
-        "value": "1230070440"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070440"
-      },
-      {
-        "type": "phone",
-        "value": "1230070446"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070446"
-      },
-      {
-        "type": "phone",
-        "value": "1230070450"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070450"
-      },
-      {
-        "type": "phone",
-        "value": "1230178962"
-      },
-      {
-        "type": "phone",
-        "value": "1230105600"
-      },
-      {
-        "type": "phone",
-        "value": "1230178962"
-      },
-      {
-        "type": "phone",
-        "value": "1230070460"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070460"
-      },
-      {
-        "type": "phone",
-        "value": "1230070466"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070466"
-      },
-      {
-        "type": "phone",
-        "value": "1230070470"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070470"
-      },
-      {
-        "type": "phone",
-        "value": "1230070476"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070476"
-      },
-      {
-        "type": "phone",
-        "value": "1230070486"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070486"
-      },
-      {
-        "type": "phone",
-        "value": "1230070490"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070490"
-      },
-      {
-        "type": "phone",
-        "value": "1230070494"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070494"
-      },
-      {
-        "type": "phone",
-        "value": "1230070498"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070498"
-      },
-      {
-        "type": "phone",
-        "value": "1230070508"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070508"
-      },
-      {
-        "type": "phone",
-        "value": "1230070514"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070514"
-      },
-      {
-        "type": "phone",
-        "value": "1230070518"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070518"
-      },
-      {
-        "type": "phone",
-        "value": "1230070522"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070522"
-      },
-      {
-        "type": "phone",
-        "value": "1230070536"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070536"
-      },
-      {
-        "type": "phone",
-        "value": "1230178864"
-      },
-      {
-        "type": "phone",
-        "value": "1230105600"
-      },
-      {
-        "type": "phone",
-        "value": "1230178864"
-      },
-      {
-        "type": "phone",
-        "value": "1230070424"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070424"
-      },
-      {
-        "type": "phone",
-        "value": "1230070456"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070456"
-      },
-      {
-        "type": "phone",
-        "value": "1230070480"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070480"
-      },
-      {
-        "type": "phone",
-        "value": "1230070502"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070502"
-      },
-      {
-        "type": "phone",
-        "value": "1230070528"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070528"
-      },
-      {
-        "type": "phone",
-        "value": "1230070924"
-      },
-      {
-        "type": "phone",
-        "value": "1230019200"
-      },
-      {
-        "type": "phone",
-        "value": "1230070924"
-      }
-    ],
-    "predicted_threats": {
-      "threat_detected": true,
-      "score": 240,
+      "threat_detected": false,
+      "score": 0,
       "categories": [],
       "keywords": [],
-      "summary": "Detected threats in categories:  (score 240)."
+      "summary": "No threats detected."
+    }
+  },
+  {
+    "file": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.46_ecd489bc.jpg",
+    "text": "",
+    "entities": [],
+    "predicted_threats": {
+      "threat_detected": false,
+      "score": 0,
+      "categories": [],
+      "keywords": [],
+      "summary": "No threats detected."
+    }
+  },
+  {
+    "file": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.47_441b2b44.jpg",
+    "text": ": =\\",
+    "entities": [],
+    "predicted_threats": {
+      "threat_detected": false,
+      "score": 0,
+      "categories": [],
+      "keywords": [],
+      "summary": "No threats detected."
+    }
+  },
+  {
+    "file": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.47_db4a2f7d.jpg",
+    "text": "",
+    "entities": [],
+    "predicted_threats": {
+      "threat_detected": false,
+      "score": 0,
+      "categories": [],
+      "keywords": [],
+      "summary": "No threats detected."
+    }
+  },
+  {
+    "file": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.47_ff09d4a4.jpg",
+    "text": "",
+    "entities": [],
+    "predicted_threats": {
+      "threat_detected": false,
+      "score": 0,
+      "categories": [],
+      "keywords": [],
+      "summary": "No threats detected."
+    }
+  },
+  {
+    "file": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.48_921c3887.jpg",
+    "text": "",
+    "entities": [],
+    "predicted_threats": {
+      "threat_detected": false,
+      "score": 0,
+      "categories": [],
+      "keywords": [],
+      "summary": "No threats detected."
+    }
+  },
+  {
+    "file": "terr.jpg",
+    "text": "",
+    "entities": [],
+    "predicted_threats": {
+      "threat_detected": false,
+      "score": 0,
+      "categories": [],
+      "keywords": [],
+      "summary": "No threats detected."
+    }
+  },
+  {
+    "file": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.48_f5041b8d.jpg",
+    "text": "",
+    "entities": [],
+    "predicted_threats": {
+      "threat_detected": false,
+      "score": 0,
+      "categories": [],
+      "keywords": [],
+      "summary": "No threats detected."
+    }
+  },
+  {
+    "file": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.49_cd45522f.jpg",
+    "text": "shutterstsck: IMAGE ID: 241",
+    "entities": [],
+    "predicted_threats": {
+      "threat_detected": false,
+      "score": 0,
+      "categories": [],
+      "keywords": [],
+      "summary": "No threats detected."
+    }
+  },
+  {
+    "file": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.49_ebddc89e.jpg",
+    "text": "",
+    "entities": [],
+    "predicted_threats": {
+      "threat_detected": false,
+      "score": 0,
+      "categories": [],
+      "keywords": [],
+      "summary": "No threats detected."
     }
   }
 ]

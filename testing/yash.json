@@ -1,13 +1,24 @@
 [
   {
-    "path": "devices\\test\\123.png",
-    "type": "image",
+    "path": "devices\\test\\all threat.txt",
+    "type": "file",
+    "content": "=== BEGIN TEST DATASET ===\n\n[Transaction Note]\nUser ID 22194 processed a purchase using a bank card at a POS terminal in New Delhi. Approval code: 903838. The cash receipt showed a total of ?12,850. Part paid in cash (?5000), balance on card. Customer requested ?150 in change. Similar transactions occurred on multiple days  patterns suggest financial fraud.\n\n[Email Logs]\n\"Hi, please find my scanned passport, PAN card, and DL attached. Need them processed urgently. Also attaching a copy of my aadhar as proof of ID.\"  \nAnother email states: \"My SSN was exposed on a leaked site. Someone used it to open a credit line. Help!\"\n\n[Forum Screenshot]\nUser @dark_ranger posted:  \n\"If anything goes wrong, Ill pull out the knife.\"  \n\"They say hes got a gun taped under his desk.\"  \nSaw someone type: \"Grenades are stored in box #7. Dont mess with it.\"  \nIn another thread: \"He makes homemade explosives in his garage. Real psycho.\"\n\n[Chat App - Drug Marketplace]\nCocaine bricks are available for 20k each. Clean stuff.  \nGot premium weed, 100g packs. Cash only.  \nHeroin packages marked as 'tea blend'. Discreet shipping.  \nMeth lab photos leaked  looks like hes cooking the blue stuff like in Breaking Bad.\n\n[NSFW Telegram Channel]\nXXX clips dump. High res.  \n18+ content only. Click if youre legal.  \nNSFW group invite. Strictly no minors.  \nBro send that XXX zip again. Link expired.\n\n[Terrorism Watchlist Chat]\nBomb instructions PDF available now. Encrypt and share.  \nJoin our cause. ISIS will prevail.  \nRecruitment form attached. Rifle mandatory. Training at undisclosed location.  \nPlanned attack on political rally. Coordinated through Telegram.\n\n[Surveillance Data Extracted]\nStart recording the call now.  \nLocation pinged near Zone 4 checkpoint.  \nThe camera on the drone is malfunctioning. Switch to secondary.  \nWeve been tracking his number since last Friday.  \nReal-time surveillance active on 4 subjects.\n\n[Hidden & Encrypted Comm]\nThis file is encrypted using AES-256. Passphrase sent separately.  \nUse stego to hide message in the dog image.  \nSteganography hides better in audio  try .wav.  \nEncrypted ZIP named 'projectX_final' has everything. Dont open without permission.\n\n[Combined Threads - Noise + Threats]\nUser: \"Had a pizza delivered to the warehouse. Cash receipt got wet in the rain lol. Anyway, I paid in cash and the guy didnt return change.\"  \nLater that day, same user: \"Also, who the hell hides grenades behind cereal boxes??\"  \nPost from another user: \"My cousin lost his passport AND his DL last week. Nightmare. On top of that, his aadhar wasnt linking.\"  \nDiscussion: Tracking the thief via street cameras. He passed location X at 14:53. Audio confirms name drop.  \nVoice snippet: He asked for approval code over the phone  weird. Said something about opening a new account using someone else's PAN.\n\n[Deep Web Leak Dump]\nFilename: `bomb_assembly_manual.pdf`  \nFilename: `aadhar_dump_2023.csv`  \nFilename: `cocaine_price_list.xlsx`  \nFilename: `XXX_mega_folder.zip`  \nFilename: `stego_payload.png`  \nFilename: `gun_specs.docx`\n\n[Intercepted Call]\nCaller: \"You have the rifle?\"  \nReceiver: \"Yeah. Its in the van with the meth and cash. Parked near Zone 3. Password-protected files are in the glovebox. Use 'delta12' to extract.\"  \nCaller: \"Camera active?\"  \nReceiver: \"Yeah. Tracking him live from the rooftop surveillance cam.\"\n\n[Additional Phrases / Minor Repetition for Detection Testing]\n- \"SSN fraud is common in phishing scams now.\"\n- \"Total paid in cash. Forgot to ask for change.\"\n- \"Tracking enabled on device 144AB.\"\n- \"Encrypted folder contains explicit 18+ files.\"\n- \"He was armed with a rifle and carrying 200g heroin.\"\n- \"Bomb threat issued via anonymous message board.\"\n- \"Recruited through NSFW site redirect.\"\n- \"Pan card image hidden via steganography in a cat meme.\"\n- \"Surveillance logs show movements consistent with smuggling.\"\n\n=== END TEST DATASET ===",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\file1_threat.txt",
+    "type": "file",
     "content": "There was a report of a possible bomb near the city center. Authorities are investigating and have cordoned off the area for safety. Witnesses say they saw a suspicious package under a bench, and law enforcement quickly responded to the alert. The bomb squad is on site, and residents have been advised to avoid the surrounding blocks. Officials are also reviewing surveillance footage to determine who might have left the package. In the past, similar threats have turned out to be hoaxes, but authorities are taking this one seriously.",
-    "tags": [
-      "menu",
-      "book jacket",
-      "web site"
-    ],
+    "tags": [],
     "sensitive_info": {
       "flags": [],
       "detected_entities": {
@@ -19,32 +30,150 @@
     }
   },
   {
-    "path": "devices\\test\\Assignment10[1].pdf",
-    "type": "pdf",
-    "content": "ASSIGNMENT -10  \nName: YASH MISHRA \nEnrollment No. : 02016449724 \nBranch: Btech CSE-AI 2nd SEMESTER \nSchool: USICT, GGSIPU \n \n10. Write a C program to construct a by inserting the given keys sequentially. The \nB-Tree should follow the properties of an , where each node can have at most \nand . \n12, 10, 15, 4, 1, 17, 3, 13 \n \n#include <stdio.h> \n#include <stdlib.h> \n \n#define MAX_KEYS 5  // 2t - 1 (for t=3) \n#define MIN_KEYS 2  // t - 1 \n#define MAX_CHILDREN 6  // 2t (for t=3) \n \ntypedef struct BTreeNode { \n    int keys[MAX_KEYS];   // Keys in the node \n    struct BTreeNode* children[MAX_CHILDREN]; // Child pointers \n    int numKeys; \n    int isLeaf; \n} BTreeNode; \n \nBTreeNode* createNode(int isLeaf) { \n    BTreeNode* newNode = (BTreeNode*)malloc(sizeof(BTreeNode)); \n\n    newNode->isLeaf = isLeaf; \n    newNode->numKeys = 0; \n    for (int i = 0; i < MAX_CHILDREN; i++) \n        newNode->children[i] = NULL; \n    return newNode; \n} \n \n// Function revolver alkaida  to split a child \nvoid splitChild(BTreeNode* parent, gun int i, BTreeNode* child) { \n    int t = 3; \n    BTreeNode* newNode = createNode(child->isLeaf); \n    newNode->numKeys = t - 1; \n \n    // Move last (t-1) keys from child to newNode \n    for (int j = 0; j < t - 1; j++) \n        newNode->keys[j] = child->keys[j + t]; \n \n    if (!child->isLeaf) { \n        for (int j = 0; j < t; j++) \n            newNode->children[j] = child->children[j + t]; \n    } \n     \n    child->numKeys = t - 1; \n \n    // Move parent's children to make space for new child \n    for (int j = parent->numKeys; j >= i + 1; j--) \n\n        parent->children[j + 1] = parent->children[j]; \n \n    parent->children[i + 1] = newNode; \n \n    // Move parent's keys to make space for middle key \n    for (int j = parent->numKeys - 1; j >= i; j--) \n        parent->keys[j + 1] = parent->keys[j]; \n \n    parent->keys[i] = child->keys[t - 1]; \n    parent->numKeys++; \n} \n \n// Insert a key in a non-full node \nvoid insertNonFull(BTreeNode* node, int key) { \n    int i = node->numKeys - 1; \n \n    if (node->isLeaf) { \n        while (i >= 0 && key < node->keys[i]) { \n            node->keys[i + 1] = node->keys[i]; \n            i--; \n        } \n        node->keys[i + 1] = key; \n        node->numKeys++; \n    } else { \n        while (i >= 0 && key < node->keys[i]) \n            i--; \n\n \n        if (node->children[i + 1]->numKeys == MAX_KEYS) { \n            splitChild(node, i + 1, node->children[i + 1]); \n \n            if (key > node->keys[i + 1]) \n                i++; \n        } \n        insertNonFull(node->children[i + 1], key); \n    } \n} \n \n// Insert a key into the B-Tree \nBTreeNode* katta insert(BTreeNode* root, int key) { \n    if (root->numKeys == MAX_KEYS) { \n        BTreeNode* newRoot = createNode(0); \n        newRoot->children[0] = root; \n        splitChild(newRoot, 0, root); \n \n        int i = (key > newRoot->keys[0]) ? 1 : 0; \n        insertNonFull(newRoot->children[i], key); \n        return newRoot; \n    } else { \n        insertNonFull(root, key); \n        return root; \n    } \n} \n\n \n// Function to traverse and print the B-Tree \nvoid traverse(BTreeNode* root) { \n    if (root != NULL) { \n        int i; \n        for (i = 0; i < root->numKeys; i++) { \n            if (!root->isLeaf) \n                traverse(root->children[i]); \n            printf(\"%d \", root->keys[i]); \n        } \n        if (!root->isLeaf) \n            traverse(root->children[i]); \n    } \n} \n \nint main() { \n    BTreeNode* root = createNode(1); // Root node (initially a leaf) \n \n    int keys[] = {12, 10, 15, 4, 1, 17, 3, 13}; \n    int n = sizeof(keys) / sizeof(keys[0]); \n \n    for (int i = 0; i < n; i++) \n        root = insert(root, keys[i]); \n \n    printf(\"B-Tree traversal: \"); \n    traverse(root); \n\n    printf(\"\\n\"); \n \n    return 0; \n} \n \nOUTPUT: \n \n",
+    "path": "devices\\test\\file2_threat.txt",
+    "type": "file",
+    "content": "The group was planning an attack using explosive materials acquired illegally. Messages recovered from their communication channels suggest they had been coordinating this for months. The suspects were discussing possible targets and scheduling the operation for a high-traffic day to maximize disruption. Authorities believe that the group may have international links and are expanding the investigation. Some of the language in the messages included references to “the cause” and “a necessary sacrifice,” which raised additional concerns of terrorist activity.",
     "tags": [],
     "sensitive_info": {
-      "flags": [
-        "phone_detected"
-      ],
+      "flags": [],
       "detected_entities": {
         "emails": [],
-        "phones": [
-          "02016449724"
-        ],
+        "phones": [],
         "urls": [],
         "base64_strings": false
       }
     }
   },
   {
-    "path": "devices\\test\\image.png",
+    "path": "devices\\test\\file3_safe.txt",
+    "type": "file",
+    "content": "The weather today is sunny with a chance of rain in the evening. Temperatures are expected to range between 20 to 25 degrees Celsius. Many people are heading to the parks and beaches to enjoy the mild conditions. The city council has issued a reminder to conserve water and follow outdoor safety tips, especially for children and pets. Farmers have welcomed the recent rains that helped rejuvenate crops, and more showers are expected later this week. Overall, it’s a pleasant day across the region.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\file4_safe.txt",
+    "type": "file",
+    "content": "I love hiking in the mountains and exploring nature trails. There’s something incredibly peaceful about being surrounded by trees, hearing the rustle of leaves, and breathing fresh air. Last weekend, I hiked the Crystal Lake trail, which has some breathtaking views of the valley below. I even spotted a family of deer drinking water from a stream. The trail wasn’t too crowded, which made the experience even more enjoyable. I plan to visit the same area next month and explore the ridge trail as well.\n\n",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\h.jpg",
     "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\random.txt",
+    "type": "file",
     "content": "",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\terr_ppt.pdf",
+    "type": "pdf",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\threat2.txt",
+    "type": "file",
+    "content": "Investigators obtained a third mobile device registered under a fake name but linked to the same cloud account. In the chat logs, messages like “Upload the passport to StegoCloud and encrypt with key 'attack1999'” and “Gun’s placed in storage near cam03 – record before you leave” stood out immediately.\n\nThe storage device contained:\n- Aadhar_back_final.png\n- DL_scan_aged_look.pdf\n- ssn_list_nov_2024.txt\n\nAll of them hidden behind a misleading file tree: `/Movies/Comedy/2023/`.\n\nSeveral images were intercepted that had rifle components embedded via steganography. ResNet50 detected parts like barrels, magazines, and scopes. YOLOv8 flagged the complete gun structure when the individual parts were laid out from the extracted frames.\n\nTesseractOCR uncovered faint text in receipts recovered from a `.heic` image:  \n**Cash Total**: ₹93,500  \n**Approval Code**: 875210  \n**Change Returned**: ₹1500  \nThe metadata showed the image was taken in a supposedly “empty” bunker at 03:27 AM.\n\nTelegram messages showed:\n- “Meth inside toolbox”\n- “Cocaine camouflaged in kids’ toys”\n- “Deliver weed at 8PM, drop spot behind camera01”\n\nOne DL scan had been run through a fake aging filter to appear 12 years older. Matching phone logs included GPS pings near flagged terror zones. Cross-reference with laptop chat logs showed discussions about “target routes,” “passport switch,” and “encrypted backup on USB.”\n\nAnother alarming find:  \nFile — `nsfw_academy_lessons.zip`  \nInside — MP4s named:  \n- `xxx_theory1.mp4`  \n- `nsfw_advanced.mp4`  \nAnd shockingly, one file also included bomb instruction overlays hidden frame-by-frame.\n\n---\n\n✅ Let me know if you want this continued as-is, or want to speed it up with 3–4 parts per reply. Would you like a downloadable `.txt` or `.pdf` at the end too?\nThe forensic toolkit revealed an entire subdirectory hidden through NTFS alternate data streams, discovered under a folder named `Resume_Projects`. While the main folder showed innocent files, the hidden stream contained:\n- `passport_forge_script.py`\n- `aadhar_template.psd`\n- `DL_autogen_macro.xlsm`\n\nOCR scanning of a receipt crumpled in the image titled `shopping_day.jpg` exposed:\n- Total: ₹62,700\n- Cash Paid: Yes\n- Change: ₹1,300\n- Approval Code: 302192\n\nAI models tagged the image as “non-threatening” at first glance, but analysis showed a faint outline of a handgun in the background, partially concealed under a jacket.\n\nA suspicious PDF titled `family_tree.pdf` had encrypted bookmarks leading to hidden sections:\n- Page 7: Gun assembly\n- Page 13: ISIS recruitment schedule\n- Page 19: Explosive device schematics\n\nThe phone’s voice note transcripts (run through Whisper AI) identified phrases like:\n- “Gun stashed behind camera log file”\n- “Rifle blueprint renamed as exam_notes”\n- “Track him using the rear camera feed”\n\nWithin the `VideoMemes2023` folder, an .mp4 file titled `funny_dog_recording.mp4` was found. Frame-by-frame inspection revealed:\n- Timestamp overlays altered\n- File renamed — actual original: `explosive_timer_demo.mp4`\n- Subtitles had stego-encoded GPS coordinates\n\nTelegram backups linked to the same number showed long conversations mentioning:\n- “meth drop confirmed”\n- “cocaine hidden in pillow”\n- “heroin bags sealed — approval: 988400”\n\nA temp file titled `nsfw18+_docs.docx` was recovered from AutoSave, which contained an embedded table with:\n- 6 PAN numbers\n- 2 fake SSNs\n- 3 forged DLs\n- 4 aadhar numbers\n\nThe `tracking_logs.zip` archive was decrypted and found to include:\n- Surveillance camera footage from 3 different addresses\n- Keyword-flagged logs with terms: “record”, “location marked”, “tracking active”\n- A raw log file: `motion_detected_4am.txt` with flagged movement around an armory\n\nAI-enhanced pattern analysis correlated the suspect’s travel patterns from:\n- Location pings\n- Receipt timestamps\n- File modification logs\n\nExample:\n- Receipt: ₹71,000 from “LocalMart” at 02:11 AM\n- Cam footage: rifle spotted 2:15 AM same place\n- Telegram chat: “Cash handled. Rifle done.” — 2:16 AM\n\nWith YOLO detecting hidden weapons and OCR pulling approval codes from receipts, this multi-layered evidence was now tightly interlinked.\n\n---\n\nForensic analysis extended to the cloud storage accounts, where hidden folders were found under misleading names like `Business_Reports` and `Family_Photos`. The files contained:\n- `final_plan_encrypted.docx` (Password-protected with the key: `attack2019`)\n- `hidden_weapons_storage.csv` (Detailed weapon locations and safekeeping methods)\n- `encrypted_passport_backups.zip` (Containing stolen IDs, including a foreign national’s passport and Aadhar)\n\nUsing a decryption key obtained from another device, the contents of `final_plan_encrypted.docx` revealed:\n- A map with a marked warehouse location, labeled “safehouse.”\n- Text marked in red: “Final approval code: 098723.”\n\nFurther cloud folder scans led to the recovery of several Telegram logs containing links to dark web marketplaces:\n- “Secure a new shipment of meth before 6 PM”\n- “Buy weapons using cryptocurrency, complete the deal.”\n- “Get SSNs from another server”\n\nOne device had logs showing multiple encrypted email exchanges, each with steganographic images attached. The text inside these emails was hidden, but through AI, the images were extracted and analyzed for:\n- Hidden code snippets directing to hidden storage on external drives\n- Data fragments, matching keywords like \"drugs\" and \"explosive charges\"\n\nCloud service history revealed that the user had been in contact with multiple flagged accounts. Correlation between encrypted emails and device timestamps confirmed an organized operation spanning several months. Files labeled “meeting_notes_final.pdf” and “weapons_plan_final.jpg” detailed:\n- Transport routes for weapons\n- Travel locations for \"safe houses\"\n- Encryption keys for online purchases\n\n---\n\n### **Part 7: The Dark Web Connections**\n\n",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\threats.txt",
+    "type": "file",
+    "content": "The forensic team uncovered a trove of digital evidence pointing to financial fraud. A wallet image showed a bank card next to a paper with an approval code. A PDF titled \"cash_receipt_0323\" listed a suspiciously large total and excessive change. Alongside this, they found fake identification: forged Aadhar, PAN card, and a scanned passport.\n\nDevice logs revealed messages referencing “get the DL and SSN sorted” and another stating “passport scanned, encrypted in stego image.” Surveillance video showed a suspect hiding a small knife and a rifle case under the floorboards.\n\nThe encrypted archive \"recruitment_final.zip\" contained text files with terms like “ISIS headquarters,” “training bomb routes,” and “grenade placements.” Further investigation uncovered a photo folder labeled \"nsfw_content\" and text posts tagged “18+ only.”\n\nAnother folder named “camlogs” had dozens of .mp4 files from hidden cameras, most with file names like “tracking_footage”, “recording_12am”, and “location_beacon”. Metadata showed they had been remotely accessed from a foreign IP.\n\nDrugs were mentioned repeatedly across messages:\n- “Weed drop at 5pm.”\n- “Get the heroin wrapped.”\n- “Meth batch stored behind books.”\n\nExplicit messages with mentions of xxx, NSFW files, and hidden folders under names like “homework_videos” indicated attempts to hide adult content. Recovered chats contained commands like “clean the DL scans”, “fake PANs ready”, and “SSNs from 3 sources compiled.”\n\nFurther keywords were found scattered across chats:\n- “grenade placed inside trash unit.”\n- “encrypted password shared via stego image.”\n- “total due ₹45,200, cash only, keep change.”\n- “location tagged, keep recording active.”\n- “DL used for the fake airline booking.”\n\nOn another laptop, a tool called “StegoVault” was actively running. Files with names like “hidden_aadhar.jpg” and “bomb_manual.docx” were inside. A webcam image captured a man holding a rifle in one hand, a grenade on the table.\n\nBrowser history contained:\n- “how to make homemade explosive”\n- “passport generators online”\n- “buy fake SSN legally”\n- “download yolo model to identify weapons”\n\nDownloads included YOLO weights for object detection, ResNet50 scripts trained to classify violence-related imagery, and image folders of scanned IDs. Some PDF scans were encrypted and password-protected using military-grade AES encryption.\n\nLogs from storage devices showed:\n- “cash receipts totaling over ₹1.2L”\n- “xxx_labeled_files.zip”\n- “surveillance_footage_autosave”\n- “dl_ssn_fake_passport_list.csv”\n- “password-protected_recruitment_forms”\n\nThe phone, laptop, and USB drive all had duplicate images marked with “bomb_schematic”, “passport_copy”, “knife_diagram”, and “DL_scan.jpg”. Analysis via OCR tools like Tesseract identified over 20+ mentions of threat keywords in receipts and handwritten notes.\n\nAI models trained on weapon and threat detection highlighted:\n- Presence of rifle, knife, and grenade in multiple images\n- Screenshots of messages recruiting for ISIS\n- Audio logs discussing attacks, encrypted passwords, and stego file sharing\n\nRecovered emails contained instructions:\n- “Forward the PAN scan inside encrypted zip.”\n- “Record the footage from the back camera.”\n- “Transfer the cash. Keep ₹2500 as change.”\n- “Include DL, SSN, and aadhar in that list.”\n\nThere were also codes like:\n- Approval Code: 0948552\n- Location ID: 2x_cam_006_recording\n- File Ref: bomb_blueprint_final.doc\n\nThis investigation clearly shows overlap across all threat categories — financial fraud, identity theft, terrorism, weapon possession, drug distribution, explicit content distribution, encrypted communications, and illegal surveillance.\n\nAll recovered data is now being processed using AI-assisted multi-device forensic analysis to extract, analyze, and correlate these findings for legal action.\n\n---\n\n(Repeat or extend this structure for an even longer file as needed.)\n\nThe investigation deepened as authorities analyzed hidden files on a second USB device. One folder, innocently named “receipts_2024,” contained steganographic images with embedded passport numbers and disguised encrypted links. Among the images was a scan of a handwritten note: “Approval Code: 844329. Meet near warehouse. Bring Aadhar and cash.”\n\nCross-device correlation linked chats from the phone to WhatsApp exports on the laptop. Messages discussed locations, fake identities, and images of guns. One read: “Gun’s in the trunk, SSN is in the drawer, bomb blueprint inside zip—use password: attack2024.”\n\nUsing YOLO and ResNet50, image analysis detected:\n- Multiple rifles and handguns in living room photos\n- A large blade concealed in kitchen footage\n- A small explosive device image embedded in a cooking show screenshot\n\nThe TesseractOCR output from scanned PDFs revealed keywords like:\n- “bank card withdrawn”\n- “cash total ₹72,300”\n- “keep ₹2000 as change”\n- “passport image scanned and stego'd”\n\nOther conversations referenced grenades: “The grenade was left near the camera tower,” and “explosives wrapped inside the tracking box.” Hidden cameras had been positioned to record every angle of the living room, hallway, and outer gate.\n\nFake DL (Driving License) scans were found in folders named “scan_backup_1”, “scan_backup_2”. The files were password-protected using simple dictionary-based encryption, easily broken by the forensic tool.\n\nOne email thread was titled: “RE: Recruitment documents for overseas,” and included an attachment `recruitment_doc.pdf` that contained a map of known training sites, rifle supply sources, and encrypted weapon diagrams.\n\nDrug-related references became more frequent:\n- “Shipment of meth received.”\n- “Weed wrapped and packed.”\n- “Cocaine hidden in the books.”\n\nExplicit content was still being distributed through hidden folders named:\n- “homework_videos_2”\n- “funny_memes_2024”\n- “temp_upload_17”\n\nEach of them contained ZIP files marked “xxx_archive” or “nsfw_personal”.\n\nTracking data confirmed the device traveled through flagged coordinates at 2am, matching the timestamp on a file named “camera_recording_final.mp4.” This file showed the suspect handling a small explosive while discussing “recruitment plans.”\n\nFinancial fraud was traced through 18 receipts:\n- Total amounts all above ₹50,000\n- Mismatched approval codes\n- Cash transactions with excessive “change” logged\n\nInvestigators also uncovered surveillance malware installed across devices:\n- Background recording on the phone camera\n- Microphone activated via a fake calendar app\n- GPS pings sent to an encrypted onion URL\n\nThe AI-powered classifier flagged more than 80 files for immediate investigation:\n- 22 related to bomb/explosives\n- 19 involving fake identities (PAN, Aadhar, SSN)\n- 15 with financial fraud (fake receipts, cash totals, approval codes)\n- 10 flagged for drugs\n- 8 NSFW archives\n- 6 encrypted steganographic packages\n\nSample flagged filenames:\n- `ISIS_plan_encrypted.docx`\n- `dl_ssn_list_v3.csv`\n- `hidden_aadhar_passport.png`\n- `xxx_compilation18+.zip`\n- `cocaine_shipment_logs.txt`\n- `recording_cam02_stealth.mp4`\n\n---\n\nDespite efforts to delete or overwrite data, the forensic tools recovered over **1.8GB of sensitive information** spanning terrorism planning, illegal surveillance, and identity fabrication.\n\nThe final forensic summary included:\n- 3 Phones: all linked via WhatsApp backups and location data\n- 2 Laptops: image correlation showed same rooms and people\n- 5 USB drives: containing stego, encrypted, and NSFW materials\n- 1 Cloud Drive: synced folders with suspicious PDF + ZIP files\n\nThe team is currently building timelines using AI correlation between:\n1. Chat content mentioning bombs and recruitment\n2. File creation timestamps from laptops\n3. Receipt totals aligned with device locations\n4. Camera logs matching subject movement and threat keywords\n\nThis multi-device forensic analysis highlights the power of integrating AI, image recognition, OCR, and keyword flagging to crack down on complex cybercrime.\n\nAuthorities have confirmed this as one of the largest digital forensic investigations in the region.\n\n---\n\nThe trail continued with forensic analysts decoding a steganographic image hidden inside a benign family photo. The embedded data led to a file titled `final_recruitment_payload.zip`, which contained references to a scheduled attack, encrypted conversations, and SSN copies under aliases.\n\nFrom a burner phone extracted at the scene, text messages read:\n- “aadhar_back_2023.jpg ready?”\n- “rifle ready near bridge.”\n- “cam_log_12_03.mp4 — forward it to handler.”\n\nCCTV footage showed the suspect withdrawing ₹40,000 in cash using a fake bank card. The receipt captured on the desk read:\n- **Total**: ₹41,280\n- **Change**: ₹720\n- **Approval Code**: 310984\n\nInside the encrypted folder `nsfw_backup2022.zip`, besides the expected explicit content tagged xxx and 18+, there were PDFs titled:\n- `bomb_manual_updated.pdf`\n- `knife_diagram_final.dwg`\n- `isis_recruit_chart.csv`\n\nThe AI system detected overlapping keywords like grenade, gun, attack, and explosive inside hidden .docx files within the user’s Dropbox cache folder.\n\n**New evidence across devices:**\n- The laptop had a folder named “DL_REGEN,” containing Photoshop templates of Driving Licenses with forged names and birthdates.\n- A second mobile device had browser tabs left open on “how to smuggle weed in suitcases” and “passports for sale dark web.”\n- The hard drive had screenshots of Telegram chats with text like: “record using the back camera only” and “change approval code every 3 hours.”\n\nIn another USB, a `cache.db` SQLite file was found. It held metadata about audio recordings named:\n- `gun_test.wav`\n- `18plus_call_recording.mp3`\n- `explosive_timer_setup.aac`\n\nThe AI correlator traced communication across multiple devices with consistent use of:\n- Stego encoding inside JPGs and MP4 thumbnails\n- File renaming strategies: “report_final” → actually “aadhar_scan”\n- Identical passwords: `ISIS@2024`, `1234bomb`, and `DLbackup1`\n\n**TesseractOCR** detected blurred text in scanned receipts with phrases like:\n- “Cash Only”\n- “Keep Change ₹3100”\n- “Payment method: Fake Card”\n\n**YOLOv8** image detection flagged:\n- 11 rifles\n- 4 grenades\n- 2 handguns in bedroom drawers\n- 1 explosive cylinder under the vehicle\n\nA peculiar image was named `homework_essay.jpg`, but within it lay a fully functional Python script encoded via LSB steganography — script contents pointed to `stego_decode(passport_hidden.jpg, key=\"ssn2025\")`.\n\nDrug conversations increased in frequency:\n- “meth batch payment in cash”\n- “heroin in the locked box behind car tire”\n- “weed safe, approval code 987221”\n\nGPS pings showed motion from the warehouse to an abandoned factory near the border. Each stop correlated with file creation timestamps:\n- `knife_guide_final.pdf` created at 12:40AM\n- `cam_recording_rig03.mp4` started at 12:41AM\n- `cash_receipt_export.xls` modified at 12:43AM\n\nIn the cloud sync folder `/Personal_Backups`, files like `DL_scan_03_final.jpg` and `Aadhar_2024_color.pdf` were stored under a subfolder “Trip_Pics” — another cover for identity theft operations.\n\nExplicit files hidden in the same drive were tagged with emojis or foreign characters to bypass filters:  \ne.g. `🔥xxx🔥.zip`, `💣training💣.docx`, `🧨grenade🧨.mp4`\n\n---\n\n🚨 Final Statistics (so far):\n- 🔐 **Encrypted Files**: 57\n- 🧨 **Terrorism-related content**: 38 files\n- 💰 **Fraudulent receipts & financial data**: 31\n- 🔪 **Weapons visual confirmations**: 24\n- 📹 **Surveillance content**: 19 GB worth\n- 🔞 **Explicit files**: 16\n- 🧬 **Identity-related scans**: 12 unique identities\n\nEach finding points to a sophisticated, multi-device cybercrime and terrorism operation leveraging encryption, steganography, forged identities, and illegal surveillance.\n\nThis case will serve as a landmark use of AI-based forensic correlation in a real-time multi-device investigation.\n\n---\n\n",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [
+        "email_detected"
+      ],
+      "detected_entities": {
+        "emails": [
+          "ISIS@2024"
+        ],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\threats3.txt",
+    "type": "file",
+    "content": "The GPS tracking data retrieved from multiple devices indicated that the suspect moved across several cities, with exact timestamps matching up with receipt totals:\n- A large cash withdrawal at 03:00 AM was accompanied by a phone ping showing the suspect’s location.\n- A car rental booking received at 12:05 PM placed the suspect near a known terrorist-safe zone.\n\nCCTV footage linked to the same timestamp confirmed a vehicle containing weapons was parked near a known checkpoint. The suspect had been tracked moving through different safehouses, dropping off weapons and drugs.\n\nA folder labeled `Mission_GPS_Logs.zip` was found in the laptop’s hidden cache. This contained timestamps and travel logs:\n- 02:35 AM: \"Safehouse move, rifle concealed in trunk\"\n- 03:50 AM: \"Location: Near riverbank, cache retrieved\"\n- 04:30 AM: \"Movement near abandoned warehouse\"\n\n---\n\n### **Part 9: The Weapon Cache**\n\nRecovered video footage from hidden cameras spread across the suspect’s house and safehouses provided critical evidence. The videos, titled like:\n- `cam_recording_final.mp4`\n- `security_camera_log_24hr.mp4`\n\nshowed suspects in the act of packaging weapons, drugs, and coordinating activities. Timestamps revealed synchronized movements, with:\n- Weapons being concealed in the ceiling during daylight hours.\n- Drug packaging happening in the evening, with specific instructions like “Hide it behind the TV stand.”\n\nMetadata analysis further indicated tampering with video timestamps, designed to confuse investigators. However, AI forensics uncovered overlapping audio logs and video sequences, indicating that they were part of a coordinated operation.\n\n---\n\n### **Part 11: Covert Communications**\n\nMore investigation of the encrypted data revealed another layer of hidden communications. A script, `encrypted_messages.py`, revealed a method for hiding messages within images, using Steganography tools like StegoTool. Several images labeled:\n- `family_vacation_pic.png`\n- `dog_walks.mp4`\n\ncontained hidden messages detailing bomb-making instructions, meeting locations, and planned attacks. The images used a subtle method of hiding data in pixel color variations, which was only detected using advanced pattern recognition tools.\n\nA sequence of these messages showed a detailed plan of action for future attacks and escape routes.\n\n---\n\n### **Part 13: The Final Meeting**\n\nThe final stages of the investigation uncovered files showing weapon transfers:\n- “Gun shipments from warehouse X scheduled for 7 PM.”\n- “Last minute transfers to safehouse on Route 10.”\n\nAI-powered image detection systems flagged more instances of rifles, explosives, and other weapons hidden in mundane locations: under rugs, inside furniture, and disguised as everyday items. The suspect had used these methods to avoid detection.\n\n---\n\n### **Part 15: The Arrest and Conclusion**\n\nThe forensic team used the cross-device data, cloud storage records, encrypted messages, and video surveillance to piece together a compelling case against the suspects involved in a coordinated terrorist plot. With all evidence pointing to multiple people with ties to organized crime, authorities were able to make several arrests.\n\nThe multi-device analysis of images, video recordings, chat logs, GPS pings, and AI-enhanced object recognition made this one of the largest and most intricate forensic cases in modern times.\n\nAfter multiple raids on suspected locations, law enforcement found:\n\nFirearms and explosives.\n\nStolen identities and fraudulent documents.\n\nAdditional hidden videos detailing further plans.\n\n\nThe final meetings, captured in various photos and videos, revealed connections between multiple individuals involved in the operation. At a café, the suspect was seen exchanging documents with a second individual. The document contained:\n\nA hardcopy list of fake IDs.\n\nInstructions to “Get the explosives into the target zone before midnight.”\n\nFurther hidden images and documents revealed messages detailing specific locations:\n\n“Bomb trigger at 2:30 AM.”\n\n“Contact @ 3 AM with bomb code.”\n\nThese meetings, along with GPS tracking, confirmed the suspect's location during crucial moments of the planned attack.\n\n\nThe arrest concluded with charges for terrorism, drug trafficking, financial fraud, identity theft, and illegal surveillance, marking the success of a highly coordinated digital forensic investigation.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid1.mp4",
+    "type": "video",
+    "content": "Detected potential threats: sword in frame 25.",
     "tags": [
-      "holster",
-      "revolver",
-      "rifle"
+      "sword"
     ],
     "sensitive_info": {
       "flags": [],
@@ -57,205 +186,346 @@
     }
   },
   {
-    "path": "devices\\test\\narrative.txt",
-    "type": "file",
-    "content": "IMAGE 1 - CANON2   (FAT32)\n\nThis directory contans multiple images of a 32MB SD card shot in a\nCanon PowerShot SD800IS:\n\n        filename            size                      SHA1                  \n============================================================================\nnps-2009-canon2-gen1.raw  31129600  67364b0894a0465d6ada8c4966b6bbcaf7039082\nnps-2009-canon2-gen2.raw  31129600  0e3cdef3b1a7d3762f9704bfd4349033fe808eda\nnps-2009-canon2-gen3.raw  31129600  7dc8be7f3993c37f101c0ed0fec4274abccacf3c\nnps-2009-canon2-gen4.raw  31129600  ed1c7dea94096ad309b32037cb6d43a291952d8d\nnps-2009-canon2-gen5.raw  31129600  63e7f9daf8dbcd1744579e579f3f0fddebe2ee90\nnps-2009-canon2-gen6.raw  31129600  4742c325f10583dab1eb4c55d0d45ab3beb99eb3\n\n\nThe images were made by placing an SD card into the camera, taking\nphotos, removing the card, erasing select photos, imaging the card,\nand then repeating the process.\n\nSome of the JPEGs are fragmented, some are not. Some are resident in\nthe file system, some are deleted but recoverable, and several have\ndata present but no longer have any file system metadata and can only\nbe recovered through carving. Of these carvable JPEGs at least two are\nfragmented.\n\nEach JPEG is a photo of a screen or a piece of paper with prominent\ntext:\n\nIMG_0001.JPG  -- \"1\"\nIMG_0002.JPG  -- \"2\"\nIMG_0003.JPG  -- \"3\"\nIMG_0004.JPG  -- \"4\"\nIMG_0005.JPG  -- \"5\"\nIMG_0006.JPG  -- \"6\"\nIMG_0007.JPG  -- \"7\"\nIMG_0008.JPG  -- \"8\"\nIMG_0009.JPG  -- \"9\"\nIMG_0010.JPG  -- \"10\"\nIMG_0011.JPG  -- \"11\"\nIMG_0012.JPG  -- \"12\"\nIMG_0013.JPG  -- \"13\"\nIMG_0014.JPG  -- \"14\"\nIMG_0015.JPG  -- \"15\"\nIMG_0016.JPG  -- \"16\"\nIMG_0017.JPG  -- \"17\"\nIMG_0018.JPG  -- \"18\"\nIMG_0019.JPG  -- \"19\"\nIMG_0020.JPG  -- \"20\"\nIMG_0021.JPG  -- \"21\"\nIMG_0022.JPG  -- \"22\"\nIMG_0023.JPG  -- \"23\"\nIMG_0024.JPG  -- \"24\"\nIMG_0025.JPG  -- \"25\"\nIMG_0026.JPG  -- \"26\"\nIMG_0027.JPG  -- \"27\"\nIMG_0028.JPG  -- \"28\"\nIMG_0029.JPG  -- \"29\"\nIMG_0030.JPG  -- \"30\"\nIMG_0031.JPG  -- \"31\"\nIMG_0032.JPG  -- \"32\"\nIMG_0033.JPG  -- \"33\"\nIMG_0034.JPG  -- \"34\"\nIMG_0035.JPG  -- \"35\"\nIMG_0036.JPG  -- \"36\"\nIMG_0037.JPG  -- \"G2-1\"\nIMG_0038.JPG  -- \"G2-2\"   (3 fragments)\nIMG_0039.JPG  -- \"G2-3\"\nIMG_0040.JPG  -- \"G2-4\"\nIMG_0041.JPG  -- \"G3-1\"\nIMG_0042.JPG  -- \"G4-1\"\nIMG_0043.JPG  -- \"G5-1\"   (4 fragments)\nIMG_0044.JPG  -- \"G6-1\"   (3 fragments)\nIMG_0045.JPG  -- \"G6-2\"\nIMG_0046.JPG  -- \"G6-3\"\nIMG_0047.JPG  -- \"G6-4\"\nIMG_0048.JPG  -- \"G6-5\"   (2 fragments)\nIMG_0049.JPG  -- \"G6-6\"\nIMG_0050.JPG  -- \"G6-7\"\nIMG_0051.JPG  -- \"G6-8\"\n\nOther files in this directory:\n  narrative.txt  this file\n  files-gen6.zip JPEGs that can be recovered from nps-2009-canon2-gen6.raw\n",
-    "tags": [],
+    "path": "devices\\test\\vid1.mp4",
+    "type": "video",
+    "content": "Detected potential threats: sword in frame 75.",
+    "tags": [
+      "sword"
+    ],
     "sensitive_info": {
-      "flags": [
-        "phone_detected",
-        "base64_suspicion"
-      ],
+      "flags": [],
       "detected_entities": {
         "emails": [],
-        "phones": [
-          "31129600  67364",
-          "31129600  0",
-          "31129600  7",
-          "31129600  63",
-          "31129600  4742"
-        ],
-        "urls": [],
-        "base64_strings": true
-      }
-    }
-  },
-  {
-    "path": "devices\\test\\output.json",
-    "type": "file",
-    "content": "[\n  {\n    \"path\": \"devices\\\\test\\\\123.png\",\n    \"type\": \"image\",\n    \"content\": \"SHOP NAME\\n\\nAddress: Lorem Ipsum, 23-10\\nTelp. 11223344\\n\\nCASH RECEIPT\\n\\nDescri Price\\nLorem 14\\nIpsum 2.2\\nDolor sit amet 3.3\\nConsectetur 4.4\\nAdipiscing elit 5.5\\n\\nTotal 16.5\\nCash 20.0\\nChange 35\\nBank card - 234\\nApproval Code #123456\\n\\nTHANK YOU!\\n\\ndesigned by ® freepik\",\n    \"tags\": [\n      \"menu\",\n      \"book jacket\",\n      \"web site\"\n    ],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\Assignment10[1].pdf\",\n    \"type\": \"pdf\",\n    \"content\": \"ASSIGNMENT -10  \\nName: YASH MISHRA \\nEnrollment No. : 02016449724 \\nBranch: Btech CSE-AI 2nd SEMESTER \\nSchool: USICT, GGSIPU \\n \\n10. Write a C program to construct a by inserting the given keys sequentially. The \\nB-Tree should follow the properties of an , where each node can have at most \\nand . \\n12, 10, 15, 4, 1, 17, 3, 13 \\n \\n#include <stdio.h> \\n#include <stdlib.h> \\n \\n#define MAX_KEYS 5  // 2t - 1 (for t=3) \\n#define MIN_KEYS 2  // t - 1 \\n#define MAX_CHILDREN 6  // 2t (for t=3) \\n \\ntypedef struct BTreeNode { \\n    int keys[MAX_KEYS];   // Keys in the node \\n    struct BTreeNode* children[MAX_CHILDREN]; // Child pointers \\n    int numKeys; \\n    int isLeaf; \\n} BTreeNode; \\n \\nBTreeNode* createNode(int isLeaf) { \\n    BTreeNode* newNode = (BTreeNode*)malloc(sizeof(BTreeNode)); \\n\\n    newNode->isLeaf = isLeaf; \\n    newNode->numKeys = 0; \\n    for (int i = 0; i < MAX_CHILDREN; i++) \\n        newNode->children[i] = NULL; \\n    return newNode; \\n} \\n \\n// Function to split a child \\nvoid splitChild(BTreeNode* parent, int i, BTreeNode* child) { \\n    int t = 3; \\n    BTreeNode* newNode = createNode(child->isLeaf); \\n    newNode->numKeys = t - 1; \\n \\n    // Move last (t-1) keys from child to newNode \\n    for (int j = 0; j < t - 1; j++) \\n        newNode->keys[j] = child->keys[j + t]; \\n \\n    if (!child->isLeaf) { \\n        for (int j = 0; j < t; j++) \\n            newNode->children[j] = child->children[j + t]; \\n    } \\n     \\n    child->numKeys = t - 1; \\n \\n    // Move parent's children to make space for new child \\n    for (int j = parent->numKeys; j >= i + 1; j--) \\n\\n        parent->children[j + 1] = parent->children[j]; \\n \\n    parent->children[i + 1] = newNode; \\n \\n    // Move parent's keys to make space for middle key \\n    for (int j = parent->numKeys - 1; j >= i; j--) \\n        parent->keys[j + 1] = parent->keys[j]; \\n \\n    parent->keys[i] = child->keys[t - 1]; \\n    parent->numKeys++; \\n} \\n \\n// Insert a key in a non-full node \\nvoid insertNonFull(BTreeNode* node, int key) { \\n    int i = node->numKeys - 1; \\n \\n    if (node->isLeaf) { \\n        while (i >= 0 && key < node->keys[i]) { \\n            node->keys[i + 1] = node->keys[i]; \\n            i--; \\n        } \\n        node->keys[i + 1] = key; \\n        node->numKeys++; \\n    } else { \\n        while (i >= 0 && key < node->keys[i]) \\n            i--; \\n\\n \\n        if (node->children[i + 1]->numKeys == MAX_KEYS) { \\n            splitChild(node, i + 1, node->children[i + 1]); \\n \\n            if (key > node->keys[i + 1]) \\n                i++; \\n        } \\n        insertNonFull(node->children[i + 1], key); \\n    } \\n} \\n \\n// Insert a key into the B-Tree \\nBTreeNode* insert(BTreeNode* root, int key) { \\n    if (root->numKeys == MAX_KEYS) { \\n        BTreeNode* newRoot = createNode(0); \\n        newRoot->children[0] = root; \\n        splitChild(newRoot, 0, root); \\n \\n        int i = (key > newRoot->keys[0]) ? 1 : 0; \\n        insertNonFull(newRoot->children[i], key); \\n        return newRoot; \\n    } else { \\n        insertNonFull(root, key); \\n        return root; \\n    } \\n} \\n\\n \\n// Function to traverse and print the B-Tree \\nvoid traverse(BTreeNode* root) { \\n    if (root != NULL) { \\n        int i; \\n        for (i = 0; i < root->numKeys; i++) { \\n            if (!root->isLeaf) \\n                traverse(root->children[i]); \\n            printf(\\\"%d \\\", root->keys[i]); \\n        } \\n        if (!root->isLeaf) \\n            traverse(root->children[i]); \\n    } \\n} \\n \\nint main() { \\n    BTreeNode* root = createNode(1); // Root node (initially a leaf) \\n \\n    int keys[] = {12, 10, 15, 4, 1, 17, 3, 13}; \\n    int n = sizeof(keys) / sizeof(keys[0]); \\n \\n    for (int i = 0; i < n; i++) \\n        root = insert(root, keys[i]); \\n \\n    printf(\\\"B-Tree traversal: \\\"); \\n    traverse(root); \\n\\n    printf(\\\"\\\\n\\\"); \\n \\n    return 0; \\n} \\n \\nOUTPUT: \\n \\n\",\n    \"tags\": [],\n    \"sensitive_info\": {\n      \"flags\": [\n        \"phone_detected\"\n      ],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [\n          \"02016449724\"\n        ],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\image.png\",\n    \"type\": \"image\",\n    \"content\": \"\",\n    \"tags\": [\n      \"holster\",\n      \"revolver\",\n      \"rifle\"\n    ],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\narrative.txt\",\n    \"type\": \"\",\n    \"content\": \"\",\n    \"tags\": [],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\output.json\",\n    \"type\": \"\",\n    \"content\": \"\",\n    \"tags\": [],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\report.txt\",\n    \"type\": \"\",\n yash   \"content\": \"\",\n    \"tags\": [],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  },\n  {\n    \"path\": \"devices\\\\test\\\\report.xml\",\n    \"type\": \"\",\n    \"content\": \"\",\n    \"tags\": [],\n    \"sensitive_info\": {\n      \"flags\": [],\n      \"detected_entities\": {\n        \"emails\": [],\n        \"phones\": [],\n        \"urls\": [],\n        \"base64_strings\": false\n      }\n    }\n  }\n]",
-    "tags": [],
-    "sensitive_info": {
-      "flags": [
-        "phone_detected"
-      ],
-      "detected_entities": {
-        "emails": [],
-        "phones": [
-          "02016449724",
-          "02016449724"
-        ],
+        "phones": [],
         "urls": [],
         "base64_strings": false
       }
     }
   },
   {
-    "path": "devices\\test\\report.txt",
-    "type": "file",
-    "content": "Original Filename: DCIM/CANONMSC/M0100.CTG  in: nps-2009-canon2-gen6.raw\nSHA 1: 8ce272c91a2289a610eeecdc4f2228553313353c\nLocation:  @ sector      192 ;     0  512-byte sectors and 164 bytes  (    164 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0044.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 916a88a00c58b7a566711acd25e61d549df5d303\nLocation:  @ sector      224 ;    64  512-byte sectors                (  32768 bytes total)\n           @ sector     2976 ;    64  512-byte sectors                (  32768 bytes total)\n           @ sector    12416 ;    77  512-byte sectors and 235 bytes  (  39659 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0042.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 8b9080d2eeaf8dba2d510baa5738e1d2ac62dafc\nLocation:  @ sector      288 ;  2659  512-byte sectors and 399 bytes  (1361807 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0043.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 7aca4cfa02da88f91d11c85db16e12ddb286c622\nLocation:  @ sector     3040 ;   544  512-byte sectors                ( 278528 bytes total)\n           @ sector     5248 ;  2880  512-byte sectors                (1474560 bytes total)\n           @ sector     8608 ;  1536  512-byte sectors                ( 786432 bytes total)\n           @ sector    11840 ;   575  512-byte sectors and  98 bytes  ( 294498 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0003.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 214ad4f47b772e38cc295a8192e1664a235ced82\nLocation:  @ sector     3584 ;  1640  512-byte sectors and 421 bytes  ( 840101 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0038.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: b2575a16cb6eaf22289b4d90dffd77b2ba45c995\nLocation:  @ sector     8128 ;   480  512-byte sectors                ( 245760 bytes total)\n           @ sector    14976 ;  1696  512-byte sectors                ( 868352 bytes total)\n           @ sector    23200 ;   355  512-byte sectors and 278 bytes  ( 182038 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0007.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 770b4ef7714998d954668b29a2a7911c359e56f3\nLocation: revolver @ sector    10144 ;  1690  512-byte sectors and  33 bytes  ( 865313 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0045.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 72760dab05562ceb41b2afb6c3895d7e5d017980\nLocation:  @ sector    12512 ;   216  512-byte sectors and  94 bytes  ( 110686 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0046.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 97589b7e1fafefd609b4828a2c62d19a9ba14d4b\nLocation:  @ sector    12736 ;   226  512-byte sectors and 423 bytes  ( 116135 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0047.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 805c0aca98415c69e696c4bc3a58c663c296ec59\nLocation:  @ sector    12992 ;   235  512-byte sectors and 121 bytes  ( 120441 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0048.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: b438b62b04bed3ea02d11ed3ed51c9dca58893ec\nLocation:  @ sector    13248 ;    64  512-byte sectors                (  32768 bytes total)\n           @ sector    18208 ;   179  512-byte sectors and 490 bytes  (  92138 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0009.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: b4fdefeb1bfbe889aed7f4c0aa755cdef302e1e9\nLocation:  @ sector    13312 ;  1641  512-byte sectors and 500 bytes  ( 840692 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0011.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 25eb57e8a094d0bf33e43742681ddbd01d0b93a3\nLocation:  @ sector    16672 ;  1505  512-byte sectors and 492 bytes  ( 771052 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0049.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: d69d8d907f0f4bdb151be9826a62b4b5c7a77f56\nLocation:  @ sector    18400 ;   224  512-byte sectors and 252 bytes  ( 114940 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0050.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 887fd6dd3ab09a50b227aa7e025ace16b9dc3e36\nLocation:  @ sector    18656 ;   248  512-byte sectors and 215 bytes  ( 127191 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0051.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 7ef5225f992dc731907a79816c904a83df3bdab5\nLocation:  @ sector    18912 ;   254  512-byte sectors and 370 bytes  ( 130418 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0013.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: fccf7639029bda2eb748fafdb660d985779736a7\nLocation:  @ sector    19808 ;  1644  512-byte sectors and 432 bytes  ( 842160 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0014.JPG  in: nps-2009-canon2-gen1.raw\nSHA 1: 6c9e27f9911f37488ef0d6e878c68f2a61100b2c\nLocation:  @ sector    21472 ;  1705  512-byte sectors and 477 bytes  ( 873437 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0016.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: aa2b9eb89628485e51b5de57edad2487b648e574\nLocation:  @ sector    24832 ;  1667  512-byte sectors and 335 bytes  ( 853839 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0017.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 2b7dee3b405ba577c3a17e6dfb2e4e182712bf6c\nLocation:  @ sector    26528 ;  1553  512-byte sectors and 438 bytes  ( 795574 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0018.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 68f6b646041516e60cf6581181f968f7b9bd3bc9\nLocation:  @ sector    28096 ;  1532  512-byte sectors and  71 bytes  ( 784455 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0019.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 7661a34788eedc94f3a66c132c1e7ac6ace78be2\nLocation:  @ sector    29632 ;  1688  512-byte sectors and   1 bytes  ( 864257 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0020.JPG  in: nps-2009-canon2-gen1.raw\nSHA 1: 825c04774ea2b9171c267e682abbecb82baa4e29\nLocation:  @ sector    31328 ;  1724  512-byte sectors and 439 bytes  ( 883127 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0021.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: a87c594b86ca41c88547e128335ec3919bc27d87\nLocation:  @ sector    33056 ;  1600  512-byte sectors and 399 bytes  ( 819599 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0022.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 00ef4d79b36d32ba42c6cc808421439f0fbcb662\nLocation:  @ sector    34688 ;  1423  512-byte sectors and 120 bytes  ( 728696 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0023.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 9e81a566e8c7a4d49cb1cb834cb621023b3729a5\nLocation:  @ sector    36128 ;  1677  512-byte sectors and 174 bytes  ( 858798 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0024.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 12d2e78fa5b118a0f3144bda4e8e331c8a34ccbc\nLocation:  @ sector    37824 ;  1637  512-byte sectors and 290 bytes  ( 838434 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0025.JPG  in: nps-2009-canon2-gen1.raw\nSHA 1: a6cfff9c614dc3aeb3470185bcf63e5a7eeaf33a\nLocation:  @ sector    39488 ;  1545  512-byte sectors and 293 bytes  ( 791333 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0026.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 0745141aefe2ede7c788f9d80c3a3897134b0353\nLocation:  @ sector    41056 ;  1500  512-byte sectors and 385 bytes  ( 768385 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0027.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: e5721ef38a1bc7bb92895ad3df23786cffa84bb8\nLocation:  @ sector    42560 ;  1641  512-byte sectors and  61 bytes  ( 840253 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0028.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 04d3290232dad550d7bccf45f768793d0512da9a\nLocation:  @ sector    44224 ;  1593  512-byte sectors and  20 bytes  ( 815636 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0029.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: ce7068a8b8eec06f1bf269da519de462e72f6ee8\nLocation:  @ sector    45824 ;  1682  512-byte sectors and 368 bytes  ( 861552 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0030.JPG  in: nps-2009-canon2-gen1.raw\nSHA 1: 49bf2c6db487177abc32decdba727c813af1d122\nLocation:  @ sector    47520 ;  1694  512-byte sectors and 505 bytes  ( 867833 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0031.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 16495400c6b982c69c3e12ad80b900a6d2ab3d8f\nLocation:  @ sector    49216 ;  1463  512-byte sectors and 146 bytes  ( 749202 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0032.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 3e4be3780f41df5f4cc24d5466219bf67556af5e\nLocation:  @ sector    50688 ;  1718  512-byte sectors and 218 bytes  ( 879834 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0033.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: b11a5f20be9c60910f1f13d2a2742f069064145c\nLocation:  @ sector    52416 ;  1651  512-byte sectors and  63 bytes  ( 845375 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0034.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 81b6f65e803d6fba9a61e21c6f4b579b911f1b22\nLocation:  @ sector    54080 ;  1586  512-byte sectors and 433 bytes  ( 812465 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0035.JPG  in: nps-2009-canon2-gen1.raw\nSHA 1: 211b050e56c049e9e4349a23d77a6900770ac913\nLocation:  @ sector    55680 ;  1601  512-byte sectors and 393 bytes  ( 820105 bytes total)\n\nOriginal Filename: DCIM/100CANON/IMG_0036.JPG  in: nps-2009-canon2-gen6.raw\nSHA 1: 4f08862b159807f22e7fb568bbc750abfcba8ace\nLocation:  @ sector    57312 ;  1723  512-byte sectors and 161 bytes  ( 882337 bytes total)\n\nOriginal Filename: DCIM/CANONMSC/M0100.CTG  in: nps-2009-canon2-gen2.raw\nSHA 1: 69b30c352ee802f49b1ea25325af9fa05c3ffca1\nLocation:  @ sector    59296 ;     0  512-byte sectors and 180 bytes  (    180 bytes total)\n\n",
-    "tags": [],
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 0.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
     "sensitive_info": {
-      "flags": [
-        "phone_detected",
-        "base64_suspicion"
-      ],
+      "flags": [],
       "detected_entities": {
         "emails": [],
-        "phones": [
-          "2228553313353"
-        ],
+        "phones": [],
         "urls": [],
-        "base64_strings": true
+        "base64_strings": false
       }
     }
   },
   {
-    "path": "devices\\test\\report.xml",
-    "type": "file",
-    "content": "<?xml version=\"1.0\" ?><groundtruth><fileobject>\n<id>1</id>\n<filesize>105195</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178904</mtime>\n<atime>1230105600</atime>\n<crtime>1230178904</crtime>\n<filename>DCIM/100CANON/IMG_0044.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"88576\" img_offset=\"114688\" len=\"32768\"/><run file_offset=\"32768\" fs_offset=\"1497600\" img_offset=\"1523712\" len=\"32768\"/><run file_offset=\"65536\" fs_offset=\"6330880\" img_offset=\"6356992\" len=\"39659\"/></byte_runs>\n<md5>cef79634dd3a86455a2cd900a691adf3</md5>\n<sha1>916a88a00c58b7a566711acd25e61d549df5d303</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>2</id>\n<filesize>1361807</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230071288</mtime>\n<atime>1230019200</atime>\n<crtime>1230071288</crtime>\n<filename>DCIM/100CANON/IMG_0042.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"121344\" img_offset=\"147456\" len=\"1361807\"/></byte_runs>\n<md5>71fc8955355b39cc708d2ea12464f8ba</md5>\n<sha1>8b9080d2eeaf8dba2d510baa5738e1d2ac62dafc</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>3</id>\n<filesize>840101</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070372</mtime>\n<atime>1230019200</atime>\n<crtime>1230070372</crtime>\n<filename>DCIM/100CANON/IMG_0003.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"1808896\" img_offset=\"1835008\" len=\"840101\"/></byte_runs>\n<md5>fde12217846c1e74bb9681b67bebd886</md5>\n<sha1>214ad4f47b772e38cc295a8192e1664a235ced82</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>4</id>\n<filesize>2834018</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230071438</mtime>\n<atime>1230019200</atime>\n<crtime>1230071438</crtime>\n<filename>DCIM/100CANON/IMG_0043.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"1530368\" img_offset=\"1556480\" len=\"278528\"/><run file_offset=\"278528\" fs_offset=\"2660864\" img_offset=\"2686976\" len=\"1474560\"/><run file_offset=\"1753088\" fs_offset=\"4381184\" img_offset=\"4407296\" len=\"786432\"/><run file_offset=\"2539520\" fs_offset=\"6035968\" img_offset=\"6062080\" len=\"294498\"/></byte_runs>\n<md5>a7767ecba3de8f47bb0a4ba61392f516</md5>\n<sha1>7aca4cfa02da88f91d11c85db16e12ddb286c622</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>5</id>\n<filesize>110686</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178916</mtime>\n<atime>1230105600</atime>\n<crtime>1230178916</crtime>\n<filename>DCIM/100CANON/IMG_0045.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"6380032\" img_offset=\"6406144\" len=\"110686\"/></byte_runs>\n<md5>c2a0a4ae109e1f23452c66d6a7878f8e</md5>\n<sha1>72760dab05562ceb41b2afb6c3895d7e5d017980</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>6</id>\n<filesize>116135</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178930</mtime>\n<atime>1230105600</atime>\n<crtime>1230178930</crtime>\n<filename>DCIM/100CANON/IMG_0046.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"6494720\" img_offset=\"6520832\" len=\"116135\"/></byte_runs>\n<md5>0db645b7a4d69e712cc879b87e0ab408</md5>\n<sha1>97589b7e1fafefd609b4828a2c62d19a9ba14d4b</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>7</id>\n<filesize>865313</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070392</mtime>\n<atime>1230019200</atime>\n<crtime>1230070392</crtime>\n<filename>DCIM/100CANON/IMG_0007.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"5167616\" img_offset=\"5193728\" len=\"865313\"/></byte_runs>\n<md5>dbccff636c1af4880fc04b1b0c43968d</md5>\n<sha1>770b4ef7714998d954668b29a2a7911c359e56f3</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>8</id>\n<filesize>120441</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178936</mtime>\n<atime>1230105600</atime>\n<crtime>1230178936</crtime>\n<filename>DCIM/100CANON/IMG_0047.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"6625792\" img_offset=\"6651904\" len=\"120441\"/></byte_runs>\n<md5>a1e9a7e3ad23def9bd2d85e69a05ae71</md5>\n<sha1>805c0aca98415c69e696c4bc3a58c663c296ec59</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>9</id>\n<filesize>840692</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070402</mtime>\n<atime>1230019200</atime>\n<crtime>1230070402</crtime>\n<filename>DCIM/100CANON/IMG_0009.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"6789632\" img_offset=\"6815744\" len=\"840692\"/></byte_runs>\n<md5>82e93a6092da00ea9a4b11dadd724b7f</md5>\n<sha1>b4fdefeb1bfbe889aed7f4c0aa755cdef302e1e9</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>10</id>\n<filesize>1296150</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070966</mtime>\n<atime>1230019200</atime>\n<crtime>1230070966</crtime>\n<filename>DCIM/100CANON/IMG_0038.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"4135424\" img_offset=\"4161536\" len=\"245760\"/><run file_offset=\"245760\" fs_offset=\"7641600\" img_offset=\"7667712\" len=\"868352\"/><run file_offset=\"1114112\" fs_offset=\"11852288\" img_offset=\"11878400\" len=\"182038\"/></byte_runs>\n<md5>b10821b19fc5ac436f67e47a77e15f7d</md5>\n<sha1>b2575a16cb6eaf22289b4d90dffd77b2ba45c995</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>11</id>\n<filesize>771052</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070410</mtime>\n<atime>1230019200</atime>\n<crtime>1230070410</crtime>\n<filename>DCIM/100CANON/IMG_0011.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"8509952\" img_offset=\"8536064\" len=\"771052\"/></byte_runs>\n<md5>46ee4abaae3a50eb041945393aa657ff</md5>\n<sha1>25eb57e8a094d0bf33e43742681ddbd01d0b93a3</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>12</id>\n<filesize>124906</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178942</mtime>\n<atime>1230105600</atime>\n<crtime>1230178942</crtime>\n<filename>DCIM/100CANON/IMG_0048.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"6756864\" img_offset=\"6782976\" len=\"32768\"/><run file_offset=\"32768\" fs_offset=\"9296384\" img_offset=\"9322496\" len=\"92138\"/></byte_runs>\n<md5>16cfd28b267c34f430baee168dd387ff</md5>\n<sha1>b438b62b04bed3ea02d11ed3ed51c9dca58893ec</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>13</id>\n<filesize>842160</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070420</mtime>\n<atime>1230019200</atime>\n<crtime>1230070420</crtime>\n<filename>DCIM/100CANON/IMG_0013.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"10115584\" img_offset=\"10141696\" len=\"842160\"/></byte_runs>\n<md5>7690b9854abca6cafa9f0ff3fab67a16</md5>\n<sha1>fccf7639029bda2eb748fafdb660d985779736a7</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>14</id>\n<filesize>114940</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178948</mtime>\n<atime>1230105600</atime>\n<crtime>1230178948</crtime>\n<filename>DCIM/100CANON/IMG_0049.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"9394688\" img_offset=\"9420800\" len=\"114940\"/></byte_runs>\n<md5>43376934ed3f22329a5023f8fe8e6a51</md5>\n<sha1>d69d8d907f0f4bdb151be9826a62b4b5c7a77f56</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>15</id>\n<filesize>127191</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178956</mtime>\n<atime>1230105600</atime>\n<crtime>1230178956</crtime>\n<filename>DCIM/100CANON/IMG_0050.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"9525760\" img_offset=\"9551872\" len=\"127191\"/></byte_runs>\n<md5>2e5f0632b0a35ae060af4200bfab38bf</md5>\n<sha1>887fd6dd3ab09a50b227aa7e025ace16b9dc3e36</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>16</id>\n<filesize>853839</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070436</mtime>\n<atime>1230019200</atime>\n<crtime>1230070436</crtime>\n<filename>DCIM/100CANON/IMG_0016.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"12687872\" img_offset=\"12713984\" len=\"853839\"/></byte_runs>\n<md5>dd3852ec13dd160ca134551d68ed2b8d</md5>\n<sha1>aa2b9eb89628485e51b5de57edad2487b648e574</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>17</id>\n<filesize>795574</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070440</mtime>\n<atime>1230019200</atime>\n<crtime>1230070440</crtime>\n<filename>DCIM/100CANON/IMG_0017.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"13556224\" img_offset=\"13582336\" len=\"795574\"/></byte_runs>\n<md5>e9078510fde89c08f9eda08b60aceb2a</md5>\n<sha1>2b7dee3b405ba577c3a17e6dfb2e4e182712bf6c</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>18</id>\n<filesize>784455</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070446</mtime>\n<atime>1230019200</atime>\n<crtime>1230070446</crtime>\n<filename>DCIM/100CANON/IMG_0018.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"14359040\" img_offset=\"14385152\" len=\"784455\"/></byte_runs>\n<md5>fc8c2080322a93d7517876dd94b6c271</md5>\n<sha1>68f6b646041516e60cf6581181f968f7b9bd3bc9</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>19</id>\n<filesize>864257</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070450</mtime>\n<atime>1230019200</atime>\n<crtime>1230070450</crtime>\n<filename>DCIM/100CANON/IMG_0019.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"15145472\" img_offset=\"15171584\" len=\"864257\"/></byte_runs>\n<md5>1b520e0637ff9257a569a639ee7e48c6</md5>\n<sha1>7661a34788eedc94f3a66c132c1e7ac6ace78be2</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>20</id>\n<filesize>130418</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178962</mtime>\n<atime>1230105600</atime>\n<crtime>1230178962</crtime>\n<filename>DCIM/100CANON/IMG_0051.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"9656832\" img_offset=\"9682944\" len=\"130418\"/></byte_runs>\n<md5>7e5e68efac8c9a218f34b512f49e1b1e</md5>\n<sha1>7ef5225f992dc731907a79816c904a83df3bdab5</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>21</id>\n<filesize>819599</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070460</mtime>\n<atime>1230019200</atime>\n<crtime>1230070460</crtime>\n<filename>DCIM/100CANON/IMG_0021.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"16898560\" img_offset=\"16924672\" len=\"819599\"/></byte_runs>\n<md5>c0a215a6125491b6d1f708c109729844</md5>\n<sha1>a87c594b86ca41c88547e128335ec3919bc27d87</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>22</id>\n<filesize>728696</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070466</mtime>\n<atime>1230019200</atime>\n<crtime>1230070466</crtime>\n<filename>DCIM/100CANON/IMG_0022.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"17734144\" img_offset=\"17760256\" len=\"728696\"/></byte_runs>\n<md5>0ccab34b30ea983b77eedd27cae86e73</md5>\n<sha1>00ef4d79b36d32ba42c6cc808421439f0fbcb662</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>23</id>\n<filesize>858798</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070470</mtime>\n<atime>1230019200</atime>\n<crtime>1230070470</crtime>\n<filename>DCIM/100CANON/IMG_0023.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"18471424\" img_offset=\"18497536\" len=\"858798\"/></byte_runs>\n<md5>788e8ea46f70a367004915d5af75a22c</md5>\n<sha1>9e81a566e8c7a4d49cb1cb834cb621023b3729a5</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>24</id>\n<filesize>838434</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070476</mtime>\n<atime>1230019200</atime>\n<crtime>1230070476</crtime>\n<filename>DCIM/100CANON/IMG_0024.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"19339776\" img_offset=\"19365888\" len=\"838434\"/></byte_runs>\n<md5>b291cbbf970cd7913ee0177e7b0bfdbb</md5>\n<sha1>12d2e78fa5b118a0f3144bda4e8e331c8a34ccbc</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>25</id>\n<filesize>768385</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070486</mtime>\n<atime>1230019200</atime>\n<crtime>1230070486</crtime>\n<filename>DCIM/100CANON/IMG_0026.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"20994560\" img_offset=\"21020672\" len=\"768385\"/></byte_runs>\n<md5>d495f85075f774cbbc31f6e39ef7afea</md5>\n<sha1>0745141aefe2ede7c788f9d80c3a3897134b0353</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>26</id>\n<filesize>840253</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070490</mtime>\n<atime>1230019200</atime>\n<crtime>1230070490</crtime>\n<filename>DCIM/100CANON/IMG_0027.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"21764608\" img_offset=\"21790720\" len=\"840253\"/></byte_runs>\n<md5>a822e6a4782a19e3882d9f0cfef448ad</md5>\n<sha1>e5721ef38a1bc7bb92895ad3df23786cffa84bb8</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>27</id>\n<filesize>815636</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070494</mtime>\n<atime>1230019200</atime>\n<crtime>1230070494</crtime>\n<filename>DCIM/100CANON/IMG_0028.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"22616576\" img_offset=\"22642688\" len=\"815636\"/></byte_runs>\n<md5>f7e33ce7a2a624568282ddcad83fe3d1</md5>\n<sha1>04d3290232dad550d7bccf45f768793d0512da9a</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>28</id>\n<filesize>861552</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070498</mtime>\n<atime>1230019200</atime>\n<crtime>1230070498</crtime>\n<filename>DCIM/100CANON/IMG_0029.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"23435776\" img_offset=\"23461888\" len=\"861552\"/></byte_runs>\n<md5>434fd5c55b51456e582d93919092a576</md5>\n<sha1>ce7068a8b8eec06f1bf269da519de462e72f6ee8</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>29</id>\n<filesize>749202</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070508</mtime>\n<atime>1230019200</atime>\n<crtime>1230070508</crtime>\n<filename>DCIM/100CANON/IMG_0031.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"25172480\" img_offset=\"25198592\" len=\"749202\"/></byte_runs>\n<md5>2d2a5aab898c36dc387546881224438f</md5>\n<sha1>16495400c6b982c69c3e12ad80b900a6d2ab3d8f</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>30</id>\n<filesize>879834</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070514</mtime>\n<atime>1230019200</atime>\n<crtime>1230070514</crtime>\n<filename>DCIM/100CANON/IMG_0032.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"25926144\" img_offset=\"25952256\" len=\"879834\"/></byte_runs>\n<md5>eaaeb62af36bbc276e49cee8472fe941</md5>\n<sha1>3e4be3780f41df5f4cc24d5466219bf67556af5e</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>31</id>\n<filesize>845375</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070518</mtime>\n<atime>1230019200</atime>\n<crtime>1230070518</crtime>\n<filename>DCIM/100CANON/IMG_0033.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"26810880\" img_offset=\"26836992\" len=\"845375\"/></byte_runs>\n<md5>d05a1fdf5d34545ed90c4c27e6f007cf</md5>\n<sha1>b11a5f20be9c60910f1f13d2a2742f069064145c</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>32</id>\n<filesize>812465</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070522</mtime>\n<atime>1230019200</atime>\n<crtime>1230070522</crtime>\n<filename>DCIM/100CANON/IMG_0034.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"27662848\" img_offset=\"27688960\" len=\"812465\"/></byte_runs>\n<md5>ff2471aba536ec5d0177b03c1b8846d8</md5>\n<sha1>81b6f65e803d6fba9a61e21c6f4b579b911f1b22</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>33</id>\n<filesize>882337</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070536</mtime>\n<atime>1230019200</atime>\n<crtime>1230070536</crtime>\n<filename>DCIM/100CANON/IMG_0036.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"29317632\" img_offset=\"29343744\" len=\"882337\"/></byte_runs>\n<md5>3cc16c38c8b0ba10d5d5dda73b2ba80c</md5>\n<sha1>4f08862b159807f22e7fb568bbc750abfcba8ace</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>34</id>\n<filesize>164</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230178864</mtime>\n<atime>1230105600</atime>\n<crtime>1230178864</crtime>\n<filename>DCIM/CANONMSC/M0100.CTG</filename>\n<libmagic>data</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"72192\" img_offset=\"98304\" len=\"164\"/></byte_runs>\n<md5>b8ae356e040f8242122537c66e4dc961</md5>\n<sha1>8ce272c91a2289a610eeecdc4f2228553313353c</sha1>\n<reference><image>nps-2009-canon2-gen6.raw</image><reason>resident file</reason></reference></fileobject><fileobject>\n<id>14</id>\n<filesize>873437</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070424</mtime>\n<atime>1230019200</atime>\n<crtime>1230070424</crtime>\n<filename>DCIM/100CANON/IMG_0014.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"10967552\" img_offset=\"10993664\" len=\"873437\"/></byte_runs>\n<md5>2c11f3b009dacc24896c0c0cb0df924c</md5>\n<sha1>6c9e27f9911f37488ef0d6e878c68f2a61100b2c</sha1>\n<reference><image>nps-2009-canon2-gen1.raw</image><reason>residual file</reason></reference></fileobject><fileobject>\n<id>20</id>\n<filesize>883127</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070456</mtime>\n<atime>1230019200</atime>\n<crtime>1230070456</crtime>\n<filename>DCIM/100CANON/IMG_0020.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"16013824\" img_offset=\"16039936\" len=\"883127\"/></byte_runs>\n<md5>f71b1d493b010e0d4c194f4c1112529a</md5>\n<sha1>825c04774ea2b9171c267e682abbecb82baa4e29</sha1>\n<reference><image>nps-2009-canon2-gen1.raw</image><reason>residual file</reason></reference></fileobject><fileobject>\n<id>25</id>\n<filesize>791333</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070480</mtime>\n<atime>1230019200</atime>\n<crtime>1230070480</crtime>\n<filename>DCIM/100CANON/IMG_0025.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"20191744\" img_offset=\"20217856\" len=\"791333\"/></byte_runs>\n<md5>23536f9977a93a48cefb43a69cdb2ee3</md5>\n<sha1>a6cfff9c614dc3aeb3470185bcf63e5a7eeaf33a</sha1>\n<reference><image>nps-2009-canon2-gen1.raw</image><reason>residual file</reason></reference></fileobject><fileobject>\n<id>30</id>\n<filesize>867833</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070502</mtime>\n<atime>1230019200</atime>\n<crtime>1230070502</crtime>\n<filename>DCIM/100CANON/IMG_0030.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"24304128\" img_offset=\"24330240\" len=\"867833\"/></byte_runs>\n<md5>a790bb6f5c8b85205cd3aa91ea69a0ad</md5>\n<sha1>49bf2c6db487177abc32decdba727c813af1d122</sha1>\n<reference><image>nps-2009-canon2-gen1.raw</image><reason>residual file</reason></reference></fileobject><fileobject>\n<id>35</id>\n<filesize>820105</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070528</mtime>\n<atime>1230019200</atime>\n<crtime>1230070528</crtime>\n<filename>DCIM/100CANON/IMG_0035.JPG</filename>\n<libmagic>JPEG image data, EXIF standard 2.2</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"28482048\" img_offset=\"28508160\" len=\"820105\"/></byte_runs>\n<md5>4b5538fbdf7e598c6b8bcf2a6521445b</md5>\n<sha1>211b050e56c049e9e4349a23d77a6900770ac913</sha1>\n<reference><image>nps-2009-canon2-gen1.raw</image><reason>residual file</reason></reference></fileobject><fileobject>\n<id>34</id>\n<filesize>180</filesize>\n<partition>1</partition>\n<ALLOC>1</ALLOC>\n<USED>1</USED>\n<mtime>1230070924</mtime>\n<atime>1230019200</atime>\n<crtime>1230070924</crtime>\n<filename>DCIM/CANONMSC/M0100.CTG</filename>\n<libmagic>data</libmagic>\n<byte_runs><run file_offset=\"0\" fs_offset=\"30333440\" img_offset=\"30359552\" len=\"180\"/></byte_runs>\n<md5>548a01d7bbdb894dddac6872988a271c</md5>\n<sha1>69b30c352ee802f49b1ea25325af9fa05c3ffca1</sha1>\n<reference><image>nps-2009-canon2-gen2.raw</image><reason>residual file</reason></reference></fileobject>\n\n\n\n\n\n\n\n\n\n\n\n</groundtruth>",
-    "tags": [],
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 25.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
     "sensitive_info": {
-      "flags": [
-        "phone_detected"
-      ],
+      "flags": [],
       "detected_entities": {
         "emails": [],
-        "phones": [
-          "1230178904",
-          "1230105600",
-          "1230178904",
-          "1230071288",
-          "1230019200",
-          "1230071288",
-          "1230070372",
-          "1230019200",
-          "1230070372",
-          "1230071438",
-          "1230019200",
-          "1230071438",
-          "1230178916",
-          "1230105600",
-          "1230178916",
-          "1230178930",
-          "1230105600",
-          "1230178930",
-          "1230070392",
-          "1230019200",
-          "1230070392",
-          "1230178936",
-          "1230105600",
-          "1230178936",
-          "1230070402",
-          "1230019200",
-          "1230070402",
-          "1230070966",
-          "1230019200",
-          "1230070966",
-          "1230070410",
-          "1230019200",
-          "1230070410",
-          "1230178942",
-          "1230105600",
-          "1230178942",
-          "1230070420",
-          "1230019200",
-          "1230070420",
-          "1230178948",
-          "1230105600",
-          "1230178948",
-          "1230178956",
-          "1230105600",
-          "1230178956",
-          "1230070436",
-          "1230019200",
-          "1230070436",
-          "1230070440",
-          "1230019200",
-          "1230070440",
-          "1230070446",
-          "1230019200",
-          "1230070446",
-          "1230070450",
-          "1230019200",
-          "1230070450",
-          "1230178962",
-          "1230105600",
-          "1230178962",
-          "1230070460",
-          "1230019200",
-          "1230070460",
-          "1230070466",
-          "1230019200",
-          "1230070466",
-          "1230070470",
-          "1230019200",
-          "1230070470",
-          "1230070476",
-          "1230019200",
-          "1230070476",
-          "1230070486",
-          "1230019200",
-          "1230070486",
-          "1230070490",
-          "1230019200",
-          "1230070490",
-          "1230070494",
-          "1230019200",
-          "1230070494",
-          "1230070498",
-          "1230019200",
-          "1230070498",
-          "1230070508",
-          "1230019200",
-          "1230070508",
-          "387546881224438",
-          "1230070514",
-          "1230019200",
-          "1230070514",
-          "1230070518",
-          "1230019200",
-          "1230070518",
-          "1230070522",
-          "1230019200",
-          "1230070522",
-          "1230070536",
-          "1230019200",
-          "1230070536",
-          "1230178864",
-          "1230105600",
-          "1230178864",
-          "8242122537",
-          "2228553313353",
-          "1230070424",
-          "1230019200",
-          "1230070424",
-          "1230070456",
-          "1230019200",
-          "1230070456",
-          "1230070480",
-          "1230019200",
-          "1230070480",
-          "1230070502",
-          "1230019200",
-          "1230070502",
-          "1230070528",
-          "1230019200",
-          "1230070528",
-          "1230070924",
-          "1230019200",
-          "1230070924"
-        ],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 50.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: cutlass in frame 75.",
+    "tags": [
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 100.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 125.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 150.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 175.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 200.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\vid2.mp4",
+    "type": "video",
+    "content": "Detected potential threats: knife, cutlass in frame 225.",
+    "tags": [
+      "knife",
+      "cutlass"
+    ],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.46_ccf9aee8.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.46_ecd489bc.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.47_441b2b44.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.47_db4a2f7d.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.47_ff09d4a4.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.48_921c3887.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.48_d1afd5ed.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.48_f5041b8d.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.49_cd45522f.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
+        "urls": [],
+        "base64_strings": false
+      }
+    }
+  },
+  {
+    "path": "devices\\test\\WhatsApp Image 2025-04-06 at 03.01.49_ebddc89e.jpg",
+    "type": "image",
+    "content": "Error: C:\\\\Program Files\\\\Tesseract-OCR\\\\tesseract.exe is not installed or it's not in your PATH. See README file for more information.",
+    "tags": [],
+    "sensitive_info": {
+      "flags": [],
+      "detected_entities": {
+        "emails": [],
+        "phones": [],
         "urls": [],
         "base64_strings": false
       }

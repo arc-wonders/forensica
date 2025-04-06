@@ -47,6 +47,7 @@ THREAT_KEYWORDS = {
         r"\battack\b",
         r"\bisis\b",
         r"\brecruitment\b"
+        r"\brifle\b"
     ],
     "Surveillance": [
         r"\blocation\b",
